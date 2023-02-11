@@ -1,0 +1,47 @@
+
+
+.sbar{
+  width: 10rem;
+  float: left;
+  height: 30rem;
+  margin-right: 2rem;   
+  background-color: azure;
+  padding-top: 2%;
+ 
+}
+
+.content{
+  width: 65rem;
+  float: left;
+}
+
+.one {
+  float: left;
+  width: 15rem;
+    margin:1rem;
+     height:5rem;
+    padding:1rem;
+     border-radius: 1rem;
+       box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+   
+}
+.two{
+  float: left;
+  width: 15rem;
+  margin:1rem;
+     height:5rem;
+    padding:1rem;
+     border-radius: 1rem;
+       box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+ 
+}
+.three{
+  float: left;
+  width: 15rem;
+  margin:1rem;
+  height:5rem;
+ padding:1rem;
+  border-radius: 1rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+}
