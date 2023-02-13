@@ -13,7 +13,7 @@ public class UserProjectRelation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	int relationId;
-	
+	int expectedHours;
 	//foreign key
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "projectId",referencedColumnName = "projectId")
@@ -23,6 +23,14 @@ public class UserProjectRelation {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "resourceId",referencedColumnName="userId")
 	User user;
+
+	public int getExpectedHours() {
+		return expectedHours;
+	}
+
+	public void setExpectedHours(int expectedHours) {
+		this.expectedHours = expectedHours;
+	}
 
 	public int getRelationId() {
 		return relationId;
@@ -48,16 +56,19 @@ public class UserProjectRelation {
 		this.user = user;
 	}
 
-	public UserProjectRelation(int relationId, Project project, User user) {
+	public UserProjectRelation(int relationId, int expectedHours, Project project, User user) {
 		super();
 		this.relationId = relationId;
+		this.expectedHours = expectedHours;
 		this.project = project;
 		this.user = user;
 	}
 
 	@Override
 	public String toString() {
-		return "UserProjectRelation [relationId=" + relationId + ", project=" + project + ", user=" + user + "]";
+		return "UserProjectRelation [relationId=" + relationId + ", expectedHours=" + expectedHours + ", project="
+				+ project + ", user=" + user + "]";
 	}
+
 	
 }
