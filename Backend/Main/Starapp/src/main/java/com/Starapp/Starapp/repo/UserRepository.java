@@ -10,6 +10,7 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User , Integer>{
 	
 	@Query(value = "SELECT u FROM User u WHERE u.userId=:id")
-	List<User> findAllUserWithId(@Param("id") int id);
+	User findUserWithId(@Param("id") int id);
+	
 
 }

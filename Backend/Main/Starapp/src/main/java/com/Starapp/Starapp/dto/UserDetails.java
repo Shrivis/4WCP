@@ -3,7 +3,7 @@ import java.util.List;
 
 public class UserDetails {
 	private int userId;
-	private String username;
+	private String name;
 	private String email;
 	private List<String> projects;
 	private List<String> vertical;
@@ -19,11 +19,11 @@ public class UserDetails {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	public String getUsername() {
-		return username;
+	public String getName() {
+		return name;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getEmail() {
 		return email;
