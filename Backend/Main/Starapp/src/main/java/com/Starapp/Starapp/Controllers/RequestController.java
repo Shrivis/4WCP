@@ -18,17 +18,32 @@ import com.Starapp.Starapp.repo.RequestRepository;
 @RequestMapping("/api/v1/Request")
 public class RequestController {
 	@Autowired
-	 RequestRepository requestRepository;
-	 
-	 @PostMapping("/")
-		public ResponseEntity<Void> addRequest(@RequestBody Request request) {
+    RequestRepository requestRepository;
 
-			System.out.println("In addrequest" + request);		
-			requestRepository.save(request);
-			ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.CREATED);
-			return re;
-		
-		}
+	@PostMapping("/")
+	public ResponseEntity<Void> addRequest(@RequestBody Request request) {
+	
+		System.out.println("In addrequest" + request);		
+		requestRepository.save(request);
+		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.CREATED);
+		return re;
+	
+	}
+	 
+//	 @GetMapping("/{id}")
+//	 public UserRequests GetAllRequest(@PathVariable int id) {  
+//		 UserRequests data = new UserRequests();
+//		 List<Project> projects = projectRepository.allProjectWhereManagerIs(id);
+//		 List<User> resource = new ArrayList<>();    
+//		 for (Project project: projects) {
+//			 UserProjectRelation relation = project.getUserprojectrelation();
+//			 resource.addAll(relation)
+//		 }
+//	    
+//	    	
+//		 return data;
+//	 }
+	 
 		@GetMapping("/")
 		public List<Request> fetchAllRequest(){
 			return requestRepository.findAll();

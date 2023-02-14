@@ -20,17 +20,20 @@ public class UserProjectRelationController {
 	 @Autowired
 	 UserProjectRelationRepository userProjectRelationRepository;
 	 
-	 @PostMapping("/")
-		public ResponseEntity<Void> addUserProjectRelation(@RequestBody  UserProjectRelation  userProjectRelation) {
-
-			System.out.println("In addproject" + userProjectRelation);		
-			userProjectRelationRepository.save(userProjectRelation);
-			ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.CREATED);
-			return re;
-		
-		}
-		@GetMapping("/")
-		public List<UserProjectRelation> fetchAllUserProjectRelation(){
-			return userProjectRelationRepository.findAll();
-		}
+	@PostMapping("/")
+	public ResponseEntity<Void> addUserProjectRelation(@RequestBody  UserProjectRelation  userProjectRelation) {
+	
+		System.out.println("In addproject" + userProjectRelation);		
+		userProjectRelationRepository.save(userProjectRelation);
+		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.CREATED);
+		return re;
+	
+	}
+	@GetMapping("/")
+	public List<UserProjectRelation> fetchAllUserProjectRelation(){
+		List<UserProjectRelation> upr = userProjectRelationRepository.findAll();
+//		!!!!!!!!!!!!!!!!!!Error!!!!!!!!!!!!!!!!!!!!!!!!
+//		can't access user project and user data
+		return upr;
+	}
 }

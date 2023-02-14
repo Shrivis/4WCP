@@ -17,11 +17,11 @@ import com.Starapp.Starapp.repo.ProjectRepository;
 @RestController
 @RequestMapping("/api/v1/Project")
 public class ProjectController {
- @Autowired
- ProjectRepository projectRepository;
- 
- @PostMapping("/")
-	public ResponseEntity<Void> addProject(@RequestBody Project project) {
+	 @Autowired
+	 ProjectRepository projectRepository;
+	 
+	 @PostMapping("/")
+	 public ResponseEntity<Void> addProject(@RequestBody Project project) {
 
 		System.out.println("In addproject" + project);		
 		projectRepository.save(project);

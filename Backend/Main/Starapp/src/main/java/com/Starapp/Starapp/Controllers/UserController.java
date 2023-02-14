@@ -43,7 +43,7 @@ public class UserController {
   			projects.add(project.getProjectName());
   			vertical.add(project.getVertical());
   			if (project.getHorizonatl() != null) horizontal.add(project.getHorizonatl());
-  			else horizontal.add(" ");
+  			else horizontal.add("");
   			subHorizontal.add(project.getSubHorizontal());
   		}
   		data.setEmail(user.getEmail());

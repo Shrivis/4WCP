@@ -65,18 +65,17 @@ public class UserProjectRelation {
 	}
 
 	public UserProjectRelation(int relationId, int expectedHours, Project userProject, User userproj) {
-		super();
 		this.relationId = relationId;
 		this.expectedHours = expectedHours;
 		this.userProject = userProject;
 		this.userproj = userproj;
 	}
-
 	@Override
 	public String toString() {
 		return "UserProjectRelation [relationId=" + relationId + ", expectedHours=" + expectedHours + ", userProject="
 				+ userProject + ", userproj=" + userproj + "]";
 	}
+
 
 
 
