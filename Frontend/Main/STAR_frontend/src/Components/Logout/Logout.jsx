@@ -5,7 +5,7 @@ import './Logout.css';
 function Logout() {
     return (
         <div>
-            <UncontrolledDropdown className='lout'>
+            {/* <UncontrolledDropdown className='lout'>
                 <DropdownToggle color="light">Name
                 </DropdownToggle>
                 <DropdownMenu>
@@ -13,7 +13,7 @@ function Logout() {
                         Logout
                     </DropdownItem>
                 </DropdownMenu>
-            </UncontrolledDropdown>
+            </UncontrolledDropdown> */}
         </div>
     );
 }

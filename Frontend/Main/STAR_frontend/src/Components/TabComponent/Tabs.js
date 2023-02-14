@@ -7,6 +7,7 @@ import Timer from './Timer'
 import TabPanel from '@mui/lab/TabPanel';
 import Statusbox from '../Status/Statusbox';
 import './tabs.css';
+import UserInfo from './UserInfo';
 
 export default function Tabs() {
   const [value, setValue] = React.useState('1');
@@ -19,7 +20,7 @@ export default function Tabs() {
         
       <TabContext value={value}>
       <TabPanel value="1">
-        <h1>UsesrInfo</h1>
+        <UserInfo></UserInfo>
         </TabPanel>
         <TabPanel value="2" class = "status">
          
