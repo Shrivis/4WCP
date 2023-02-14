@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Request {
 	@Id
@@ -18,14 +20,17 @@ public class Request {
   //foreign key
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "managerId", referencedColumnName="userId")
-	User manageruser;
+	@JsonBackReference
+	User requestUser;
   //foreign key
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "resourceId" , referencedColumnName = "userId")
+	@JsonBackReference
 	User resourceuser;
   //foreign key
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "workingId" , referencedColumnName = "workingHourId")
+	@JsonBackReference
 	WorkingHours workinghours;	
 	
 	Boolean isApproved;
@@ -37,11 +42,11 @@ public class Request {
 	public void setRequestId(int requestId) {
 		this.requestId = requestId;
 	}
-	public User getManageruser() {
-		return manageruser;
+	public User getRequestUser() {
+		return requestUser;
 	}
-	public void setManageruser(User manageruser) {
-		this.manageruser = manageruser;
+	public void setRequestUser(User requestUser) {
+		this.requestUser = requestUser;
 	}
 	public User getResourceuser() {
 		return resourceuser;
@@ -73,11 +78,11 @@ public class Request {
 	public void setTime(LocalDateTime time) {
 		this.time = time;
 	}
-	public Request(int requestId, User manageruser, User resourceuser, WorkingHours workinghours, Boolean isApproved,
+	public Request(int requestId, User requestUser, User resourceuser, WorkingHours workinghours, Boolean isApproved,
 			String responseText, LocalDateTime time) {
 		super();
 		this.requestId = requestId;
-		this.manageruser = manageruser;
+		this.requestUser = requestUser;
 		this.resourceuser = resourceuser;
 		this.workinghours = workinghours;
 		this.isApproved = isApproved;
@@ -86,10 +91,11 @@ public class Request {
 	}
 	@Override
 	public String toString() {
-		return "Request [requestId=" + requestId + ", manageruser=" + manageruser + ", resourceuser=" + resourceuser
+		return "Request [requestId=" + requestId + ", requestUser=" + requestUser + ", resourceuser=" + resourceuser
 				+ ", workinghours=" + workinghours + ", isApproved=" + isApproved + ", responseText=" + responseText
 				+ ", time=" + time + "]";
 	}
+	
 	
 	
 

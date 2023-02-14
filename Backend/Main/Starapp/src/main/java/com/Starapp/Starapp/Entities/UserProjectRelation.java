@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class UserProjectRelation {
 	@Id
@@ -17,12 +20,25 @@ public class UserProjectRelation {
 	//foreign key
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "projectId",referencedColumnName = "projectId")
-	Project project;
+	@JsonBackReference
+	Project userProject;
 	
 	//foreign key
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "resourceId",referencedColumnName="userId")
-	User user;
+	@JsonBackReference
+	User userproj;
+
+	public UserProjectRelation() {
+		
+	}
+	public int getRelationId() {
+		return relationId;
+	}
+
+	public void setRelationId(int relationId) {
+		this.relationId = relationId;
+	}
 
 	public int getExpectedHours() {
 		return expectedHours;
@@ -32,43 +48,37 @@ public class UserProjectRelation {
 		this.expectedHours = expectedHours;
 	}
 
-	public int getRelationId() {
-		return relationId;
+	public Project getUserProject() {
+		return userProject;
 	}
 
-	public void setRelationId(int relationId) {
-		this.relationId = relationId;
+	public void setUserProject(Project userProject) {
+		this.userProject = userProject;
 	}
 
-	public Project getProject() {
-		return project;
+	public User getUserproj() {
+		return userproj;
 	}
 
-	public void setProject(Project project) {
-		this.project = project;
+	public void setUserproj(User userproj) {
+		this.userproj = userproj;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public UserProjectRelation(int relationId, int expectedHours, Project project, User user) {
+	public UserProjectRelation(int relationId, int expectedHours, Project userProject, User userproj) {
 		super();
 		this.relationId = relationId;
 		this.expectedHours = expectedHours;
-		this.project = project;
-		this.user = user;
+		this.userProject = userProject;
+		this.userproj = userproj;
 	}
 
 	@Override
 	public String toString() {
-		return "UserProjectRelation [relationId=" + relationId + ", expectedHours=" + expectedHours + ", project="
-				+ project + ", user=" + user + "]";
+		return "UserProjectRelation [relationId=" + relationId + ", expectedHours=" + expectedHours + ", userProject="
+				+ userProject + ", userproj=" + userproj + "]";
 	}
+
+
 
 	
 }

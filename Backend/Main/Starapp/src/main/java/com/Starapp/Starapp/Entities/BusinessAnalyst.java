@@ -9,10 +9,6 @@ import javax.persistence.Id;
 
 @Entity
 public class BusinessAnalyst {
-	
-
-	
-	
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		int baId;

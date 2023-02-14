@@ -1,5 +1,5 @@
 package com.Starapp.Starapp.Entities;
-
+import java.util.List;
 import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 public class WorkingHours {
 
@@ -23,17 +27,22 @@ public class WorkingHours {
   //foreign key
   	@ManyToOne(cascade = CascadeType.ALL)	
   	@JoinColumn(name = "projId", referencedColumnName="projectId")
+  	@JsonBackReference
   	Project project;
   //foreign key
   	@ManyToOne(cascade = CascadeType.ALL)	
   	@JoinColumn(name = "resourceId", referencedColumnName="userId")
+  	@JsonBackReference
   	User user;
+  	
+  	@OneToMany(mappedBy = "workinghours")
+  	@JsonManagedReference
+  	List<Request> request;	
   	
   	int hours;
   	Boolean isActive;
   	LocalDateTime createdOn;
   	Boolean isApproved;
-  	
 	public int getWorkingHourId() {
 		return workingHourId;
 	}
@@ -70,6 +79,12 @@ public class WorkingHours {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	public List<Request> getRequest() {
+		return request;
+	}
+	public void setRequest(List<Request> request) {
+		this.request = request;
+	}
 	public int getHours() {
 		return hours;
 	}
@@ -95,7 +110,8 @@ public class WorkingHours {
 		this.isApproved = isApproved;
 	}
 	public WorkingHours(int workingHourId, int timesheetNo, LocalDateTime periodStart, LocalDateTime periodEnd,
-			Project project, User user, int hours, Boolean isActive, LocalDateTime createdOn, Boolean isApproved) {
+			Project project, User user, List<Request> request, int hours, Boolean isActive, LocalDateTime createdOn,
+			Boolean isApproved) {
 		super();
 		this.workingHourId = workingHourId;
 		this.timesheetNo = timesheetNo;
@@ -103,6 +119,7 @@ public class WorkingHours {
 		this.periodEnd = periodEnd;
 		this.project = project;
 		this.user = user;
+		this.request = request;
 		this.hours = hours;
 		this.isActive = isActive;
 		this.createdOn = createdOn;
@@ -111,11 +128,10 @@ public class WorkingHours {
 	@Override
 	public String toString() {
 		return "WorkingHours [workingHourId=" + workingHourId + ", timesheetNo=" + timesheetNo + ", periodStart="
-				+ periodStart + ", periodEnd=" + periodEnd + ", project=" + project + ", user=" + user + ", hours="
-				+ hours + ", isActive=" + isActive + ", createdOn=" + createdOn + ", isApproved=" + isApproved + "]";
+				+ periodStart + ", periodEnd=" + periodEnd + ", project=" + project + ", user=" + user + ", request="
+				+ request + ", hours=" + hours + ", isActive=" + isActive + ", createdOn=" + createdOn + ", isApproved="
+				+ isApproved + "]";
 	}
-  	
-  	
   	
   	
     
