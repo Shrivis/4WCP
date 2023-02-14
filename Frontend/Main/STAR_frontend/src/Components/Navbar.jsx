@@ -1,11 +1,9 @@
-import { Image } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Logo from '../images/incedologo.png'
+import Logo from '../images/incedologo.png';
+import Avatar from './Avatar/Avatar';
+import Logout from './Logout/Logout';
 
 function NavScrollExample() {
     return (
@@ -21,18 +19,9 @@ function NavScrollExample() {
                     >
                         <Nav.Link href="#action1">All Expenses</Nav.Link>
                     </Nav>
-                    <Form className="d-flex" >
+                    <Avatar/>
+                    <Logout/>
 
-                        <h5 style={{
-                            marginRight:"10px",
-                            marginTop:"7px"
-                        }}>Avatar</h5>
-                        <Image src='https://ychef.files.bbci.co.uk/976x549/p0dnxrcv.jpg' roundedCircle={true} style={{
-                            width: "37px",
-                            heigth: "auto",
-                            objectFit: "cover"
-                        }} />
-                    </Form>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
