@@ -2,6 +2,7 @@ package com.Starapp.Starapp.Entities;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,19 +20,20 @@ public class UserProjectRelation {
 	int expectedHours;
 	//foreign key
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "projectId",referencedColumnName = "projectId")
-	@JsonBackReference
-	Project userProject;
+	@JoinColumn(name = "projectId", referencedColumnName = "projectId")
+	@JsonManagedReference
+	Project resourceProject;
 	
 	//foreign key
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "resourceId",referencedColumnName="userId")
-	@JsonBackReference
-	User userproj;
+	@JoinColumn(name = "resourceId", referencedColumnName="userId")
+	@JsonManagedReference
+	User projectResource;
 
 	public UserProjectRelation() {
 		
 	}
+
 	public int getRelationId() {
 		return relationId;
 	}
@@ -48,36 +50,26 @@ public class UserProjectRelation {
 		this.expectedHours = expectedHours;
 	}
 
-	public Project getUserProject() {
-		return userProject;
+	public Project getResourceProject() {
+		return resourceProject;
 	}
 
-	public void setUserProject(Project userProject) {
-		this.userProject = userProject;
+	public void setResourceProject(Project resourceProject) {
+		this.resourceProject = resourceProject;
 	}
 
-	public User getUserproj() {
-		return userproj;
+	public User getProjectResource() {
+		return projectResource;
 	}
 
-	public void setUserproj(User userproj) {
-		this.userproj = userproj;
+	public void setProjectResource(User projectResource) {
+		this.projectResource = projectResource;
 	}
 
-	public UserProjectRelation(int relationId, int expectedHours, Project userProject, User userproj) {
-		this.relationId = relationId;
-		this.expectedHours = expectedHours;
-		this.userProject = userProject;
-		this.userproj = userproj;
-	}
 	@Override
 	public String toString() {
-		return "UserProjectRelation [relationId=" + relationId + ", expectedHours=" + expectedHours + ", userProject="
-				+ userProject + ", userproj=" + userproj + "]";
+		return "UserProjectRelation [relationId=" + relationId + ", expectedHours=" + expectedHours
+				+ ", resourceProject=" + resourceProject.getProjectId() + ", projectResource=" + projectResource.getUserId() + "]";
 	}
-
-
-
-
 	
 }

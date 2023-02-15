@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,6 @@ public class Project {
 	String horizonatl;
 	String subHorizontal;
 
-	Project(){}
 //foreign key
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "managerId", referencedColumnName="userId")
@@ -40,10 +40,29 @@ public class Project {
 	@JsonManagedReference
 	List<WorkingHours> workinghours;
 
-	@OneToMany(mappedBy = "userProject")
-	@JsonManagedReference
-	List<UserProjectRelation> userprojectrelation;
-//	
+	@OneToMany(mappedBy = "resourceProject")
+	@JsonBackReference
+	List<UserProjectRelation> projectResources;
+
+	public Project() {
+		super();
+	}
+
+	public Project(int projectId, String projectName, int customerId, String customerName, String vertical,
+			String horizonatl, String subHorizontal, User managerUser, List<WorkingHours> workinghours,
+			List<UserProjectRelation> projectResources) {
+		super();
+		this.projectId = projectId;
+		this.projectName = projectName;
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.vertical = vertical;
+		this.horizonatl = horizonatl;
+		this.subHorizontal = subHorizontal;
+		this.managerUser = managerUser;
+		this.workinghours = workinghours;
+		this.projectResources = projectResources;
+	}
 
 	public int getProjectId() {
 		return projectId;
@@ -117,28 +136,12 @@ public class Project {
 		this.workinghours = workinghours;
 	}
 
-	public List<UserProjectRelation> getUserprojectrelation() {
-		return userprojectrelation;
+	public List<UserProjectRelation> getProjectResources() {
+		return projectResources;
 	}
 
-	public void setUserprojectrelation(List<UserProjectRelation> userprojectrelation) {
-		this.userprojectrelation = userprojectrelation;
-	}
-
-	public Project(int projectId, String projectName, int customerId, String customerName, String vertical,
-			String horizonatl, String subHorizontal, User managerUser, List<WorkingHours> workinghours,
-			List<UserProjectRelation> userprojectrelation) {
-		super();
-		this.projectId = projectId;
-		this.projectName = projectName;
-		this.customerId = customerId;
-		this.customerName = customerName;
-		this.vertical = vertical;
-		this.horizonatl = horizonatl;
-		this.subHorizontal = subHorizontal;
-		this.managerUser = managerUser;
-		this.workinghours = workinghours;
-		this.userprojectrelation = userprojectrelation;
+	public void setProjectResources(List<UserProjectRelation> projectResources) {
+		this.projectResources = projectResources;
 	}
 
 	@Override
@@ -146,10 +149,9 @@ public class Project {
 		return "Project [projectId=" + projectId + ", projectName=" + projectName + ", customerId=" + customerId
 				+ ", customerName=" + customerName + ", vertical=" + vertical + ", horizonatl=" + horizonatl
 				+ ", subHorizontal=" + subHorizontal + ", managerUser=" + managerUser + ", workinghours=" + workinghours
-				+ ", userprojectrelation=" + userprojectrelation + "]";
+				+ ", projectResources=" + projectResources + "]";
 	}
-	
-	
 
+	
 
 }
