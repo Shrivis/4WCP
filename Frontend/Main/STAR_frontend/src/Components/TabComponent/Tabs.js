@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
-import Timer from './Timer'
 import TabPanel from '@mui/lab/TabPanel';
 import Statusbox from '../Status/Statusbox';
 import './tabs.css';
@@ -19,10 +18,10 @@ export default function Tabs() {
     <Box sx={{ width: '100%', typography: 'body1' }}>
         
       <TabContext value={value}>
-      <TabPanel value="1">
+        <TabPanel value="1" style={{height: "9rem", overflowX: 'hidden'}}>
         <UserInfo></UserInfo>
         </TabPanel>
-        <TabPanel value="2" class = "status">
+        <TabPanel value="2" class = "status" style={{height: "9rem", overflowX: 'hidden'}}>
          
           <div class= "content">
           <div class = "one"><Statusbox></Statusbox></div> 
@@ -33,23 +32,16 @@ export default function Tabs() {
         </TabPanel>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
-            <Tab label="Item One" value="1" />
-            <Tab label="Item Two" value="2" />
+            <Tab label="My Profile " value="1" />
+            <Tab label="Requests" value="2" />
           </TabList>
         </Box>
         
         <TabPanel value="1">
-          <span className='display-1 text-danger'><Timer time={new Date()}></Timer></span>
+          <Box><h4>user Requests</h4></Box>
         </TabPanel>
         <TabPanel value="2">
           <div className='container py-4 my-5'>
-            {/* <h2>Requests...</h2>
-            <li>
-              <ul>user 1</ul>
-              <ul>user 1</ul>
-              <ul>user 1</ul>
-              <ul>user 1</ul>
-            </li> */}
           </div>
         </TabPanel>
       </TabContext>

@@ -7,14 +7,14 @@ import Logout from './Logout/Logout';
 
 function NavScrollExample() {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="md">
             <Container fluid>
-                <Navbar.Brand href="#"><img className='logo' src={Logo}></img></Navbar.Brand>
+                <Navbar.Brand href="#"><img className='logo' src={Logo} alt=''></img></Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
                         className="me-auto my-2 my-lg-0"
-                        style={{ maxHeight: '100px' }}
+                        style={{ maxHeight: 'auto' }}
                         navbarScroll
                     >
                         <Nav.Link href="#action1">All Expenses</Nav.Link>
