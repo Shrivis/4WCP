@@ -7,6 +7,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import Statusbox from '../Status/Statusbox';
 import './tabs.css';
 import UserInfo from './UserInfo';
+import Card from './OutlinedCard'
 
 export default function Tabs() {
   const [value, setValue] = React.useState('1');
@@ -21,13 +22,17 @@ export default function Tabs() {
         <TabPanel value="1" style={{height: "9rem", overflowX: 'hidden'}}>
         <UserInfo></UserInfo>
         </TabPanel>
+<<<<<<< HEAD
         <TabPanel value="2" class = "status" style={{height: "9rem", overflowX: 'hidden'}}>
          
+=======
+        <TabPanel value="2" class = "status">
+        
+>>>>>>> 1c36342580fddadb035aae675d9dbe57017d03e0
           <div class= "content">
           <div class = "one"><Statusbox></Statusbox></div> 
-          <div class="two"><Statusbox></Statusbox></div> 
-          <div class="three"><Statusbox></Statusbox></div> 
-          
+          <div class="two"><Statusbox></Statusbox></div>
+          <div class="three"><Statusbox></Statusbox></div>
           </div>
         </TabPanel>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -41,7 +46,19 @@ export default function Tabs() {
           <Box><h4>user Requests</h4></Box>
         </TabPanel>
         <TabPanel value="2">
+        <Card ></Card>
           <div className='container py-4 my-5'>
+<<<<<<< HEAD
+=======
+           
+            {/* <h2>Requests...</h2>
+            <li>
+              <ul>user 1</ul>
+              <ul>user 1</ul>
+              <ul>user 1</ul>
+              <ul>user 1</ul>
+            </li> */}
+>>>>>>> 1c36342580fddadb035aae675d9dbe57017d03e0
           </div>
         </TabPanel>
       </TabContext>

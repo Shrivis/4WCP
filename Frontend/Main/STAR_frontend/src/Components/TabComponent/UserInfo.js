@@ -3,7 +3,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import UserData from './UserData.json'
 export default function UserInfo() {
     return (
-    <ListGroup>
+    <ListGroup >
     <ListGroup.Item>Name: {UserData[0].name}</ListGroup.Item>
     <ListGroup.Item>UserID: {UserData[0].userID} </ListGroup.Item>
     <ListGroup.Item>E-mail: {UserData[0].email}</ListGroup.Item>
