@@ -18,16 +18,16 @@ const rows = [
 
 export default function BasicTable() {
   return (
-    
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 500   }} aria-label="simple table">
+    <div>
+    <TableContainer component={Paper} sx={{ minWidth: 275 ,  width: 'auto', }}>
+      <Table  aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Project Name</TableCell>
-            <TableCell align="right">Start Time</TableCell>
-            <TableCell align="right">End Time</TableCell>
-            <TableCell align="right">Manager Name</TableCell>
-            <TableCell align="right">Status</TableCell>
+            <TableCell align="right" >Start Time</TableCell>
+            <TableCell align="right" >End Time</TableCell>
+            <TableCell align="right" >Manager Name</TableCell>
+            <TableCell align="right" >Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -35,6 +35,7 @@ export default function BasicTable() {
             <TableRow
               key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              class="text-center"
             >
               <TableCell component="th" scope="row">
                 {row.name}
@@ -48,5 +49,6 @@ export default function BasicTable() {
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
   );
 }

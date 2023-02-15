@@ -16,6 +16,7 @@ export default function Tabs() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  
   return (
     <Box>
         
@@ -36,7 +37,7 @@ export default function Tabs() {
         </Box>
         
         <TabPanel value="1">
-          <Box   marginLeft="10rem" ><BasicTable/></Box>
+          <Box marginLeft="10rem" ><BasicTable/></Box>
         </TabPanel>
         <TabPanel value="2">
         <Card ></Card>

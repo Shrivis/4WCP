@@ -1,9 +1,9 @@
 
 
 .sbar{
+  display: inline;
   width: 10rem;
   float: left;
-  height: 100vh;
   margin-right: 2rem;   
   background-color: #f8f9fa;
   padding-top: 2%;
