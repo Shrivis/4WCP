@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.Starapp.Starapp.Entities.Project;
 import com.Starapp.Starapp.Entities.Request;
-import com.Starapp.Starapp.Entities.User;
+import com.Starapp.Starapp.Entities.UserProjectRelation;
+import com.Starapp.Starapp.dto.Status;
 import com.Starapp.Starapp.dto.UserRequests;
 import com.Starapp.Starapp.repo.ProjectRepository;
 import com.Starapp.Starapp.repo.RequestRepository;
+import com.Starapp.Starapp.repo.UserProjectRelationRepository;
 
 @RestController
 @RequestMapping("/api/v1/Request")
@@ -28,6 +31,9 @@ public class RequestController {
 	
 	@Autowired
 	ProjectRepository projectRepository;
+	
+	@Autowired
+	UserProjectRelationRepository relationRepo;
 
 	@PostMapping("/")
 	public ResponseEntity<Void> addRequest(@RequestBody Request request) {
@@ -40,16 +46,29 @@ public class RequestController {
 	}
 	 
 	 @GetMapping("/{id}")
-	 public List<Project> GetAllRequest(@PathVariable int id) {  
+	 public List<Object> GetAllRequest(@PathVariable int id) {  
 		 UserRequests data = new UserRequests();
 		 List<Project> projects = projectRepository.allProjectWhereManagerIs(id);
-//		 List<User> resources = new ArrayList<>();    
-//		 for (Project project: projects) {
-//		 }
-////	    
-////	    	
-		 return projects;
+		 List<Object> resources = new ArrayList<>();    
+		 for (Project project: projects) {
+			 resources.addAll(relationRepo.getAllUserUnderProject(project.getProjectId()));
+		 }	
+		 return resources;
 	 }
+	 
+	 @GetMapping("/status/{id}")
+	 public Status GetStatus(@PathVariable int id ) {   
+	 Status status = new Status();
+	      int apprv = requestRepository.countTotalApprovedRequests(id);
+	      int rejected = requestRepository.countTotalRejectedRequests(id);      
+	      status.setApproved(apprv);
+	      status.setRejected(rejected);
+	    
+          
+		 return status;
+		 
+	 }
+	 
 	 
 	@GetMapping("/")
 	public List<Request> fetchAllRequest(){

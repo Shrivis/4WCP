@@ -21,38 +21,51 @@ public class Request {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "managerId", referencedColumnName="userId")
 	@JsonBackReference
-	User requestUser;
+	User manager;
   //foreign key
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "resourceId" , referencedColumnName = "userId")
 	@JsonBackReference
-	User resourceuser;
+	User resource;
   //foreign key
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "workingId" , referencedColumnName = "workingHourId")
 	@JsonBackReference
 	WorkingHours workinghours;	
-	
 	Boolean isApproved;
 	String responseText;
 	LocalDateTime time;
+	public Request(int requestId, User manager, User resource, WorkingHours workinghours, Boolean isApproved,
+			String responseText, LocalDateTime time) {
+		super();
+		this.requestId = requestId;
+		this.manager = manager;
+		this.resource = resource;
+		this.workinghours = workinghours;
+		this.isApproved = isApproved;
+		this.responseText = responseText;
+		this.time = time;
+	}
+	public Request() {
+		super();
+	}
 	public int getRequestId() {
 		return requestId;
 	}
 	public void setRequestId(int requestId) {
 		this.requestId = requestId;
 	}
-	public User getRequestUser() {
-		return requestUser;
+	public User getManager() {
+		return manager;
 	}
-	public void setRequestUser(User requestUser) {
-		this.requestUser = requestUser;
+	public void setManager(User manager) {
+		this.manager = manager;
 	}
-	public User getResourceuser() {
-		return resourceuser;
+	public User getResource() {
+		return resource;
 	}
-	public void setResourceuser(User resourceuser) {
-		this.resourceuser = resourceuser;
+	public void setResource(User resource) {
+		this.resource = resource;
 	}
 	public WorkingHours getWorkinghours() {
 		return workinghours;
@@ -78,26 +91,12 @@ public class Request {
 	public void setTime(LocalDateTime time) {
 		this.time = time;
 	}
-	public Request(int requestId, User requestUser, User resourceuser, WorkingHours workinghours, Boolean isApproved,
-			String responseText, LocalDateTime time) {
-		super();
-		this.requestId = requestId;
-		this.requestUser = requestUser;
-		this.resourceuser = resourceuser;
-		this.workinghours = workinghours;
-		this.isApproved = isApproved;
-		this.responseText = responseText;
-		this.time = time;
-	}
 	@Override
 	public String toString() {
-		return "Request [requestId=" + requestId + ", requestUser=" + requestUser + ", resourceuser=" + resourceuser
-				+ ", workinghours=" + workinghours + ", isApproved=" + isApproved + ", responseText=" + responseText
-				+ ", time=" + time + "]";
+		return "Request [requestId=" + requestId + ", manager=" + manager + ", resource=" + resource + ", workinghours="
+				+ workinghours + ", isApproved=" + isApproved + ", responseText=" + responseText + ", time=" + time
+				+ "]";
 	}
-	
-	
-	
 
 
 }

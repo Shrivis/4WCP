@@ -43,6 +43,11 @@ public class WorkingHours {
   	Boolean isActive;
   	LocalDateTime createdOn;
   	Boolean isApproved;
+  	
+	public WorkingHours() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public int getWorkingHourId() {
 		return workingHourId;
 	}

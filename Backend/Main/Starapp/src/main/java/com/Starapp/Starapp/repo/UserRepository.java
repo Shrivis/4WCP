@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.Starapp.Starapp.Entities.User;
-import java.util.List;
 
 public interface UserRepository extends JpaRepository<User , Integer>{
 	

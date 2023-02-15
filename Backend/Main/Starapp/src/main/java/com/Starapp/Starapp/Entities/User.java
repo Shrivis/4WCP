@@ -30,11 +30,11 @@ public class User {
 	List<WorkingHours> workinghours;
 
 
-	@OneToMany(mappedBy = "requestUser")
+	@OneToMany(mappedBy = "manager")
 	@JsonManagedReference
 	List<Request> request;
 	
-	@OneToMany(mappedBy = "resourceuser")
+	@OneToMany(mappedBy = "resource")
 	@JsonManagedReference
 	List<Request> requestuser;
 
