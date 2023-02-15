@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -37,12 +38,28 @@ public class User {
 	@JsonManagedReference
 	List<Request> requestuser;
 
-	@OneToMany(mappedBy = "userproj")
-	@JsonManagedReference
-	List<UserProjectRelation> userprojectrelation;
+	@OneToMany(mappedBy = "projectResource")
+	@JsonBackReference
+	List<UserProjectRelation> resourceProjects;
 	
 	public User() {
 		
+	}
+
+	public User(int userId, String name, String email, String password, Boolean isActive, List<Project> projects,
+			List<WorkingHours> workinghours, List<Request> request, List<Request> requestuser,
+			List<UserProjectRelation> porjects) {
+		super();
+		this.userId = userId;
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.isActive = isActive;
+		this.projects = projects;
+		this.workinghours = workinghours;
+		this.request = request;
+		this.requestuser = requestuser;
+		this.resourceProjects = porjects;
 	}
 
 	public int getUserId() {
@@ -117,35 +134,20 @@ public class User {
 		this.requestuser = requestuser;
 	}
 
-	public List<UserProjectRelation> getUserprojectrelation() {
-		return userprojectrelation;
+	public List<UserProjectRelation> getResourceProjects() {
+		return resourceProjects;
 	}
 
-	public void setUserprojectrelation(List<UserProjectRelation> userprojectrelation) {
-		this.userprojectrelation = userprojectrelation;
-	}
-
-	public User(int userId, String name, String email, String password, Boolean isActive, List<Project> projects,
-			List<WorkingHours> workinghours, List<Request> request, List<Request> requestuser,
-			List<UserProjectRelation> userprojectrelation) {
-		super();
-		this.userId = userId;
-		this.name = name;
-		this.email = email;
-		this.password = password;
-		this.isActive = isActive;
-		this.projects = projects;
-		this.workinghours = workinghours;
-		this.request = request;
-		this.requestuser = requestuser;
-		this.userprojectrelation = userprojectrelation;
+	public void setResourceProjects(List<UserProjectRelation> resourceProjects) {
+		this.resourceProjects = resourceProjects;
 	}
 
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", password=" + password
 				+ ", isActive=" + isActive + ", projects=" + projects + ", workinghours=" + workinghours + ", request="
-				+ request + ", requestuser=" + requestuser + ", userprojectrelation=" + userprojectrelation + "]";
+				+ request + ", requestuser=" + requestuser + ", resourceProjects=" + resourceProjects + "]";
 	}
-	
+
+
 }
