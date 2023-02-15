@@ -53,7 +53,7 @@ export default function OutlinedCard() {
       <Button  size="small" variant="danger">Reject</Button>
       </CardActions>
     </Card>
-    // })                                                                        // remove this .
+    // })                                                                        // remove this ..
     } 
 
     </div>
