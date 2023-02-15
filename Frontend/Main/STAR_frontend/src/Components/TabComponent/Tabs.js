@@ -7,7 +7,8 @@ import TabPanel from '@mui/lab/TabPanel';
 import Statusbox from '../Status/Statusbox';
 import './tabs.css';
 import UserInfo from './UserInfo';
-import Card from './OutlinedCard'
+import Card from './OutlinedCard';
+import BasicTable from '../Userstatus/Userstatus';
 
 export default function Tabs() {
   const [value, setValue] = React.useState('1');
@@ -38,12 +39,10 @@ export default function Tabs() {
         </Box>
         
         <TabPanel value="1">
-          <Box><h4>user Requests</h4></Box>
+          <Box   marginLeft="10rem" ><BasicTable/></Box>
         </TabPanel>
         <TabPanel value="2">
         <Card ></Card>
-          <div className='container py-4 my-5'>
-          </div>
         </TabPanel>
       </TabContext>
     </Box>
