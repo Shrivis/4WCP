@@ -4,8 +4,8 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import Statusbox from '../Status/Statusbox';
 import './tabs.css';
+import StatusCard from '../Card/StatusCard'
 import UserInfo from './UserInfo';
 import Card from './OutlinedCard'
 
@@ -16,19 +16,16 @@ export default function Tabs() {
     setValue(newValue);
   };
   return (
-    <Box sx={{ width: '100%', typography: 'body1' }}>
+    <Box>
         
       <TabContext value={value}>
         <TabPanel value="1" style={{height: "9rem", overflowX: 'hidden'}}>
         <UserInfo></UserInfo>
         </TabPanel>
-        <TabPanel value="2" class = "status" style={{height: "9rem", overflowX: 'hidden'}}>
-         
-          <div class= "content">
-          <div class = "one"><Statusbox></Statusbox></div> 
-          <div class="two"><Statusbox></Statusbox></div>
-          <div class="three"><Statusbox></Statusbox></div>
-          </div>
+        <TabPanel value="2" class = "status" style={{height: "9rem", overflowX: 'hidden'}}>         
+          <StatusCard/>
+          <StatusCard/>
+          <StatusCard/>
         </TabPanel>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
