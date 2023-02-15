@@ -22,13 +22,8 @@ export default function Tabs() {
         <TabPanel value="1" style={{height: "9rem", overflowX: 'hidden'}}>
         <UserInfo></UserInfo>
         </TabPanel>
-<<<<<<< HEAD
         <TabPanel value="2" class = "status" style={{height: "9rem", overflowX: 'hidden'}}>
          
-=======
-        <TabPanel value="2" class = "status">
-        
->>>>>>> 1c36342580fddadb035aae675d9dbe57017d03e0
           <div class= "content">
           <div class = "one"><Statusbox></Statusbox></div> 
           <div class="two"><Statusbox></Statusbox></div>
@@ -48,17 +43,6 @@ export default function Tabs() {
         <TabPanel value="2">
         <Card ></Card>
           <div className='container py-4 my-5'>
-<<<<<<< HEAD
-=======
-           
-            {/* <h2>Requests...</h2>
-            <li>
-              <ul>user 1</ul>
-              <ul>user 1</ul>
-              <ul>user 1</ul>
-              <ul>user 1</ul>
-            </li> */}
->>>>>>> 1c36342580fddadb035aae675d9dbe57017d03e0
           </div>
         </TabPanel>
       </TabContext>
