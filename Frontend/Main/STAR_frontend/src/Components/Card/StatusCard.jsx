@@ -19,8 +19,6 @@ export default function MediaControlCard() {
             Mac Miller
           </Typography>
         </CardContent>
-        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-        </Box>
       </Box>
     </Card>
   );
