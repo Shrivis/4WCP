@@ -19,6 +19,7 @@
 @media (max-width: 600px) {
   .sbar {
     display: none;
+    background-color: #000;
   }
 }
 

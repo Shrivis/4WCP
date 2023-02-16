@@ -7,13 +7,13 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(Project_name, Hours, Start_time, End_time,Manager_name, Status) {
+  return {Project_name, Hours, Start_time, End_time, Manager_name,Status};
 }
 
 const rows = [
-  createData('1', 9, 21, 'Ashish', 'Approved'),
-  createData('2', 10, 22, 'Amit', 'Pending'),
+  createData('1', 8,  9, 21, 'Ashish', 'Approved'),
+  createData('2',3, 10, 22, 'Amit', 'Pending'),
 ];
 
 export default function BasicTable() {
@@ -24,6 +24,7 @@ export default function BasicTable() {
         <TableHead>
           <TableRow>
             <TableCell>Project Name</TableCell>
+            <TableCell align="right" >Hours</TableCell>
             <TableCell align="right" >Start Time</TableCell>
             <TableCell align="right" >End Time</TableCell>
             <TableCell align="right" >Manager Name</TableCell>
@@ -33,17 +34,18 @@ export default function BasicTable() {
         <TableBody>
           {rows.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.Project_name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               class="text-center"
             >
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.Project_name}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{row.Hours}</TableCell>
+              <TableCell align="right">{row.Start_time}</TableCell>
+              <TableCell align="right">{row.End_time}</TableCell>
+              <TableCell align="right">{row.Manager_name}</TableCell>
+              <TableCell align="right">{row.Status}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -52,3 +54,4 @@ export default function BasicTable() {
     </div>
   );
 }
+
