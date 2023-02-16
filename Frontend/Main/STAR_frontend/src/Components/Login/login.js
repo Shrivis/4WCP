@@ -19,7 +19,7 @@ const Login=()=>{
    
 
     const [jwt,setJwt]=useState("")
-    
+
     const [data,setData]=useState({
         username:"",
         password:""
@@ -64,7 +64,7 @@ const Login=()=>{
                 <Grid align='center'>
                      <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
                     <h2>Login Incedo</h2>
-                </Grid>
+        </Grid>
                 <form onSubmit={ (e) => submit(e) }>
             
                 <Input onChange={(e)=>handle(e)}  id="username" value={data.username} label='Incedo-Id'  placeholder='Enter IncedoId' fullWidth required/>
