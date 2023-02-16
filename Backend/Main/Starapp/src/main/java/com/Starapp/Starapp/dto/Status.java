@@ -25,6 +25,5 @@ public class Status {
 	public void setRejected(int rejected) {
 		this.rejected = rejected;
 	}
-	
 
 }

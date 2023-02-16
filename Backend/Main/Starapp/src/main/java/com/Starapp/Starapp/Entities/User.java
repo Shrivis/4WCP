@@ -29,37 +29,12 @@ public class User {
 	@JsonManagedReference
 	List<WorkingHours> workinghours;
 
-
-	@OneToMany(mappedBy = "manager")
-	@JsonManagedReference
-	List<Request> request;
-	
-	@OneToMany(mappedBy = "resource")
-	@JsonManagedReference
-	List<Request> requestuser;
-
 	@OneToMany(mappedBy = "projectResource")
 	@JsonBackReference
 	List<UserProjectRelation> resourceProjects;
 	
 	public User() {
 		
-	}
-
-	public User(int userId, String name, String email, String password, Boolean isActive, List<Project> projects,
-			List<WorkingHours> workinghours, List<Request> request, List<Request> requestuser,
-			List<UserProjectRelation> porjects) {
-		super();
-		this.userId = userId;
-		this.name = name;
-		this.email = email;
-		this.password = password;
-		this.isActive = isActive;
-		this.projects = projects;
-		this.workinghours = workinghours;
-		this.request = request;
-		this.requestuser = requestuser;
-		this.resourceProjects = porjects;
 	}
 
 	public int getUserId() {
@@ -118,22 +93,6 @@ public class User {
 		this.workinghours = workinghours;
 	}
 
-	public List<Request> getRequest() {
-		return request;
-	}
-
-	public void setRequest(List<Request> request) {
-		this.request = request;
-	}
-
-	public List<Request> getRequestuser() {
-		return requestuser;
-	}
-
-	public void setRequestuser(List<Request> requestuser) {
-		this.requestuser = requestuser;
-	}
-
 	public List<UserProjectRelation> getResourceProjects() {
 		return resourceProjects;
 	}
@@ -145,9 +104,8 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", password=" + password
-				+ ", isActive=" + isActive + ", projects=" + projects + ", workinghours=" + workinghours + ", request="
-				+ request + ", requestuser=" + requestuser + ", resourceProjects=" + resourceProjects + "]";
+				+ ", isActive=" + isActive + ", projects=" + projects + ", workinghours=" + workinghours
+				+ ", resourceProjects=" + resourceProjects + "]";
 	}
-
 
 }

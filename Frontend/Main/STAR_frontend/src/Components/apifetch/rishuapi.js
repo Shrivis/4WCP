@@ -3,8 +3,9 @@ import React, { useEffect } from "react"
 
 const rishuapi = () =>{
     let isLoading = true;
-    let API = "https://hn.algolia.com/api/v1/search?query=html";
+    let API = "https://data.covid19india.org/data.json";
 
+    
     const fetchApidata=async(url)=>{
         try{
             const res = await fetch(url);

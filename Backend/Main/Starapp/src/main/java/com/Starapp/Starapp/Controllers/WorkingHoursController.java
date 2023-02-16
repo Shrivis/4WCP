@@ -18,21 +18,19 @@ import com.Starapp.Starapp.repo.WorkingHoursRepository;
 @RequestMapping("/api/v1/WorkingHours")
 public class WorkingHoursController {
 
-	 @Autowired
-	 WorkingHoursRepository workingHoursRepository;
+	@Autowired
+	WorkingHoursRepository workingHoursRepository;
 	 
-	 @PostMapping("/")
-		public ResponseEntity<Void> addWorkingHours(@RequestBody WorkingHours workingHours) {
-
-			System.out.println("In addworkingHours" + workingHours);		
-			workingHoursRepository.save(workingHours);
-			ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.CREATED);
-			return re;
-		
-		}
-		@GetMapping("/")
-		public List<WorkingHours> fetchAllWorkingHours(){
-			return workingHoursRepository.findAll();
-		}
+    @PostMapping("/")
+	public ResponseEntity<Void> addWorkingHours(@RequestBody WorkingHours workingHours) {
+		System.out.println("In addworkingHours" + workingHours);		
+		workingHoursRepository.save(workingHours);
+		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.CREATED);
+		return re;
 	
+	}
+	@GetMapping("/")
+	public List<WorkingHours> fetchAllWorkingHours(){
+		return workingHoursRepository.findAll();
+	}
 }

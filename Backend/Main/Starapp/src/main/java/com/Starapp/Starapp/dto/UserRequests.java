@@ -3,7 +3,7 @@ package com.Starapp.Starapp.dto;
 import java.time.LocalDateTime;
 
 public class UserRequests {
-	private int id; // Timesheet id
+	private int id; 
 	private String name;
 	private String projectName;
 	private LocalDateTime periodStart;

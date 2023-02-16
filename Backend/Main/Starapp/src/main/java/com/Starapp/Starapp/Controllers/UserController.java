@@ -2,10 +2,12 @@ package com.Starapp.Starapp.Controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.Starapp.Starapp.Entities.Project;
 import com.Starapp.Starapp.Entities.User;
 import com.Starapp.Starapp.dto.UserDetails;
+import com.Starapp.Starapp.repo.ProjectRepository;
+import com.Starapp.Starapp.repo.UserProjectRelationRepository;
 import com.Starapp.Starapp.repo.UserRepository;
 
 @RestController
@@ -24,6 +28,9 @@ public class UserController {
 	@Autowired
 	UserRepository userRepository;
   
+	@Autowired
+	UserProjectRelationRepository relationRepo;
+	
     @PostMapping("/")
 	public ResponseEntity<Void> addUser(@RequestBody User user) {	
 		userRepository.save(user);
@@ -32,6 +39,7 @@ public class UserController {
 	
 	}
   	@GetMapping("/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
   	public UserDetails GetAllUser(@PathVariable int id) {
   		UserDetails data = new UserDetails();
   		User user =  userRepository.findUserWithId(id);
@@ -39,11 +47,11 @@ public class UserController {
   		List<String> vertical = new ArrayList<>();
   		List<String> horizontal = new ArrayList<>();
   		List<String> subHorizontal = new ArrayList<>();
-  		for (Project project: user.getProjects()) {
+  		List<Project> allProjects = relationRepo.findProjectByResouceId(id);
+  		for (Project project: allProjects) {
   			projects.add(project.getProjectName());
   			vertical.add(project.getVertical());
-  			if (project.getHorizonatl() != null) horizontal.add(project.getHorizonatl());
-  			else horizontal.add("");
+  			horizontal.add(project.getHorizonatl());
   			subHorizontal.add(project.getSubHorizontal());
   		}
   		data.setEmail(user.getEmail());
