@@ -37,7 +37,8 @@ const Login=()=>{
        alert(" Logged In Successfully ")
     //    console.log(res.data)
        setJwt(JSON.stringify(res.data));
-       localStorage.setItem("token",jwt);
+    //    localStorage.setItem("token",jwt);
+    //    localStorage.setItem("token",jwt);
        navigate("/home")
 
   }, 
