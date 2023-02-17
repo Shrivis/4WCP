@@ -2,7 +2,7 @@
   "name": "starr",
   "version": "0.1.0",
   "private": true,
-  "dependencies": { 
+  "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fortawesome/fontawesome-free": "^6.3.0",
@@ -16,6 +16,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.1",
     "react-dom": "^18.2.0",
+    "react-router": "^6.8.1",
     "react-scripts": "5.0.1",
     "reactstrap": "^9.1.5",
     "web-vitals": "^2.1.4"
