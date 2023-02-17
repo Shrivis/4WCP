@@ -17,7 +17,7 @@ const Login=()=>{
     const url="https://localhost:7286/api/Login/Authorize" //API for JWT
     const navigate=useNavigate();
    
-
+ 
     const [jwt,setJwt]=useState("")
 
     const [data,setData]=useState({
