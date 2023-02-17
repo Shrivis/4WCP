@@ -1,7 +1,7 @@
 package com.Starapp.Starapp.dto;
 import java.util.List;
 
-public class UserDetails {
+public class ResourceDetails {
 	private int userId;
 	private String name;
 	private String email;
@@ -10,7 +10,7 @@ public class UserDetails {
 	private List<String> horizontal;
 	private List<String> subHorizontal;
 	
-	public UserDetails() {
+	public ResourceDetails() {
 		
 	}
 	public int getUserId() {

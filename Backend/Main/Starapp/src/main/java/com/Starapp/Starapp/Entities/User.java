@@ -1,17 +1,33 @@
 package com.Starapp.Starapp.Entities;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+
+@Data
+@Builder
 @Entity
-public class User {
+@AllArgsConstructor
+@NoArgsConstructor
+public class User implements UserDetails{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,6 +36,8 @@ public class User {
 	String email;
 	String password;
 	Boolean isActive;
+	@Enumerated(EnumType.STRING)
+	private Role role;
 	
 	@OneToMany(mappedBy = "managerUser")
 	@JsonManagedReference
@@ -32,11 +50,6 @@ public class User {
 	@OneToMany(mappedBy = "projectResource")
 	@JsonBackReference
 	List<UserProjectRelation> resourceProjects;
-	
-	public User() {
-		
-	}
-
 	public int getUserId() {
 		return userId;
 	}
@@ -106,6 +119,36 @@ public class User {
 		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", password=" + password
 				+ ", isActive=" + isActive + ", projects=" + projects + ", workinghours=" + workinghours
 				+ ", resourceProjects=" + resourceProjects + "]";
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return List.of(new SimpleGrantedAuthority(role.name()));
+	}
+
+	@Override
+	public String getUsername() {
+		return email;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
 	}
 
 }
