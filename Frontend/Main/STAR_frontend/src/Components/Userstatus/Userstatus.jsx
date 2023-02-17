@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React ,{useEffect,useState}from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -12,12 +12,42 @@ function createData(Project_name, Hours, Start_time, End_time,Manager_name, Stat
   return {Project_name, Hours, Start_time, End_time, Manager_name,Status};
 }
 
-const rows = [
-  createData('1', 8,  9, 21, 'Ashish', 'Approved'),
-  createData('2',3, 10, 22, 'Amit', 'Pending'),
-];
-
 export default function BasicTable() {
+
+  let API = "http://localhost:8084/api/v1/Request/2";
+  const [data,setData]=useState([]);
+  
+  const fetchApidata=async(url)=>{
+      try{
+          const res = await fetch(url);
+          const actualData = await res.json();
+          console.log(actualData);
+          setData(actualData);
+      }catch(error){
+          console.log(error);
+      }
+  }
+
+  
+
+  useEffect(()=>{
+      fetchApidata(API);
+  },[]);
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div>
     <TableContainer component={Paper} sx={{ minWidth: 275 ,  width: 'auto', }}>
@@ -33,20 +63,20 @@ export default function BasicTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {data.map((row) => (
             <TableRow
-              key={row.Project_name}
+              key={row.projectName}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               class="text-center"
             >
               <TableCell component="th" scope="row">
-                {row.Project_name}
+                {row.projectName}
               </TableCell>
-              <TableCell align="right">{row.Hours}</TableCell>
-              <TableCell align="right">{row.Start_time}</TableCell>
-              <TableCell align="right">{row.End_time}</TableCell>
-              <TableCell align="right">{row.Manager_name}</TableCell>
-              <TableCell align="right">{row.Status}</TableCell>
+              <TableCell align="right">{row.extraHours}</TableCell>   {/*Hours*/}
+              <TableCell align="right">{row.startTime}</TableCell>      {/*starttime*/}
+              <TableCell align="right">{row.endTime}</TableCell>   {/*endtime*/}
+              <TableCell align="right">{row.managerName}</TableCell>       {/*manager name*/}
+              <TableCell align="right">{row.responseText}</TableCell>    {/*request that is pending or accepted*/}   
             </TableRow>
           ))}
         </TableBody>

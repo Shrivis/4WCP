@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ public class RequestController {
 	UserProjectRelationRepository userProjectRelation;
 	
   	@GetMapping("/manager/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
   	public List<UserRequests> GetAllUserRequestForManager(@PathVariable int id) {
   		List<UserRequests> data = new ArrayList<>();
   		List<WorkingHours> workingHours = workingHoursRepository.WorkingHoursOfResourcesForManagerId(id);
@@ -48,6 +50,7 @@ public class RequestController {
   	}
   	
   	@GetMapping("/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
   	public List<Request> GetAllRequests(@PathVariable int id) {
   		List<Request> requests = new ArrayList<>();
   		List<WorkingHours> workingHoursData = workingHoursRepository.GetAllWorkingHoursOfResouseById(id);

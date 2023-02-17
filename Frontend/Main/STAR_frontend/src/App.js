@@ -1,16 +1,25 @@
 import './App.css';
-import NavScrollExample from './Components/Navbar';
-import Tabs from './Components/TabComponent/Tabs';
-import Sidebar from './Components/Sidebar/Sidebar';
+
+import { BrowserRouter  as Router,Routes,Route,Link, BrowserRouter} from 'react-router-dom';
+import Login from './Components/Login/login';
+import Home from './Home'
+
 function App() {
   return (
-    <div>
-      <NavScrollExample/>
-      <div class="sbar">
-       <Sidebar></Sidebar>
-      </div>
-      <Tabs/>
-    </div>
+  <div>
+       <BrowserRouter>
+       <Routes>
+       <Route exact path="/" element={<Login/>}/>
+       <Route exact path="/home" element={<Home/>}/>
+       </Routes>
+       </BrowserRouter>
+
+
+      
+
+
+       </div>
+     
   );
 }
 
