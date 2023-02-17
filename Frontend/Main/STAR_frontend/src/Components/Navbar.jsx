@@ -17,7 +17,7 @@ function NavScrollExample() {
                         style={{ maxHeight: 'auto' }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1" class='text-white'>All Expenses</Nav.Link>
+                        <Nav.Link href="#action1" className='text-white'>All Expenses</Nav.Link>
                     </Nav>
                     <Logout/>
                     <Avatar/>
