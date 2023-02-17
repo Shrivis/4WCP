@@ -6,6 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Typography } from '@mui/material';
 
 function createData(Project_name, Hours, Start_time, End_time,Manager_name, Status) {
   return {Project_name, Hours, Start_time, End_time, Manager_name,Status};
@@ -21,14 +22,14 @@ export default function BasicTable() {
     <div>
     <TableContainer component={Paper} sx={{ minWidth: 275 ,  width: 'auto', }}>
       <Table  aria-label="simple table">
-        <TableHead>
+        <TableHead sx={{backgroundColor: '#afbdca',}}>
           <TableRow>
-            <TableCell>Project Name</TableCell>
-            <TableCell align="right" >Hours</TableCell>
-            <TableCell align="right" >Start Time</TableCell>
-            <TableCell align="right" >End Time</TableCell>
-            <TableCell align="right" >Manager Name</TableCell>
-            <TableCell align="right" >Status</TableCell>
+            <TableCell><Typography sx={{fontWeight: 'bold'}}>Project Name</Typography> </TableCell>
+            <TableCell align="right" ><Typography sx={{fontWeight: 'bold'}}>Hours</Typography></TableCell>
+            <TableCell align="right" ><Typography sx={{fontWeight: 'bold'}}>Start Time</Typography></TableCell>
+            <TableCell align="right" ><Typography sx={{fontWeight: 'bold'}}>End Time</Typography></TableCell>
+            <TableCell align="right" ><Typography sx={{fontWeight: 'bold'}}>Manager Name</Typography></TableCell>
+            <TableCell align="right" ><Typography sx={{fontWeight: 'bold'}}>Status</Typography></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
