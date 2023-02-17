@@ -29,9 +29,9 @@ function Logout() {
 
 
     return (
-        <div>
-            <UncontrolledDropdown className='lout'>
-                <DropdownToggle color="light">{data.name}
+        <div style={{backgroundColor:'#212529'}}>
+            <UncontrolledDropdown className='lout' style={{backgroundColor:'#212529'}}>
+                <DropdownToggle class="text-dark" style={{backgroundColor:'#212529'}}><div class="text-white">Name</div>
                 </DropdownToggle>
                 <DropdownMenu>
                     <DropdownItem>

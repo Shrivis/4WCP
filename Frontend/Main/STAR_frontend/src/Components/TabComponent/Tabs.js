@@ -11,6 +11,7 @@ import Card from './OutlinedCard';
 import BasicTable from '../Userstatus/Userstatus';
 import StatusCard1 from '../Card/StatusCard1';
 import StatusCard2 from '../Card/StatusCard2';
+import { color } from '@mui/system';
 
 export default function Tabs() {
   const [value, setValue] = React.useState('1');
@@ -23,7 +24,7 @@ export default function Tabs() {
     <Box>
         
       <TabContext value={value}>
-        <TabPanel value="1" style={{height: "9rem", overflowX: 'hidden'}}>
+        <TabPanel value="1" style={{height: "9rem"}}>
         <UserInfo></UserInfo>
         </TabPanel>
         <TabPanel value="2" class = "status" style={{height: "9rem", overflowX: 'hidden'}}>         
@@ -33,8 +34,8 @@ export default function Tabs() {
         </TabPanel>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
-            <Tab label="My Profile " value="1" />
-            <Tab label="Requests" value="2" />
+            <Tab sx={{fontWeight:'bold', color:'black'}} label="My Profile " value="1" />
+            <Tab sx={{fontWeight:'bold', color:'black'}}label="Requests" value="2" />
           </TabList>
         </Box>
         

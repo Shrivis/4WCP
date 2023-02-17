@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid,Paper, Avatar, Button, Input } from '@material-ui/core'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+// import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Axios from 'axios'
 import { useState } from 'react';
 import { BrowserRouter  as Router,Routes,Route,Link, BrowserRouter} from 'react-router-dom';
@@ -62,7 +62,7 @@ const Login=()=>{
             <div >
             <Paper elevation={10} style={paperStyle}>
                 <Grid align='center'>
-                     <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
+                     <Avatar style={avatarStyle}></Avatar>
                     <h2>Login Incedo</h2>
         </Grid>
                 <form onSubmit={ (e) => submit(e) }>
