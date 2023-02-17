@@ -22,7 +22,7 @@ const Login=()=>{
 
     const [data,setData]=useState({
         username:"",
-        password:""
+        password:"" 
  })
      
     function submit(e)
