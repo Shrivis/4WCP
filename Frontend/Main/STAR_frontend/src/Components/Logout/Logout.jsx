@@ -48,7 +48,7 @@ function Logout() {
                 <DropdownToggle class="text-dark" style={{backgroundColor:'#212529'}}><div class="text-white">Name</div>
                 </DropdownToggle>
                 <DropdownMenu>
-                    <DropdownItem>
+                    <DropdownItem href='http://localhost:3001/login'>
                         Logout
                     </DropdownItem>
                 </DropdownMenu>
