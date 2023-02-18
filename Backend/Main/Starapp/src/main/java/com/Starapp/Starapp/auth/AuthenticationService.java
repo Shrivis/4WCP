@@ -3,7 +3,7 @@ package com.Starapp.Starapp.auth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.Starapp.Starapp.config.JwtService;
@@ -16,8 +16,8 @@ import lombok.RequiredArgsConstructor;
 public class AuthenticationService {
   @Autowired
   private UserRepository repository;
-  @Autowired
-  private PasswordEncoder passwordEncoder;
+//  @Autowired
+//  private PasswordEncoder passwordEncoder;
   @Autowired
   private JwtService jwtService;
   @Autowired
@@ -32,7 +32,7 @@ public class AuthenticationService {
 //    repository.save(user);
 //    var jwtToken = jwtService.generateToken(user);
 //    return AuthenticationResponse.builder()
-//        .token(jwtToken)
+//        .token(jwtToken)	
 //        .build();
 //  }
 

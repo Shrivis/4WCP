@@ -4,16 +4,23 @@ export default function UserInfo() {
 
   let API = "http://localhost:8084/api/v1/User/1";
   const [data,setData]=useState([]);
-  localStorage.setItem("token","hello");
   const jwtToken=localStorage.getItem("token");
   console.log(jwtToken);
   
   const fetchApidata=async(url)=>{
       try{
+        console.log(jwtToken);
+        console.log("********************************");
+        console.log("********************************");
+        console.log("********************************");
+        console.log("********************************");
+        console.log("********************************");
+        console.log("********************************");
           const res = await fetch(url,{
             method:'GET',
             headers: {
               'Authorisation' : String(jwtToken),
+              'Access-Control-Allow-Origin': '*',
               'Content-Type' : 'text/plain'
             }},
             );

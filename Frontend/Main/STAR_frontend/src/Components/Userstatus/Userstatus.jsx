@@ -16,7 +16,7 @@ export default function BasicTable() {
 
   let API = "http://localhost:8084/api/v1/Request/2";
   const [data,setData]=useState([]);
-  localStorage.setItem("token","hello");
+  // localStorage.setItem("token",jwtToken);
   const jwtToken=localStorage.getItem("token");
   console.log(jwtToken);
   
@@ -26,6 +26,7 @@ export default function BasicTable() {
             method:'GET',
             headers: {
               'Authorisation' : String(jwtToken),
+              'Access-Control-Allow-Origin': '*',
               'Content-Type' : 'text/plain'
             }},
             );

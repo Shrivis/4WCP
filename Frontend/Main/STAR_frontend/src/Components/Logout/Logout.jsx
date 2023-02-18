@@ -6,7 +6,7 @@ function Logout() {
     // let url = "http://localhost:8084/api/v1/User/1"
     let API = "http://localhost:8084/api/v1/User/1";
     const [data,setData]=useState([]);
-    localStorage.setItem("token","hello");
+    // localStorage.setItem("token",jwtToken);
     const jwtToken=localStorage.getItem("token");
     console.log(jwtToken);
     

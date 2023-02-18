@@ -14,15 +14,12 @@ const Login=()=>{
     const avatarStyle={backgroundColor:'#1bbd7e'}
     const btnstyle={margin:'8px 0'}
     const GridStyle={backgroundColor:'Pink'}
-    const url="https://localhost:7286/api/Login/Authorize" //API for JWT
-    const navigate=useNavigate();
-   
- 
+    const url="http://localhost:8084/api/v1/auth/authenticate" //API for JWT
+    const navigate=useNavigate(); 
     const [jwt,setJwt]=useState("")
-
     const [data,setData]=useState({
-        username:"",
-        password:"" 
+        "email":"",
+        "password":"" 
  })
      
     function submit(e)
@@ -30,15 +27,20 @@ const Login=()=>{
     e.preventDefault();
 
      Axios.post(url,{
-      username: data.username,
-      password: data.password
+      "email": data.email,
+      "password": data.password
     }).then(res=> {
     //    console.log("JWT token" )
        alert(" Logged In Successfully ")
     //    console.log(res.data)
-       setJwt(JSON.stringify(res.data));
+    console.log(res.data);
+    console.log("###########################");
+    console.log("###########################");
+    console.log("###########################");
+    console.log("###########################");
+       setJwt(JSON.stringify(res.data.token));
     //    localStorage.setItem("token",jwt);
-    //    localStorage.setItem("token",jwt);
+       localStorage.setItem("token",JSON.stringify(res.data.token));
        navigate("/home")
 
   }, 
@@ -68,7 +70,7 @@ const Login=()=>{
         </Grid>
                 <form onSubmit={ (e) => submit(e) }>
             
-                <Input onChange={(e)=>handle(e)}  id="username" value={data.username} label='Incedo-Id'  placeholder='Enter IncedoId' fullWidth required/>
+                <Input onChange={(e)=>handle(e)}  id="email" value={data.email} label='Incedo-Id'  placeholder='Enter IncedoId' fullWidth required/>
             
                 <Input onChange={(e)=>handle(e)} label='Password' value={data.password} id="password"  placeholder='Enter Password' type='password' fullWidth required/>
                 

@@ -22,6 +22,7 @@ import com.Starapp.Starapp.repo.UserRepository;
 
 @RestController
 @RequestMapping("/api/v1/User")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UserController {
 	@Autowired
 	UserRepository userRepository;
@@ -37,7 +38,6 @@ public class UserController {
 	
 	}
   	@GetMapping("/{id}")
-    @CrossOrigin(origins = "http://localhost:3000")
   	public ResourceDetails GetAllUser(@PathVariable int id) {
   		ResourceDetails data = new ResourceDetails();
   		User user =  userRepository.findUserWithId(id);

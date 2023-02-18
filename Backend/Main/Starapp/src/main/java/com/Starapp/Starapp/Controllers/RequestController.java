@@ -18,6 +18,7 @@ import com.Starapp.Starapp.repo.WorkingHoursRepository;
 
 @RestController
 @RequestMapping("/api/v1/Request")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class RequestController {
 	@Autowired
 	WorkingHoursRepository workingHoursRepository;
@@ -26,8 +27,8 @@ public class RequestController {
 	UserProjectRelationRepository userProjectRelation;
 	
   	@GetMapping("/manager/{id}")
-    @CrossOrigin(origins = "http://localhost:3000")
   	public List<UserRequests> GetAllUserRequestForManager(@PathVariable int id) {
+  		System.out.println("got here");
   		List<UserRequests> data = new ArrayList<>();
   		List<WorkingHours> workingHours = workingHoursRepository.WorkingHoursOfResourcesForManagerId(id);
   		for (WorkingHours employeeWH: workingHours) {
@@ -50,8 +51,8 @@ public class RequestController {
   	}
   	
   	@GetMapping("/{id}")
-    @CrossOrigin(origins = "http://localhost:3000")
   	public List<Request> GetAllRequests(@PathVariable int id) {
+  		System.out.println("got here");
   		List<Request> requests = new ArrayList<>();
   		List<WorkingHours> workingHoursData = workingHoursRepository.GetAllWorkingHoursOfResouseById(id);
   		for (WorkingHours employeeWH: workingHoursData) {
