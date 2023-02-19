@@ -5,11 +5,11 @@ import Logo from '../images/incedologo.png';
 import Avatar from './Avatar/Avatar';
 import Logout from './Logout/Logout';
 
-function NavScrollExample() {
+function NavScrollExample({resouceName}) {
     return (
         <Navbar bg="dark" expand="md">
             <Container fluid>
-                <Navbar.Brand href="#"><img className='logo' src={Logo} alt=''></img></Navbar.Brand>
+                <Navbar.Brand href="/home"><img className='logo' src={Logo} alt=''></img></Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -17,9 +17,8 @@ function NavScrollExample() {
                         style={{ maxHeight: 'auto' }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1" className='text-white'>All Expenses</Nav.Link>
                     </Nav>
-                    <Logout/>
+                    <Logout resouceName={resouceName}/>
                     <Avatar/>
                 </Navbar.Collapse>
             </Container>

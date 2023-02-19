@@ -12,11 +12,6 @@ function App() {
        <Route exact path="/home" element={<Home/>}/>
        </Routes>
        </BrowserRouter>
-
-
-      
-
-
        </div>
      
   );

@@ -11,6 +11,6 @@ import com.Starapp.Starapp.Entities.Project;
 public interface ProjectRepository extends JpaRepository<Project , Integer> {
 	
 	@Query("select p from Project p where p.managerUser.userId=:id")
-	List<Project> allProjectWhereManagerIs(@Param("id") int id);
+	List<Project> allProjectWhereManagerIs(@Param("id") Long id);
 
 }

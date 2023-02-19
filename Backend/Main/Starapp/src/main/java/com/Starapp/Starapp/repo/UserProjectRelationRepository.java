@@ -12,10 +12,10 @@ import com.Starapp.Starapp.Entities.UserProjectRelation;
 public interface UserProjectRelationRepository extends JpaRepository<UserProjectRelation , Integer>{
 
 	@Query(value="select upr.resourceProject from UserProjectRelation upr where upr.projectResource.userId=:id")
-	List<Project> findProjectByResouceId(@Param("id") int id);
+	List<Project> findProjectByResouceId(@Param("id") Long id);
 	
 	@Query(value="select upr.expectedHours from UserProjectRelation upr where "
 			+ "upr.projectResource.userId=:userId and upr.resourceProject.projectId=:projectId")
-	int getExpectedWorkingHourOfResource(@Param("userId") int userId, @Param("projectId") int projectId);
+	int getExpectedWorkingHourOfResource(@Param("userId") Long userId, @Param("projectId") String projectId);
 
 }

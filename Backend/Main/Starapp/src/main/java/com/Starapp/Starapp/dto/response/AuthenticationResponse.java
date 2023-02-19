@@ -1,4 +1,4 @@
-package com.Starapp.Starapp.auth;
+package com.Starapp.Starapp.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,6 +10,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AuthenticationResponse {
-
   private String token;
 }

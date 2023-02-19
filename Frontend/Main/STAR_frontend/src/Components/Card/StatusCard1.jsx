@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-export default function MediaControlCard1() {
+export default function MediaControlCard1({count}) {
   const theme = useTheme();
 
   return (
@@ -18,7 +18,7 @@ export default function MediaControlCard1() {
           </Typography>
         </CardContent>
       </Box>
-      <Box sx={{ display: 'flex', flexDirection: 'column',fontSize:'2rem',color:'blue',float:'left', width:'20% ', marginTop:'1.5rem',marginLeft:'0.5rem', textAlign:'center'}}>0 </Box>
+      <Box sx={{ display: 'flex', flexDirection: 'column',fontSize:'2rem',color:'blue',float:'left', width:'20% ', marginTop:'1.5rem',marginLeft:'0.5rem', textAlign:'center'}}>{count}</Box>
     </Card>
   );
 }

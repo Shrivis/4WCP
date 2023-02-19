@@ -1,0 +1,87 @@
+package com.Starapp.Starapp.serviceImpl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.Starapp.Starapp.Entities.WorkingHours;
+import com.Starapp.Starapp.dto.response.ManagerRequest;
+import com.Starapp.Starapp.dto.response.ResourceRequest;
+import com.Starapp.Starapp.repo.UserProjectRelationRepository;
+import com.Starapp.Starapp.repo.UserRepository;
+import com.Starapp.Starapp.repo.WorkingHoursRepository;
+import com.Starapp.Starapp.service.RequestService;
+
+@Service
+public class RequestServiceImpl implements RequestService{
+	@Autowired
+	WorkingHoursRepository workingHoursRepository;
+	
+	@Autowired
+	UserRepository userRepo;
+	
+	@Autowired
+	UserProjectRelationRepository userProjectRelation;
+	
+	@Override
+	public List<ManagerRequest> getAllResourceRequestForManager(String email) {
+		Long id = userRepo.findByEmail(email).orElse(null).getUserId();
+  		List<ManagerRequest> data = new ArrayList<>();
+  		List<WorkingHours> workingHours = workingHoursRepository.WorkingHoursOfResourcesForManagerId(id);
+  		for (WorkingHours employeeWH: workingHours) {
+  			Long resourceId = employeeWH.getUser().getUserId();
+  			String projectId = employeeWH.getProject().getProjectId();
+  			Integer expectedHour = userProjectRelation.getExpectedWorkingHourOfResource(resourceId, projectId);
+  			if (employeeWH.getHours() > expectedHour) {
+  				ManagerRequest user = new ManagerRequest();
+  				user.setId(employeeWH.getWorkingHourId());
+  				user.setName(employeeWH.getUser().getName());
+  				user.setProjectName(employeeWH.getProject().getProjectName());
+  				user.setPeriodStart(employeeWH.getPeriodStart());
+  				user.setPeriodEnd(employeeWH.getPeriodEnd());
+  				user.setHours(employeeWH.getHours());
+  				user.setExpectedHours(expectedHour);
+  				data.add(user);
+  			}
+  		}
+  		return data;
+	}
+
+	@Override
+	public List<ResourceRequest> getAllResourceRequest(String email) {
+		Long id = userRepo.findByEmail(email).orElse(null).getUserId();
+  		List<ResourceRequest> requests = new ArrayList<>();
+  		List<WorkingHours> workingHoursData = workingHoursRepository.GetAllWorkingHoursOfResouseById(id);
+  		for (WorkingHours employeeWH: workingHoursData) {
+  			Long resourceId = employeeWH.getUser().getUserId();
+  			String projectId = employeeWH.getProject().getProjectId();
+  			Integer expectedHour = userProjectRelation.getExpectedWorkingHourOfResource(resourceId, projectId);
+  			if (employeeWH.getHours() > expectedHour) {
+	  			ResourceRequest request = new ResourceRequest();
+	  			request.setWorkingHourId(employeeWH.getWorkingHourId());
+	  			request.setProjectName(employeeWH.getProject().getProjectName());
+	  			request.setManagerName(employeeWH.getProject().getManagerUser().getName());
+	  			request.setStartTime(employeeWH.getPeriodStart());
+	  			request.setEndTime(employeeWH.getPeriodEnd());
+	  			request.setTimesheetNo(employeeWH.getTimesheetNo());
+	  			request.setExtraHours(employeeWH.getHours());
+	  			if(employeeWH.getIsActive()) {
+	  				request.setStatus("Pending");
+	  				request.setResponseText("Response Awaited");
+	  			} else {
+	  				if (employeeWH.getIsApproved()) {
+	  					request.setStatus("Approved");
+	  				} else {
+	  					request.setStatus("Rejected");
+	  				}
+	  				request.setResponseText(employeeWH.getResponseText());
+	  			}
+	  			requests.add(request);
+  			}
+  		}
+		return requests; 
+	}
+
+}

@@ -10,31 +10,22 @@ import javax.persistence.Id;
 //import javax.persistence.JoinColumn;
 //import javax.persistence.OneToOne;
 
+import lombok.Data;
+
 @Entity
+@Data
 public class WorkingHoursArchieve {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	int workingHourArchieveId;
-	
-//	//foreign key
-//  	@OneToOne(cascade = CascadeType.ALL)	
-//  	@JoinColumn(name = "workingHourId", referencedColumnName="workingHourId")
-//  	WorkingHours workinghours;
-  	
-  	int timesheetNo;
-    LocalDateTime periodStart;
-    LocalDateTime periodEnd;
-    int projectId;
-    int resourceId;
- 	int hours;
-   	Boolean isActive;
-   	LocalDateTime createdOn;
-   	Boolean isApproved;
-
-     
- 	
-  	
-  	
-	
+	private Long workingHourArchieveId;  	
+  	private String timesheetNo;
+    private LocalDateTime periodStart;
+    private LocalDateTime periodEnd;
+    private String projectId;
+    private Long resourceId;
+ 	private Integer hours;
+   	private Boolean isActive;
+   	private LocalDateTime createdOn;
+   	private Boolean isApproved;
 	
 }

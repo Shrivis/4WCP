@@ -1,4 +1,4 @@
-package com.Starapp.Starapp.config;
+package com.Starapp.Starapp.serviceImpl;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
