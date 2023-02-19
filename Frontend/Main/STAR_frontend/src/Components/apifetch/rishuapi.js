@@ -4,7 +4,6 @@ import React, { useEffect } from "react"
 const rishuapi = () =>{
     let isLoading = true;
     let API = "https://data.covid19india.org/data.json";
-
     
     const fetchApidata=async(url)=>{
         try{
