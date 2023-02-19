@@ -11,6 +11,8 @@ export default function Home() {
   const [resourceRequests, setResourceRequests] = useState([]);
   const [managerRequests, setManagerRequests] = useState([]);
   const [status, setStatus] = useState([]);
+ 
+
   useEffect(() => { 
     Promise.all([
       axios.get('http://localhost:8084/api/v1/resource/data', {headers: { 
