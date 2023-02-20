@@ -30,7 +30,6 @@ export default function Login() {
       "email": data.email,
       "password": data.password
     },{headers:{'Access-Control-Allow-Origin':'*'}}).then(res=> {
-    alert(" Logged In Successfully ")
       setJwt(JSON.stringify(res.data.token));
       localStorage.setItem("token",res.data.token);
       navigate("/home")

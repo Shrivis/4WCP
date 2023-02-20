@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ManagerRequest {
 	private Long id; 
+	private Long userId;
+	private String timesheetNo;
 	private String name;
 	private String projectName;	
 	private LocalDateTime periodStart;

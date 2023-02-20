@@ -24,7 +24,7 @@ export default function Tabs({resource, managerReq, resourceReq, status}) {
       <TabContext value={value}>
         <TabPanel value="1" style={{height: "9rem"}}> 
           <StatusCard count={status.resourceApproved}/>
-          <StatusCard1 count={resourceReq.length}/>
+          <StatusCard1 count={resourceReq.length-status.resourceApproved-status.resourceRejected}/>
           <StatusCard2 count={status.resourceRejected}/>
         </TabPanel>
         <TabPanel value="2"  style={{height: "9rem"}}>         
@@ -38,11 +38,10 @@ export default function Tabs({resource, managerReq, resourceReq, status}) {
             <Tab sx={{fontWeight:'bold', color:'black'}} label="Requests" value="2" />
           </TabList>  
         </Box>
-        
-        <TabPanel value="1">
+        <TabPanel value="1" style={{maxHeight: "24rem", overflow:'scroll'}}>
           <UserStatus ReqData={resourceReq}/>
         </TabPanel>
-        <TabPanel value="2">
+        <TabPanel value="2" style={{maxHeight: "24rem", overflow:'scroll'}}>
         <RequestCard managerReq={managerReq} managerId={resource.userId}/>
         </TabPanel>
       </TabContext>

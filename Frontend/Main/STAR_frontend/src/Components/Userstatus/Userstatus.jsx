@@ -12,7 +12,7 @@ import StatusButton from './StatusButton';
 export default function BasicTable({ReqData}) {
   return (
     <div>
-    <TableContainer component={Paper} sx={{ minWidth: 275 ,  width: 'auto' }}>
+    <TableContainer component={Paper} sx={{ minWidth: 300 ,  width: 'auto' }}>
       <Table  aria-label="simple table">
         <TableHead sx={{backgroundColor: '#afbdca',}}>
           <TableRow>

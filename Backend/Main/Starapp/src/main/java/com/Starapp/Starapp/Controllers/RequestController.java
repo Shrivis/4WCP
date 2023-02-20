@@ -4,10 +4,14 @@ import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Starapp.Starapp.dto.request.OvertimeRequest;
 import com.Starapp.Starapp.dto.response.ManagerRequest;
 import com.Starapp.Starapp.dto.response.ResourceRequest;
 import com.Starapp.Starapp.serviceImpl.RequestServiceImpl;
@@ -20,14 +24,20 @@ public class RequestController {
 	
   	@GetMapping("/manager")
   	public List<ManagerRequest> getAllManagerRequst(Principal principal) {
-  		System.out.println("/managerHit");
   		return requestService.getAllResourceRequestForManager(principal.getName());
   	}
   	
   	@GetMapping("/resource")
   	public List<ResourceRequest> GetAllRequests(Principal principal) {
-  		System.out.println("/resourceHit");
 		return requestService.getAllResourceRequest(principal.getName());  		
   	}
+  	
+  	@PostMapping("/manager")
+  	public ResponseEntity<String> approvRejectRequsts(@RequestBody OvertimeRequest overtimeReq) {
+
+		System.out.println("called");
+		System.out.println(overtimeReq);
+  		return requestService.updateRequest(overtimeReq);
+  	} 
 	 
 }

@@ -46,4 +46,5 @@ public class WorkingHours {
   	@JoinColumn(name = "resourceId", referencedColumnName="userId")
   	@JsonBackReference
   	private User user;
+  	
 }

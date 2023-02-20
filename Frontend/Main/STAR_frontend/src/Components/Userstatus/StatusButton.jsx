@@ -22,7 +22,7 @@ export default function StatusButton({data}) {
     <div>
       <Button class="mt-1 btn " onClick={handleClickOpen}>
         {
-            `${data.status}` === 'Accepted'? <CheckCircleIcon color="success" />:
+            `${data.status}` === 'Approved'? <CheckCircleIcon color="success" />:
             `${data.status}` === 'Rejected'? <CancelIcon color='error' />:
             <PendingActionsIcon color='warning'/>
         }

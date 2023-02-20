@@ -10,13 +10,14 @@ import AcceptRejctButton from './RequestCardButton';
 export default function RequestCard({managerReq, managerId}) {                                                 
   return (
     <div>
-    <TableContainer component={Paper} sx={{ minWidth: 275 ,  width: 'auto', }}>
+    <TableContainer component={Paper} sx={{ minWidth: 300 ,  width: 'auto', }}>
       <Table  aria-label="simple table">
         <TableHead sx={{backgroundColor: '#afbdca',}}>
           <TableRow>
+            <TableCell align="center" ><Typography sx={{fontWeight: 'bold'}}>Timesheet No </Typography> </TableCell>
             <TableCell align="center" ><Typography sx={{fontWeight: 'bold'}}>Resouce Id</Typography> </TableCell>
             <TableCell align="center" ><Typography sx={{fontWeight: 'bold'}}>Resource Name</Typography></TableCell>
-            <TableCell align="center" ><Typography sx={{fontWeight: 'bold'}}>Project Name</Typography></TableCell>
+            <TableCell align="center" ><Typography sx={{fontWeight: 'bold'}}>Project</Typography></TableCell>
             <TableCell align="center" ><Typography sx={{fontWeight: 'bold'}}>Start Time</Typography></TableCell>
             <TableCell align="center" ><Typography sx={{fontWeight: 'bold'}}>End Time</Typography></TableCell>
             <TableCell align="center" ><Typography sx={{ fontWeight: 'bold'}}>Expected Hours</Typography></TableCell>
@@ -27,7 +28,8 @@ export default function RequestCard({managerReq, managerId}) {
         <TableBody>
           {managerReq.map((row) => (
             <TableRow class="text-center">
-              <TableCell align="center" scope="row">{row.id}</TableCell>
+              <TableCell align="center" scope="row">{row.timesheetNo}</TableCell>
+              <TableCell align="center">{row.userId}</TableCell>
               <TableCell align="center">{row.name}</TableCell>  
               <TableCell align="center">{row.projectName}</TableCell>    
               <TableCell align="center">{row.periodStart}</TableCell>  
