@@ -30,7 +30,7 @@ export default function Login() {
       "email": data.email,
       "password": data.password
     },{headers:{'Access-Control-Allow-Origin':'*'}}).then(res=> {
-    alert(" Logged In Successfully ")
+   // alert(" Logged In Successfully ")
       setJwt(JSON.stringify(res.data.token));
       localStorage.setItem("token",res.data.token);
       navigate("/home")
@@ -79,10 +79,16 @@ export default function Login() {
 
             <div className="text-white px-3 py-4 px-5 h-100 ">
               <h4 class="mb-4" style= {{ textAlign :'center'}} >We are more than just a company!</h4>
-              <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
+              <h5 class="mb-4" style={{textAlign :'center'}}>Our Core Values</h5>
+              <p> 1. Exceed Client Excpectations</p>
+              <p> 2. Pursure Excellence</p>
+              <p> 3. Build For the Long-term</p>
+              <p> 4. Embrace Change and Innovation</p>
+              <p> 5. Work as One Global Team</p>
+              <p> 6. Be a Caring Meritocracy</p>
+              <p> 7. Drive Commercial Rigor</p>
+              <p> 8. Always Act with Intergrity</p>
+
             </div>
 
           </div>

@@ -4,6 +4,7 @@ import Tabs from './Components/TabComponent/Tabs';
 import Sidebar from './Components/Sidebar/Sidebar';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 export default function Home() {
   const navigate = new useNavigate();
@@ -11,8 +12,11 @@ export default function Home() {
   const [resourceRequests, setResourceRequests] = useState([]);
   const [managerRequests, setManagerRequests] = useState([]);
   const [status, setStatus] = useState([]);
- 
+  // window.history.go(navigate('/home'));
 
+  // const history = useHistory();
+  // history.replace("/");
+  // history.push("/home",{from :"home"});
   useEffect(() => { 
     Promise.all([
       axios.get('http://localhost:8084/api/v1/resource/data', {headers: { 
@@ -41,6 +45,7 @@ export default function Home() {
     .catch(error => {
       navigate('/login')
     });
+    
   }, [] )
 
 
@@ -54,4 +59,6 @@ export default function Home() {
 
     </div>
   )
+
+ 
 }
