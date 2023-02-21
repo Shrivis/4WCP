@@ -1,6 +1,9 @@
+import { BellFilled } from '@ant-design/icons';
+import { Avatar, Badge, Button, Space } from 'antd';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -14,7 +17,7 @@ import Logout from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router';
 
 
-export default function AvatarItem({initials}) {
+export default function Notification({notificationCount}) {
   const navigate = new useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -25,10 +28,6 @@ export default function AvatarItem({initials}) {
     setAnchorEl(null);
   };
 
-  function clearLocalStorage(nav) {
-    localStorage.removeItem("token");
-    nav('/login');
-  }
 
   return (
     <React.Fragment>
@@ -42,7 +41,9 @@ export default function AvatarItem({initials}) {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>{initials}</Avatar>
+            <Badge count={notificationCount}>
+            <NotificationsIcon sx={{ width: 32, height: 32, color:"#C0C0C0"}}></NotificationsIcon>
+            </Badge>
           </IconButton>
         </Tooltip>
       </Box>
@@ -81,18 +82,8 @@ export default function AvatarItem({initials}) {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Settings
-        </MenuItem>
-        <MenuItem onClick={(nav) => clearLocalStorage(navigate)}>
-          <ListItemIcon>
-            <Logout fontSize="small" />
-          </ListItemIcon>
-          Logout
+        <MenuItem>
+          You've {notificationCount} pending requests to approve
         </MenuItem>
       </Menu>
     </React.Fragment>

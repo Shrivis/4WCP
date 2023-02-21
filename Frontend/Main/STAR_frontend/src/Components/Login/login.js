@@ -12,10 +12,8 @@ import {
 import Logo from '../Images/incedologo.png';
 
 export default function Login() {
-
   const url="http://localhost:8084/api/v1/auth/authenticate" //API for JWT
   const navigate = useNavigate(); 
-  const [jwt, setJwt] = useState("")
   const [data, setData] = useState({
     "email":"",
     "password":"" 
@@ -23,19 +21,19 @@ export default function Login() {
      
   function submit(e) {
     e.preventDefault();
-    console.log(data.email);
-    console.log(data.password);
-
     Axios.post(url,{
-      "email": data.email,
-      "password": data.password
-    },{headers:{'Access-Control-Allow-Origin':'*'}}).then(res=> {
-      setJwt(JSON.stringify(res.data.token));
-      localStorage.setItem("token",res.data.token);
-      navigate("/home")
-    }, 
-      e => alert("Invalid Credentitals")
-      // e=> console.error(e);
+        "email": data.email,
+        "password": data.password
+      },
+      { headers:{
+          'Access-Control-Allow-Origin':'*'
+        }
+      }).
+      then(res=> {
+        localStorage.setItem("token",res.data.token);
+        navigate("/home")
+      }, 
+      (e) => alert("Invalid Credentitals")
   );} 
 
     function handle(e) {

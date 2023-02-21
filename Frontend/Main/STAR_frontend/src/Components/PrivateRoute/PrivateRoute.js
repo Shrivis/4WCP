@@ -15,8 +15,7 @@ export default function Privateroute() {
     }
 
     if(getToken()!=null && !isTokenExpired(navigate)) {
-        console.log("here");
-    return <Outlet/>
+        return <Outlet/>
     }
     else{
         localStorage.clear();

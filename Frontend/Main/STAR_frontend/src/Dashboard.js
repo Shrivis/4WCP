@@ -22,6 +22,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Logo from './Components/Images/incedologo.png';
 import HomeIcon from '@mui/icons-material/Home';
 import AvatarItem from './Components/Avatar/Avatar';
+import NotificationItem from './Components/Avatar/Notification';
+import { Avatar, Button } from 'antd';
 
 const drawerWidth = 150;
 
@@ -158,18 +160,11 @@ export default function MiniDrawer() {
             <MenuIcon />
           </IconButton>
           <Navbar.Brand href="/home"><img className='logo' src={Logo} alt='' ></img></Navbar.Brand>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="end"
-            sx={{
-              marginRight: 114,
-            }}
-          >
-          </IconButton>
-          <span >Hi {name.split(' ')[0]}</span>
-          <AvatarItem initials={name[0]}/>
+          <div className="d-flex justify-content-end col">
+            <div className='mx-1 row'><NotificationItem notificationCount={managerRequests.length}/></div>
+            <AvatarItem initials={name[0]}/>
+            <IconButton sx={{fontSize:'large', color:'white'}}>Hi {name.split(' ')[0]}</IconButton>
+          </div>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>

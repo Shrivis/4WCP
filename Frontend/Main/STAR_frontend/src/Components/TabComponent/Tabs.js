@@ -4,7 +4,6 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import './tabs.css';
 import ManagerTable from './Tabel/ManagerTable';
 import ResourceTable from './Tabel/ResourceTable';
 import Accept from '../Card/StatisticsCardAccept'

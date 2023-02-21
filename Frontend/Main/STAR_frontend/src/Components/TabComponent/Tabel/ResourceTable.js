@@ -61,14 +61,12 @@ export default function ManagerTable({ReqData}) {
               value: 'Rejected',
             },
           ],
-          filterMode: 'tree',
           filterSearch: true,
           onFilter: (value, record) => record.status.startsWith(value),
           render: (data) => <StatusButton status={data}/>,
         },
     ];
     return(
-        
-        <Table columns={columns} dataSource={ReqData} onChange={onChange}  scroll={{ y: 200 }} ></Table>
+        <Table columns={columns} dataSource={ReqData} onChange={onChange}  scroll={{ y: 374 }} ></Table>
     );
 }   
