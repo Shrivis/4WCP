@@ -11,7 +11,7 @@ import { useState } from 'react';
 import CancelIcon from '@mui/icons-material/Cancel';
 import axios from 'axios';
 
-export default function AcceptRejctButton({data, id}) {
+export default function AcceptRejctButton({timesheetId, managerId}) {
   const [open, setOpen] = React.useState(false);
   const [resText, setResText] = useState("");
 
@@ -29,11 +29,12 @@ export default function AcceptRejctButton({data, id}) {
     
     console.log('hedfadrde');
     const formData = {
-      'id':data.id,
-      'userId':id,
+      'id':timesheetId,
+      'userId':managerId,
       'responseText':resText,
       'isApproved':isApproved
     };
+    console.log(formData);
     const options = {
         method: 'POST',
         url: 'http://localhost:8084/api/v1/request/manager',
@@ -61,6 +62,7 @@ export default function AcceptRejctButton({data, id}) {
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogContent>
+          
           <DialogContentText>
             Give a brefi insight as to why you are accepting or rejecting this request
           </DialogContentText>

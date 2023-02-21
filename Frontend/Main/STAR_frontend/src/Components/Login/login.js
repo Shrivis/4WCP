@@ -9,7 +9,7 @@ import {
   MDBCol,
   MDBInput
 } from 'mdb-react-ui-kit';
-import Logo from '../../images/incedologo.png';
+import Logo from '../Images/incedologo.png';
 
 export default function Login() {
 
@@ -34,7 +34,8 @@ export default function Login() {
       localStorage.setItem("token",res.data.token);
       navigate("/home")
     }, 
-      e=> console.error(e)
+      e => alert("Invalid Credentitals")
+      // e=> console.error(e);
   );} 
 
     function handle(e) {
@@ -62,8 +63,8 @@ export default function Login() {
               <MDBInput  onChange={(e)=>handle(e)} wrapperClass='mb-6' value={data.password} label='Password' id="password" type='password'/>
 
   
-              <div className="text-center pt-1 pb-1 mt-5">
-                <MDBBtn type="submit" className="w-100 gradient-custom-2">Sign in</MDBBtn>
+              <div className="text-center pt-1 pb-1 mt-5" style={{width:'32rem'}}>
+                <MDBBtn type="submit" className="w-100 gradient-custom-2" style={{height:'3rem'}}>Sign in</MDBBtn>
               
               </div>
             </form>

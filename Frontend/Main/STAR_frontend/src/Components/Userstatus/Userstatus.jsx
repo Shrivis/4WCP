@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Typography } from '@mui/material';
-import StatusButton from './StatusButton';
+// import StatusButton from './StatusButton';
 
 export default function BasicTable({ReqData}) {
   return (
@@ -34,7 +34,7 @@ export default function BasicTable({ReqData}) {
               <TableCell align="center">{row.startTime}</TableCell>   
               <TableCell align="center">{row.endTime}</TableCell>  
               <TableCell align="center">{row.managerName}</TableCell>  
-              <StatusButton data={row}/> 
+               
             </TableRow>
           ))}
         </TableBody>

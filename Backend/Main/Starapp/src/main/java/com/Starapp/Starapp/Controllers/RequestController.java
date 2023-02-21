@@ -34,9 +34,6 @@ public class RequestController {
   	
   	@PostMapping("/manager")
   	public ResponseEntity<String> approvRejectRequsts(@RequestBody OvertimeRequest overtimeReq) {
-
-		System.out.println("called");
-		System.out.println(overtimeReq);
   		return requestService.updateRequest(overtimeReq);
   	} 
 	 

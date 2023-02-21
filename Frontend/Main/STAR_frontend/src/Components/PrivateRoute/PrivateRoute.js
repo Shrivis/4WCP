@@ -1,20 +1,25 @@
-import React from 'react';
+import { isE } from '@rc-component/mini-decimal/es/numberUtil';
+import React, {useEffect,useState} from 'react';
 import { Outlet,useNavigate } from 'react-router';
-import {isLoggedIn} from './Auth';
 
-const isTokenExpire = token => Date.now() >= (JSON.parse(atob(token.split('.')[1]))).exp * 1000
-const isTokenExpired=()=>{
-    const token= localStorage.getItem("token");
-    const res=isTokenExpire(token);
-    return res;
-}
-const Privateroute =()=>{
-    const navigate = useNavigate()
-    if(isLoggedIn() && !isTokenExpired())
+export default function Privateroute() {
+    const navigate = new useNavigate();
+    const getToken = () => {
+        let token = localStorage.getItem("token");
+        if (token === null || token.length === 0) return null;
+        return token;
+    }
+    const isTokenExpired=(nav)=>{
+        const token= localStorage.getItem("token");
+        return Date.now() >= (JSON.parse(atob(token.split('.')[1]))).exp * 1000;
+    }
+
+    if(getToken()!=null && !isTokenExpired(navigate)) {
+        console.log("here");
     return <Outlet/>
+    }
     else{
         localStorage.clear();
-        navigate('/login')
+        useEffect(()=> {navigate('/login')}, []);
     }
 }
-export default Privateroute;

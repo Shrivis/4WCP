@@ -5,11 +5,11 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import './tabs.css';
-import StatusCard from '../Card/StatusCard';
-import RequestCard from './RequestCard';
-import UserStatus from '../UserStatus/UserStatus';
-import StatusCard1 from '../Card/StatusCard1';
-import StatusCard2 from '../Card/StatusCard2';
+import ManagerTable from './Tabel/ManagerTable';
+import ResourceTable from './Tabel/ResourceTable';
+import Accept from '../Card/StatisticsCardAccept'
+import Pending from '../Card/StatisticsCardPending'
+import Reject from '../Card/StatisticsCardReject'
 
 export default function Tabs({resource, managerReq, resourceReq, status}) {
   const [value, setValue] = React.useState('1');
@@ -20,29 +20,32 @@ export default function Tabs({resource, managerReq, resourceReq, status}) {
   
   return (
     <Box>
-        
       <TabContext value={value}>
-        <TabPanel value="1" style={{height: "9rem"}}> 
-          <StatusCard count={status.resourceApproved}/>
-          <StatusCard1 count={resourceReq.length-status.resourceApproved-status.resourceRejected}/>
-          <StatusCard2 count={status.resourceRejected}/>
+        <TabPanel value="1" style={{padding:'0'}}>         
+          <div class="d-flex justify-content-evenly">
+            <Accept count={status.resourceApproved}/>
+            <Pending count={resourceReq.length-status.resourceApproved-status.resourceRejected}/>
+            <Reject count={status.resourceRejected}/>
+          </div>
         </TabPanel>
-        <TabPanel value="2"  style={{height: "9rem"}}>         
-          <StatusCard count={status.managerApproved}/>
-          <StatusCard1 count={managerReq.length}/>
-          <StatusCard2 count={status.managerRejected}/>
+        <TabPanel value="2" style={{padding:'0'}}>         
+          <div class="d-flex justify-content-evenly">
+            <Accept count={status.managerApproved}/>
+            <Pending count={managerReq.length}/>
+            <Reject count={status.managerRejected}/>
+          </div>
         </TabPanel>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange}>
-            <Tab sx={{fontWeight:'bold', color:'black'}} label="My Profile " value="1" />
-            <Tab sx={{fontWeight:'bold', color:'black'}} label="Requests" value="2" />
+            <Tab sx={{fontWeight:'bold', color:'black'}} className="mx-2" label="My Profile " value="1" />
+            {(managerReq.length === 0)?(''):(<Tab sx={{fontWeight:'bold', color:'black'}} label="Requests" value="2" />)}
           </TabList>  
         </Box>
-        <TabPanel value="1" style={{maxHeight: "24rem", overflow:'scroll'}}>
-          <UserStatus ReqData={resourceReq}/>
+        <TabPanel value="1">
+          <ResourceTable ReqData={resourceReq}/>
         </TabPanel>
-        <TabPanel value="2" style={{maxHeight: "24rem", overflow:'scroll'}}>
-        <RequestCard managerReq={managerReq} managerId={resource.userId}/>
+        <TabPanel value="2">
+          <ManagerTable  managerReq={managerReq} managerId={resource.userId}/>
         </TabPanel>
       </TabContext>
     </Box>

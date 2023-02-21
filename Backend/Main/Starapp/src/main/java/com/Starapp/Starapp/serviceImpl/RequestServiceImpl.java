@@ -92,7 +92,7 @@ public class RequestServiceImpl implements RequestService{
 		return requests; 
 	}
 	
-//	@Transactional
+	@Transactional
 	public ResponseEntity<String> updateRequest(OvertimeRequest overtimeReq) {
   		WorkingHours workingHour = workRepo.findById(overtimeReq.getId()).orElse(null);
   		if (workingHour == null) return new ResponseEntity<>("Payload Insufficient", HttpStatus.NO_CONTENT);

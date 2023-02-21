@@ -3,6 +3,7 @@ import { BrowserRouter  as Router,Routes,Route,Link, BrowserRouter} from 'react
 import Login from './Components/Login/login';
 import Home from './Home'
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import DashboardComp from './Dashboard';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
        <Routes>
        <Route exact path="/login" element={<Login/>}/>
        <Route exact path="/home" element={<PrivateRoute/>}>
-        <Route path="" element={<Home/>}/>
+        <Route path="" element={<DashboardComp/>}/>
        </Route>
        </Routes>
        </BrowserRouter>

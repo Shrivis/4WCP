@@ -6,10 +6,16 @@ import DialogContentText from '@mui/material/DialogContentText';
 import PendingActionsIcon from '@mui/icons-material/PendingActions';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
+import {
+  CheckCircleOutlined,
+  ClockCircleOutlined,
+  CloseCircleOutlined,
+} from '@ant-design/icons';
+import { Tag } from 'antd';
 
-export default function StatusButton({data}) {
+export default function StatusButton({status}) {
+  console.log(status);
   const [open, setOpen] = React.useState(false);
-
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -22,17 +28,18 @@ export default function StatusButton({data}) {
     <div>
       <Button class="mt-1 btn " onClick={handleClickOpen}>
         {
-            `${data.status}` === 'Approved'? <CheckCircleIcon color="success" />:
-            `${data.status}` === 'Rejected'? <CancelIcon color='error' />:
-            <PendingActionsIcon color='warning'/>
+          (status.status === 'Approved') ? (<Tag icon={<CheckCircleOutlined />} color="success" className="py-2">{status.status}</Tag>):
+          (status.status === 'Rejected') ? (<Tag icon={<CloseCircleOutlined />} color="error">{status.status}</Tag>):
+          (<Tag icon={<ClockCircleOutlined />} color="warning" className="py-1">{status.status}</Tag>)
         }
       </Button>
       <Dialog open={open} onClose={handleClose}>
+      <div className="d-flex justify-content-start">
         <DialogContent>
-          <DialogContentText>
-            {data.responseText}
-          </DialogContentText>
+            <Button onClick={() => handleClose(false)}>X</Button>
+            {status.responseText}
         </DialogContent>
+      </div>
       </Dialog>
     </div>
   );

@@ -9,7 +9,7 @@ export default function MediaControlCard({count}) {
   const theme = useTheme();
 
   return (
-    <Card sx={{ display: 'inline-block' , width: '17rem',marginLeft:'2rem'}} >
+    <Card sx={{ display: 'inline-block' , width: '17rem', height:'5rem'}} >
       <Box sx={{ display: 'flex', flexDirection: 'column' ,float:'left' , width:'70%'}}>
         <CardContent sx={{ }}>
         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABrklEQVR4nO2VPywEQRSH50IoNETIKVSEy957i1JDotBqiGhEJUqd8jSqK2TNu0soFBQSnUaiukQjUYlc9o31r7pKRBSICCt7N3s2IrjDJJL7km02M/vNvPfbGSFq1PivSMZFqXBv1U10GJOSwjFS6AfPikpOGpEuX/Y1k4JCUcxwkT6ym4yISeF6IJWMLxk3OWpEuqLskUBYEsOaEWlQUsl4XuotFLLH2GJELBkyYaCCcJmRujBIjM+lQOGmEanjdTdKRlf39crx+tuMiElhulxixnEjUsezB0jBkw7UTsUfkG6iVTJkKzllUnmrgRQc691eU96KVy5mmAvLJRUs+b6IfT0HF8M5mRN7WlRD9sxuJ0Z+6xVsBaH5RIqk8FGP3a1KGhL88KQwF9n5wUcJTeWG6yXjoQ7TbeY02Sl+SipvNUjGjUhKz7KMvdExUuFCeXGMs+K38H0RK96l+swtBucEh4pS1+4hhnv9PvedLFQMMc6EfZSMD+TiFDHs6zbcOV6yS/zlbUMMN5EzWPcf58Vf43iWJRVcRkO37U/UCRNQ3oqXygyF92GrUUO84xVJkSUkFsTaugAAAABJRU5ErkJggg=="/>

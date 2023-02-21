@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
+
 export default function Home() {
   const navigate = new useNavigate();
   const [resourceDetail, setResourceDetail] = useState([]);
@@ -56,7 +57,6 @@ export default function Home() {
         <Sidebar></Sidebar>
        </div>
        <Tabs resource={resourceDetail} managerReq={managerRequests} resourceReq={resourceRequests} status={status}/>
-
     </div>
   )
 
