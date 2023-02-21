@@ -67,6 +67,6 @@ export default function ManagerTable({ReqData}) {
         },
     ];
     return(
-        <Table columns={columns} dataSource={ReqData} onChange={onChange}  scroll={{ y: 374 }} ></Table>
+        <Table columns={columns} dataSource={ReqData} onChange={onChange}  scroll={{ y: 200 }} ></Table>
     );
 }   
