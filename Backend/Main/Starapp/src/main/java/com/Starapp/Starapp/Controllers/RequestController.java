@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Starapp.Starapp.dto.request.MailContent;
 import com.Starapp.Starapp.dto.request.OvertimeRequest;
 import com.Starapp.Starapp.dto.response.ManagerRequest;
 import com.Starapp.Starapp.dto.response.ResourceRequest;
+import com.Starapp.Starapp.serviceImpl.MailServiceImpl;
 import com.Starapp.Starapp.serviceImpl.RequestServiceImpl;
 
 @RestController
@@ -21,6 +23,9 @@ import com.Starapp.Starapp.serviceImpl.RequestServiceImpl;
 public class RequestController {
 	@Autowired
 	RequestServiceImpl requestService;
+	
+	@Autowired
+	MailServiceImpl mailService;
 	
   	@GetMapping("/manager")
   	public List<ManagerRequest> getAllManagerRequst(Principal principal) {
@@ -36,5 +41,10 @@ public class RequestController {
   	public ResponseEntity<String> approvRejectRequsts(@RequestBody OvertimeRequest overtimeReq) {
   		return requestService.updateRequest(overtimeReq);
   	} 
+  	
+  	@PostMapping("/sendmail")
+  	public ResponseEntity<String> sendMail(@RequestBody MailContent mailContent){
+  		return mailService.sendMail(mailContent);
+  	}
 	 
 }
