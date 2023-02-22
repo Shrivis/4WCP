@@ -36,7 +36,21 @@ export default function AcceptRejctButton({timesheetId, managerId}) {
       'responseText':resText,
       'isApproved':isApproved
     };
-    console.log(formData);
+    const emailData = {
+      'managerId': managerId,
+      'employeeId': timesheetId.userId,
+      'responseText': resText,
+      'isApproved': isApproved,
+    };
+    const mailOption = {
+      method: 'POST',
+      url: 'http://localhost:8084/api/v1/request/sendmail',
+      header: {
+        Authorization : `Bearer ${localStorage.getItem("token")}`,
+        'Access-Control-Allow-Origin': '*'
+      },
+      data: emailData,
+    };
     const options = {
         method: 'POST',
         url: 'http://localhost:8084/api/v1/request/manager',
@@ -48,6 +62,11 @@ export default function AcceptRejctButton({timesheetId, managerId}) {
     };
     axios.request(options)
     .then((response) => {
+      axios.request(mailOption).then((response) => {
+        console.log(response)
+      }).catch((error) => {
+        console.log(error);
+      });
       console.log(response.data);
     })
     .catch((error) => {
