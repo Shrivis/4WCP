@@ -63,7 +63,7 @@ export default function ManagerTable({managerReq, managerId}) {
             title: 'Action',
             dataIndex: '',
             key: 'operation',
-            render: (data) => <AcceptRejctButton timesheetId={data.id} managerId={managerId}/>,
+            render: (data) => <AcceptRejctButton timesheetId={data.id} userId={data.userId} managerId={managerId}/>,
         },
     ];
       

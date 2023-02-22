@@ -29,16 +29,13 @@ public class MailServiceImpl implements MailService {
 		String managerEmail = userRepo.getEmailById(mailContent.getManagerId());
 		String empMail = userRepo.getEmailById(mailContent.getUserId());
 		String message = mailContent.getResponseText();
-		System.out.println(managerEmail);
-		System.out.println(empMail);
-		System.out.println(sender);
 		String ResponseType ;
-		
-	
+//		mr xyz's request for approval of timesheeno: period from-to of xyz hr has been approved by mr abc.
 		if(mailContent.getIsApproved())
 			ResponseType = " Your Request is Approved";
 		else 
 			ResponseType = "Your Request is Rejected";
+		message = message + ResponseType;
 		
 		try {
  

@@ -13,7 +13,7 @@ import { Tag } from 'antd';
 import { useState } from 'react';
 import axios from 'axios';
 
-export default function AcceptRejctButton({timesheetId, managerId}) {
+export default function AcceptRejctButton({timesheetId, managerId, userId}) {
   const [open, setOpen] = React.useState(false);
   const [resText, setResText] = useState("");
 
@@ -37,15 +37,16 @@ export default function AcceptRejctButton({timesheetId, managerId}) {
       'isApproved':isApproved
     };
     const emailData = {
+      'id':timesheetId,
       'managerId': managerId,
-      'employeeId': timesheetId.userId,
+      'userId': userId,
       'responseText': resText,
       'isApproved': isApproved,
     };
     const mailOption = {
       method: 'POST',
       url: 'http://localhost:8084/api/v1/request/sendmail',
-      header: {
+      headers: {
         Authorization : `Bearer ${localStorage.getItem("token")}`,
         'Access-Control-Allow-Origin': '*'
       },
@@ -67,13 +68,13 @@ export default function AcceptRejctButton({timesheetId, managerId}) {
       }).catch((error) => {
         console.log(error);
       });
+      setOpen(false);
       console.log(response.data);
     })
     .catch((error) => {
       console.error(error);
     });
-    
-    setOpen(false);
+
   };
 
   return (
