@@ -32,7 +32,7 @@ export default function Notification({notificationCount}) {
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-        <Tooltip title="Account settings">
+        <Tooltip title="Notifications">
           <IconButton
             onClick={handleClick}
             size="small"

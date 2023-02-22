@@ -5,10 +5,12 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import PendingActionsIcon from '@mui/icons-material/PendingActions';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import {   
+  CheckCircleOutlined,
+  ClockCircleOutlined,
+  CloseCircleOutlined, } from '@ant-design/icons';
+import { Tag } from 'antd';
 import { useState } from 'react';
-import CancelIcon from '@mui/icons-material/Cancel';
 import axios from 'axios';
 
 export default function AcceptRejctButton({timesheetId, managerId}) {
@@ -58,19 +60,22 @@ export default function AcceptRejctButton({timesheetId, managerId}) {
   return (
     <div>
       <Button class="mt-1 btn " onClick={handleClickOpen}>
-        <PendingActionsIcon color='warning'/>
+        <Tag icon={<ClockCircleOutlined />} color="default" className='py-1'>Action</Tag>
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogContent>
-          
           <DialogContentText>
             Give a brefi insight as to why you are accepting or rejecting this request
           </DialogContentText>
           <TextField autoFocus label="message" type="text" onChange={handleInputChange} fullWidth variant="standard"/>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => handleClose(false)}><CancelIcon color='error' fontSize='large' /></Button>
-          <Button onClick={() => handleClose(true)}><CheckCircleIcon color='success' fontSize='large'/></Button>
+          <Button class="btn" onClick={() => handleClose(true)}>
+            <Tag icon={<CheckCircleOutlined/>} color="success" className='py-1 px-2'>Accept</Tag>
+          </Button>
+          <Button class="btn" onClick={() => handleClose(false)}>
+            <Tag icon={<CloseCircleOutlined/>} color="error" className='py-1 px-2'>Reject</Tag>
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
