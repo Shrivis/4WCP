@@ -1,12 +1,19 @@
 package com.Starapp.Starapp.serviceImpl;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import com.Starapp.Starapp.Entities.WorkingHours;
 import com.Starapp.Starapp.dto.request.MailContent;
 import com.Starapp.Starapp.repo.UserRepository;
+import com.Starapp.Starapp.repo.WorkingHoursRepository;
 import com.Starapp.Starapp.service.MailService;
 
 import org.springframework.mail.SimpleMailMessage;
@@ -19,6 +26,11 @@ public class MailServiceImpl implements MailService {
 	@Autowired
 	UserRepository userRepo;
 	
+	@Autowired
+	WorkingHoursRepository workingRepo;
+	
+	
+	
 	@Autowired private JavaMailSender javaMailSender;
 	@Value("${spring.mail.username}") private String sender;
 	 
@@ -29,13 +41,25 @@ public class MailServiceImpl implements MailService {
 		String managerEmail = userRepo.getEmailById(mailContent.getManagerId());
 		String empMail = userRepo.getEmailById(mailContent.getUserId());
 		String message = mailContent.getResponseText();
+		String EmployeeName = userRepo.findNameById(mailContent.getUserId());
+		String ManagerName = userRepo.findNameById(mailContent.getManagerId());
+		WorkingHours wh = workingRepo.findById(mailContent.getId()).orElse(null);
 		String ResponseType ;
-//		mr xyz's request for approval of timesheeno: period from-to of xyz hr has been approved by mr abc.
 		if(mailContent.getIsApproved())
-			ResponseType = " Your Request is Approved";
+			ResponseType = "has been Approved by ";
 		else 
-			ResponseType = "Your Request is Rejected";
-		message = message + ResponseType;
+			ResponseType = "has been Rejected by ";
+		
+		LocalDateTime PeriodStart =	wh.getPeriodStart();
+		String periodStart= DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).ofPattern("dd-MMM-yyyy")
+				  .format(PeriodStart);
+		LocalDateTime PeriodEnd = wh.getPeriodEnd();
+		String periodEnd= DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).ofPattern("dd-MMM-yyyy")
+				  .format(PeriodEnd);
+		
+		message = EmployeeName+"'s"+" request for approval of working hour of "+wh.getHours()+"h\n\tTimesheet: " +wh.getTimesheetNo()+"\n\tTime period: " +
+				periodStart+" - " +periodEnd+"\n\tProject: "+wh.getProject().getProjectName() 
+				+"\n"+ResponseType+ManagerName+"\nResponse Text: "+message+"\n\nThis is a system generated mail, Do not reply";
 		
 		try {
  
@@ -59,5 +83,6 @@ public class MailServiceImpl implements MailService {
         	return new ResponseEntity<>("Error", HttpStatus.EXPECTATION_FAILED); 
         }
   		return new ResponseEntity<>("sent mail succesfully", HttpStatus.ACCEPTED); 
+		
 	}
 }

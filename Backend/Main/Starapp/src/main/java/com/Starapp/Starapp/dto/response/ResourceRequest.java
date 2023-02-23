@@ -1,6 +1,5 @@
 package com.Starapp.Starapp.dto.response;
 
-import java.time.LocalDateTime;
 
 import lombok.Data;
 
@@ -9,8 +8,8 @@ public class ResourceRequest {
 	private Long workingHourId;
 	private String timesheetNo;
 	private String projectName;
-	private LocalDateTime startTime;
-	private LocalDateTime endTime;
+	private String startTime;
+	private String endTime;
 	private String managerName;
 	private String status;
 	private Integer extraHours;

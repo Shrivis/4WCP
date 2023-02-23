@@ -1,6 +1,8 @@
 package com.Starapp.Starapp.serviceImpl;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,9 +49,15 @@ public class RequestServiceImpl implements RequestService{
   				user.setTimesheetNo(employeeWH.getTimesheetNo());
   				user.setName(employeeWH.getUser().getName());
   				user.setProjectName(employeeWH.getProject().getProjectName());
-  				user.setPeriodStart(employeeWH.getPeriodStart());
-  				user.setPeriodEnd(employeeWH.getPeriodEnd());
-  				user.setHours(employeeWH.getHours());
+  				//
+  				LocalDateTime PeriodStart = employeeWH.getPeriodStart();
+  				user.setPeriodStart( DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).ofPattern("dd-MMM-yyyy")
+  	  				  .format(PeriodStart));
+  				
+  				LocalDateTime PeriodEnd = employeeWH.getPeriodEnd();
+  				user.setPeriodEnd(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).ofPattern("dd-MMM-yyyy")
+    	  				  .format(PeriodEnd));
+  		    	user.setHours(employeeWH.getHours());
   				user.setExpectedHours(expectedHour);
   				data.add(user);
   			}
@@ -71,8 +79,14 @@ public class RequestServiceImpl implements RequestService{
 	  			request.setWorkingHourId(employeeWH.getWorkingHourId());
 	  			request.setProjectName(employeeWH.getProject().getProjectName());
 	  			request.setManagerName(employeeWH.getProject().getManagerUser().getName());
-	  			request.setStartTime(employeeWH.getPeriodStart());
-	  			request.setEndTime(employeeWH.getPeriodEnd());
+	  			
+	  			LocalDateTime PeriodStart = employeeWH.getPeriodStart();
+  		    	request.setStartTime( DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).ofPattern("dd-MMM-yyyy")
+  	  				  .format(PeriodStart));
+  				LocalDateTime PeriodEnd = employeeWH.getPeriodEnd();
+  		    	request.setEndTime(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).ofPattern("dd-MMM-yyyy")
+    	  				  .format(PeriodEnd));
+	  				
 	  			request.setTimesheetNo(employeeWH.getTimesheetNo());
 	  			request.setExtraHours(employeeWH.getHours());
 	  			if(employeeWH.getIsActive()) {

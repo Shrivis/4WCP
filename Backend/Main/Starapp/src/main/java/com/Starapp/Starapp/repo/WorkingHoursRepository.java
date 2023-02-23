@@ -13,6 +13,20 @@ public interface WorkingHoursRepository extends JpaRepository<WorkingHours , Int
 	@Query("select w from WorkingHours w where w.workingHourId=:id")
 	Optional<WorkingHours> findById(@Param("id") Long id);
 	
+	//
+
+	@Query("select w.timesheetNo from WorkingHours w where w.workingHourId=:id")
+	String getTimesheetNoById(@Param("id") Long id);
+	
+	@Query("select w.periodStart from WorkingHours w where w.workingHourId=:id")
+	String getByPeriodStartId(@Param("id") Long id);
+	
+	@Query("select w.periodEnd from WorkingHours w where w.workingHourId=:id")
+	String getByPeriodEndId(@Param("id") Long id);
+	
+	
+
+	//
 	@Query("select w from WorkingHours w where w.project.managerUser.userId=:id and w.isActive=true")
 	List<WorkingHours> WorkingHoursOfResourcesForManagerId(@Param("id") Long id);
 
