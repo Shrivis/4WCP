@@ -146,7 +146,7 @@ export default function MiniDrawer() {
   return (
     <Box sx={{ display: 'flex' }} >
       <CssBaseline />
-      <AppBar position="fixed" open={open} >
+      <AppBar position="fixed" open={open} style={{backgroundColor:"#999999"}} >
         <Toolbar sx={{width:'100%'}}>
           <IconButton
             color="inherit"
@@ -160,7 +160,7 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Navbar.Brand href="/home"><img className='logo' src={Logo} alt='' ></img></Navbar.Brand>
+          <Navbar.Brand href="/home" ><img className='logo' src={Logo} alt='' ></img></Navbar.Brand>
           <div className="d-flex justify-content-end col">
             <div className='mx-1 row'><NotificationItem notificationCount={managerRequests.length}/></div>
             <AvatarItem initials={name[0]}/>
