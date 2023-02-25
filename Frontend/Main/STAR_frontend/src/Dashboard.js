@@ -23,6 +23,7 @@ import Logo from './Components/Images/incedologo.png';
 import HomeIcon from '@mui/icons-material/Home';
 import AvatarItem from './Components/Avatar/Avatar';
 import NotificationItem from './Components/Avatar/Notification';
+import './App.css';
 import { Avatar, Button } from 'antd';
 
 const drawerWidth = 150;
@@ -232,3 +233,6 @@ export default function MiniDrawer() {
     </Box>
   );
 }
+
+var a="hi";
+console.log(a);

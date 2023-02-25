@@ -77,6 +77,9 @@ export default function AcceptRejctButton({timesheetId, managerId, userId}) {
 
   };
 
+
+
+
   return (
     <div>
       <Button class="mt-1 btn " onClick={handleClickOpen}>
@@ -84,7 +87,7 @@ export default function AcceptRejctButton({timesheetId, managerId, userId}) {
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogContent>
-          <DialogContentText>
+          <DialogContentText >
             Give a brefi insight as to why you are accepting or rejecting this request
           </DialogContentText>
           <TextField autoFocus label="message" type="text" onChange={handleInputChange} fullWidth variant="standard"/>

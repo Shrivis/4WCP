@@ -1,18 +1,25 @@
-import React from 'react'
-import Axios from 'axios'
+import React from 'react';
+import Axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import "./login.css";
 import {
   MDBBtn,
   MDBContainer,
   MDBRow,
   MDBCol,
-  MDBInput
-} from 'mdb-react-ui-kit';
-import Logo from '../Images/incedologo.png';
+  MDBCard,
+  MDBCardBody,
+  MDBInput,
+
+}
+from 'mdb-react-ui-kit';
+import { color } from '@mui/system';
+
 
 export default function Login() {
   const url="http://localhost:8084/api/v1/auth/authenticate" //API for JWT
+  const[errMsg,setErrMsg]=useState('');
   const navigate = useNavigate(); 
   const [data, setData] = useState({
     "email":"",
@@ -22,7 +29,7 @@ export default function Login() {
   function submit(e) {
     e.preventDefault();
     Axios.post(url,{
-        "email": data.email,
+        "email": data.email, 
         "password": data.password
       },
       { headers:{
@@ -33,7 +40,7 @@ export default function Login() {
         localStorage.setItem("token",res.data.token);
         navigate("/home")
       }, 
-      (e) => alert("Invalid Credentitals")
+      (e) => setErrMsg("Invalid Credentitals")
   );} 
 
     function handle(e) {
@@ -41,55 +48,36 @@ export default function Login() {
         newdata[e.target.id]=e.target.value;
         setData(newdata);
     }
-
   return (
-    <MDBContainer className="my-5 gradient-form h-50" >
+    <MDBContainer fluid className='body'style={{height:"36rem"}}>
 
-      <MDBRow className="  h-50">
+      <MDBRow>
 
-        <MDBCol col='6' className="mb-1" style= {{ height:'30rem'}}>
-          <div className="d-flex flex-column ms-5">
+        <MDBCol md='6' className='text-center text-md-start d-flex flex-column justify-content-center body' style={{height:"36rem"}}>
 
-            <div className="text-center">
-              <img src={Logo}
-                style={{width: '185px'}} alt="logo" />
-              <h4 className="mt-4 mb-8 ">We are The Incedo Team</h4>
-            </div>
-
-            <form onSubmit={ (e) => submit(e) }>
-              <MDBInput onChange={(e)=>handle(e)} wrapperClass='mb-4 mt-5' value={data.email} label='Email address' id='email' type='email'/>
-              <MDBInput  onChange={(e)=>handle(e)} wrapperClass='mb-6' value={data.password} label='Password' id="password" type='password'/>
-
-  
-              <div className="text-center pt-1 pb-1 mt-5" style={{width:'32rem'}}>
-                <MDBBtn type="submit" className="w-100 gradient-custom-2" style={{height:'3rem'}}>Sign in</MDBBtn>
-              
-              </div>
-            </form>
-            <div className="d-flex flex-row align-items-center justify-content-center pb-2 mb-2"></div>
-
-          </div>
-
+          <h1 className="my-5 display-3 fw-bold ls-tight px-3">
+            Comp-Ov <br />
+            <span className='display-6 fw-bold' style={{color:"#f44336"}}>Easier overtime management</span>
+          </h1>
+          <p className='px-3 fw-bold' style={{color: 'hsl(217, 10%, 50.8%)'}}>
+            Now manage your employee's overtime pays in an easier and efficient way. We provide an
+            ultimate solution for keeping track of overtime requests of your employees and comprehensive 
+            tools to visualise overtime working activities throughout the organisation.
+          </p>
         </MDBCol>
 
-        <MDBCol col='6' className="mb-5"  style= {{ height:'30rem'}}>
-          <div className="d-flex flex-column  justify-content-center gradient-custom-2 h-100 ">
+        <MDBCol md='5' style={{height:"35rem"}}>
 
-            <div className="text-white px-3 py-4 px-5 h-100 ">
-              <h4 class="mb-4" style= {{ textAlign :'center'}} >We are more than just a company!</h4>
-              <h5 class="mb-4" style={{textAlign :'center'}}>Our Core Values</h5>
-              <p> 1. Exceed Client Excpectations</p>
-              <p> 2. Pursure Excellence</p>
-              <p> 3. Build For the Long-term</p>
-              <p> 4. Embrace Change and Innovation</p>
-              <p> 5. Work as One Global Team</p>
-              <p> 6. Be a Caring Meritocracy</p>
-              <p> 7. Drive Commercial Rigor</p>
-              <p> 8. Always Act with Intergrity</p>
-
-            </div>
-
-          </div>
+          <MDBCard className='my-5' style={{height:"30rem"}}>
+            <MDBCardBody className='p-5' style={{marginTop:"8rem"}}>
+            <form onSubmit={ (e) => submit(e) }>
+              <MDBInput onChange={(e)=>handle(e)} wrapperClass='mb-4' value={data.email} id='email' type='email' placeholder='Email Address'/>
+              <MDBInput onChange={(e)=>handle(e)} wrapperClass='mb-4' value={data.password}  id="password" type='password' placeholder='Password'/>
+              <span className='text-danger'>{errMsg}</span>
+              <MDBBtn className='w-100' size='md' style={{height:"2.5rem", backgroundColor:"#f44336"}}>Login</MDBBtn>
+            </form>
+            </MDBCardBody>
+          </MDBCard>
 
         </MDBCol>
 
@@ -98,3 +86,4 @@ export default function Login() {
     </MDBContainer>
   );
 }
+
