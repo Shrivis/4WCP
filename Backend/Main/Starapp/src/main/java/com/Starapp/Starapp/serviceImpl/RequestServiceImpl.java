@@ -15,12 +15,14 @@ import org.springframework.stereotype.Service;
 import com.Starapp.Starapp.Entities.WorkingHours;
 import com.Starapp.Starapp.dto.request.OvertimeRequest;
 import com.Starapp.Starapp.dto.response.ManagerRequest;
+import com.Starapp.Starapp.dto.response.RequestHistory;
 import com.Starapp.Starapp.dto.response.ResourceRequest;
 import com.Starapp.Starapp.repo.UserProjectRelationRepository;
 import com.Starapp.Starapp.repo.UserRepository;
 import com.Starapp.Starapp.repo.WorkingHoursRepository;
 import com.Starapp.Starapp.service.RequestService;
 import org.springframework.http.HttpStatus;
+import java.time.temporal.ChronoUnit;
 
 @Service
 public class RequestServiceImpl implements RequestService{
@@ -32,6 +34,7 @@ public class RequestServiceImpl implements RequestService{
 	
 	@Autowired
 	UserProjectRelationRepository userProjectRelation;
+
 	
 	@Override
 	public List<ManagerRequest> getAllResourceRequestForManager(String email) {
@@ -51,11 +54,12 @@ public class RequestServiceImpl implements RequestService{
   				user.setProjectName(employeeWH.getProject().getProjectName());
   				//
   				LocalDateTime PeriodStart = employeeWH.getPeriodStart();
-  				user.setPeriodStart( DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).ofPattern("dd-MMM-yyyy")
+  				DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+				user.setPeriodStart( DateTimeFormatter.ofPattern("dd-MMM-yyyy")
   	  				  .format(PeriodStart));
   				
   				LocalDateTime PeriodEnd = employeeWH.getPeriodEnd();
-  				user.setPeriodEnd(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).ofPattern("dd-MMM-yyyy")
+				user.setPeriodEnd(DateTimeFormatter.ofPattern("dd-MMM-yyyy")
     	  				  .format(PeriodEnd));
   		    	user.setHours(employeeWH.getHours());
   				user.setExpectedHours(expectedHour);
@@ -81,10 +85,10 @@ public class RequestServiceImpl implements RequestService{
 	  			request.setManagerName(employeeWH.getProject().getManagerUser().getName());
 	  			
 	  			LocalDateTime PeriodStart = employeeWH.getPeriodStart();
-  		    	request.setStartTime( DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).ofPattern("dd-MMM-yyyy")
+				request.setStartTime(DateTimeFormatter.ofPattern("dd-MMM-yy")
   	  				  .format(PeriodStart));
   				LocalDateTime PeriodEnd = employeeWH.getPeriodEnd();
-  		    	request.setEndTime(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).ofPattern("dd-MMM-yyyy")
+  		    	request.setEndTime(DateTimeFormatter.ofPattern("dd-MMM-yy")
     	  				  .format(PeriodEnd));
 	  				
 	  			request.setTimesheetNo(employeeWH.getTimesheetNo());
@@ -112,12 +116,41 @@ public class RequestServiceImpl implements RequestService{
   		if (workingHour == null) return new ResponseEntity<>("Payload Insufficient", HttpStatus.NO_CONTENT);
   		if (workingHour.getIsActive() == false) return new ResponseEntity<>("Bad Request", HttpStatus.BAD_REQUEST);
   		if (overtimeReq == null || overtimeReq.getResponseText() == null) return new ResponseEntity<>("Data Insufficient", HttpStatus.BAD_REQUEST);
+  		if (workingHour.getIsActive() == true) workingHour.setApprovedOn(LocalDateTime.now());
   		workingHour.setIsActive(false);
   		workingHour.setIsApproved(overtimeReq.getIsApproved());
-  		workingHour.setCreatedOn(LocalDateTime.now());
   		workingHour.setResponseText(overtimeReq.getResponseText());
   		workRepo.save(workingHour);
   		return new ResponseEntity<>("saved", HttpStatus.CREATED); 
+	}
+
+	public List<RequestHistory> getAllHistory(String email) {
+		Long id = userRepo.findByEmail(email).orElse(null).getUserId();
+  		List<RequestHistory> data = new ArrayList<>();
+  		List<WorkingHours> workingHours = workRepo.HistoryOfRequestsForManagerId(id); 
+  		for (WorkingHours employeeWH: workingHours) {
+  			Long resourceId = employeeWH.getUser().getUserId();
+//  			String projectId = employeeWH.getProject().getProjectId();
+  				RequestHistory history = new RequestHistory();
+  				history.setId(employeeWH.getWorkingHourId());
+  				history.setUserId(resourceId);
+  				history.setTimesheetNo(employeeWH.getTimesheetNo());
+  				history.setName(employeeWH.getUser().getName());
+  				history.setProjectName(employeeWH.getProject().getProjectName());
+  				LocalDateTime PeriodStart = employeeWH.getPeriodStart();
+  				DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+				history.setPeriodStart(DateTimeFormatter.ofPattern("dd-MMM-yy").format(PeriodStart));
+  				LocalDateTime PeriodEnd = employeeWH.getPeriodEnd();
+				history.setPeriodEnd(DateTimeFormatter.ofPattern("dd-MMM-yy").format(PeriodEnd));
+  				history.setHours(employeeWH.getHours());
+  				if (employeeWH.getIsApproved()) history.setStatus("Approved");
+  				else history.setStatus("Rejected");
+  				history.setResponseText(employeeWH.getResponseText());
+  				Long days = ChronoUnit.DAYS.between(employeeWH.getApprovedOn(), LocalDateTime.now());
+  				if (days<=7) history.setCanChange(true);
+  				data.add(history);
+  		}
+  		return data;
 	}
 
 }

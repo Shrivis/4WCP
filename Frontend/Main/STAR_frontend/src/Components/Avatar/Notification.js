@@ -42,7 +42,7 @@ export default function Notification({notificationCount}) {
             aria-expanded={open ? 'true' : undefined}
           >
             <Badge count={notificationCount}>
-            <NotificationsIcon sx={{ width: 32, height: 32, color:"#C0C0C0"}}></NotificationsIcon>
+            <NotificationsIcon sx={{ width: 32, height: 32, color:"#EEEEEE"}}></NotificationsIcon>
             </Badge>
           </IconButton>
         </Tooltip>

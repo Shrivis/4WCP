@@ -2,16 +2,12 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import PendingActionsIcon from '@mui/icons-material/PendingActions';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import CancelIcon from '@mui/icons-material/Cancel';
 import {
   CheckCircleOutlined,
   ClockCircleOutlined,
   CloseCircleOutlined,
 } from '@ant-design/icons';
-import { Tag } from 'antd';
+import { Tag, Space } from 'antd';
 
 export default function StatusButton({status}) {
   console.log(status);
@@ -25,14 +21,14 @@ export default function StatusButton({status}) {
   };
 
   return (
-    <div>
-      <Button class="mt-1 btn " onClick={handleClickOpen}>
-        {
-          (status.status === 'Approved') ? (<Tag icon={<CheckCircleOutlined />} color="success" className="py-2">{status.status}</Tag>):
-          (status.status === 'Rejected') ? (<Tag icon={<CloseCircleOutlined />} color="error">{status.status}</Tag>):
-          (<Tag icon={<ClockCircleOutlined />} color="warning" className="py-1">{status.status}</Tag>)
-        }
-      </Button>
+    <>
+      <Space>
+      {
+        (status.status === 'Approved') ? (<a className="text-success" style={{'text-decoration':'none'}} onClick={handleClickOpen}>{status.status}</a>):
+        (status.status === 'Rejected') ? (<div className="text-danger" style={{'text-decoration':'none'}}  onClick={handleClickOpen}>{status.status}</div>):
+        (<a className="text-warning" style={{'text-decoration':'none'}} onClick={handleClickOpen}>{status.status}</a>)
+      }
+      </Space>
       <Dialog open={open} onClose={handleClose}>
       <div className="d-flex justify-content-start">
         <DialogContent>
@@ -41,6 +37,6 @@ export default function StatusButton({status}) {
         </DialogContent>
       </div>
       </Dialog>
-    </div>
+    </>
   );
 }

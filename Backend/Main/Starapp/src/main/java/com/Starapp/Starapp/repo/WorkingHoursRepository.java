@@ -45,4 +45,8 @@ public interface WorkingHoursRepository extends JpaRepository<WorkingHours , Int
 	@Query(value="select count(w) from WorkingHours w where w.project.managerUser.userId=:id and w.isActive=false and w.isApproved=false")
 	Integer getResourceRejectedStatusForManager(Long id);
 
+
+	@Query("select w from WorkingHours w where w.project.managerUser.userId=:id and w.isActive=false")
+	List<WorkingHours> HistoryOfRequestsForManagerId(Long id);
+
 }

@@ -72,8 +72,8 @@ export default function Login() {
             <MDBCardBody className='p-5' style={{marginTop:"8rem"}}>
             <form onSubmit={ (e) => submit(e) }>
               <MDBInput onChange={(e)=>handle(e)} wrapperClass='mb-4' value={data.email} id='email' type='email' placeholder='Email Address'/>
-              <MDBInput onChange={(e)=>handle(e)} wrapperClass='mb-4' value={data.password}  id="password" type='password' placeholder='Password'/>
-              <span className='text-danger'>{errMsg}</span>
+              <MDBInput onChange={(e)=>handle(e)} wrapperClass='mb-4' value={data.password}  id="password" type='password' placeholder='Password'>
+              <span className='text-danger mt-1'>{errMsg}</span></MDBInput>
               <MDBBtn className='w-100' size='md' style={{height:"2.5rem", backgroundColor:"#f44336"}}>Login</MDBBtn>
             </form>
             </MDBCardBody>

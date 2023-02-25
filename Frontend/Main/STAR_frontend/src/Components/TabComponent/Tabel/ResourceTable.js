@@ -11,29 +11,34 @@ export default function ManagerTable({ReqData}) {
         {
             title: 'Timesheet',
             dataIndex: 'timesheetNo',
+            width:140,
             sorter: (a, b) => a.timesheetNo.localeCompare(b.timesheetNo),
             sortDirections: ['descend', 'ascend'],
         },
         {
             title:'Project',
             dataIndex:'projectName',
+            ellipsis:'true',
             sorter:(a, b) => a.projectName.localeCompare(b.projectName),
             sortDirections: ['descend', 'ascend'],
         },
         {
             title:'Hours',
             dataIndex:'extraHours',
+            width:110,
             sorter:(a, b) => a.extraHours - b.extraHours,
             sortDirections: ['descend', 'ascend'],
         },  
         {
             title:'From Date',
             dataIndex:'startTime',
+            width:140,
             sorter:(a, b) => a.startTime.localeCompare(b.startTime),
             sortDirections: ['descend', 'ascend'],
         },        {
             title:'Till Date',
             dataIndex:'endTime',
+            width:140,
             sorter:(a, b) => a.endTime.localeCompare(b.endTime),
             sortDirections: ['descend', 'ascend'],
         },
@@ -45,6 +50,7 @@ export default function ManagerTable({ReqData}) {
         },
         {
           title: 'Status',
+          width:110,
           dataIndex: '',
           key:'operation',    
           filters: [

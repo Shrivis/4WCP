@@ -109,6 +109,7 @@ export default function MiniDrawer() {
   const [resourceDetail, setResourceDetail] = useState([]);
   const [resourceRequests, setResourceRequests] = useState([]);
   const [managerRequests, setManagerRequests] = useState([]);
+  const [reqHistory, setRequestsHistory] = useState([]);
   const [status, setStatus] = useState([]);
   useEffect(() => { 
     Promise.all([
@@ -117,6 +118,10 @@ export default function MiniDrawer() {
         'Access-Control-Allow-Origin': '*'
       }}),
       axios.get('http://localhost:8084/api/v1/request/manager', {headers: {
+        Authorization : `Bearer ${localStorage.getItem("token")}`,
+        'Access-Control-Allow-Origin': '*'
+      }}),
+      axios.get('http://localhost:8084/api/v1/request/history', {headers: {
         Authorization : `Bearer ${localStorage.getItem("token")}`,
         'Access-Control-Allow-Origin': '*'
       }}),
@@ -129,11 +134,12 @@ export default function MiniDrawer() {
         'Access-Control-Allow-Origin': '*'
       }})
     ])
-    .then(([res1, res2, res3, res4]) => {
+    .then(([res1, res2, res3, res4, res5]) => {
       setResourceDetail(res1.data);
       setManagerRequests(res2.data)
-      setResourceRequests(res3.data);
-      setStatus(res4.data);
+      setRequestsHistory(res3.data);
+      setResourceRequests(res4.data);
+      setStatus(res5.data);
       setName(res1.data.name)
     })
     .catch(error => {
@@ -146,7 +152,7 @@ export default function MiniDrawer() {
   return (
     <Box sx={{ display: 'flex' }} >
       <CssBaseline />
-      <AppBar position="fixed" open={open} style={{backgroundColor:"#999999"}} >
+      <AppBar position="fixed" open={open} style={{backgroundColor:"#222831"}} >
         <Toolbar sx={{width:'100%'}}>
           <IconButton
             color="inherit"
@@ -164,7 +170,7 @@ export default function MiniDrawer() {
           <div className="d-flex justify-content-end col">
             <div className='mx-1 row'><NotificationItem notificationCount={managerRequests.length}/></div>
             <AvatarItem initials={name[0]}/>
-            <IconButton sx={{fontSize:'large', color:'white'}}>Hi {name.split(' ')[0]}</IconButton>
+            <IconButton sx={{fontSize:'large', color:'#EEEEEE'}}>Hi {name.split(' ')[0]}</IconButton>
           </div>
         </Toolbar>
       </AppBar>
@@ -228,7 +234,7 @@ export default function MiniDrawer() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Tabs resource={resourceDetail} managerReq={managerRequests} resourceReq={resourceRequests} status={status}/>
+        <Tabs resource={resourceDetail} managerReq={managerRequests} reqHistory={reqHistory} resourceReq={resourceRequests} status={status}/>
       </Box>
     </Box>
   );

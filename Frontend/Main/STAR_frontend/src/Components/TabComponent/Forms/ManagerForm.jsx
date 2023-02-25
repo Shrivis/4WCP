@@ -5,12 +5,8 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-
-import {   
-  CheckCircleOutlined,
-  ClockCircleOutlined,
-  CloseCircleOutlined, } from '@ant-design/icons';
-import { Tag } from 'antd';
+import { CheckCircleOutlined, ClockCircleOutlined, CloseCircleOutlined, } from '@ant-design/icons';
+import { Divider, Tag, Space } from 'antd';
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -22,6 +18,10 @@ export default function AcceptRejctButton({timesheetId, managerId, userId}) {
     setOpen(true);
   };
   
+  const handleClickClose = () => {
+    setOpen(false);
+  };
+  
  
   const handleInputChange = (event) => {
     // debugger;
@@ -31,7 +31,6 @@ export default function AcceptRejctButton({timesheetId, managerId, userId}) {
 
   const handleClose = (isApproved) => {
     
-    console.log('hedfadrde');
     const formData = {
       'id':timesheetId,
       'userId':managerId,
@@ -65,11 +64,12 @@ export default function AcceptRejctButton({timesheetId, managerId, userId}) {
     };
     axios.request(options)
     .then((response) => {
-      axios.request(mailOption).then((response) => {
-        console.log(response)
-      }).catch((error) => {
-        console.log(error);
-      });
+      // uncomment below lines to start mail services again
+      // axios.request(mailOption).then((response) => {
+      //   console.log(response)
+      // }).catch((error) => {
+      //   console.log(error);
+      // });
       setOpen(false);
       console.log(response.data);
     })
@@ -84,21 +84,23 @@ export default function AcceptRejctButton({timesheetId, managerId, userId}) {
 
   return (
     <div>
-      <Button class="mt-1 btn " onClick={handleClickOpen} >
-        <Tag icon={<ClockCircleOutlined />} color="default" className='py-1'>Action</Tag>
-      </Button>
+      <Space  onClick={handleClickOpen} >
+        <a color="text-action"  style={{'text-decoration':'none'}} className='py-1'>Action</a>
+      </Space>
       <Dialog open={open} onClose={handleClose} >
-        <DialogContent>
+        <DialogContent style={{margin:0, padding:0}}>
           
- 
-
-          <DialogContentText>
-            Give a brief insight as to why you are accepting or rejecting this request
-          
+          <div className='d-flex btn text-danger justify-content-end'>
+          <DialogContentText className="btn">
+            Give a brief insight as to why you are accepting or rejecting
           </DialogContentText>
-          <TextField autoFocus label="message" type="text" onChange={handleInputChange} fullWidth variant="standard"/>
+          <div className='d-flex btn text-danger justify-content-end' onClick={handleClickClose}>X</div>
+          </div>
+          <Divider style={{margin:0, padding:1}}></Divider>
+          <div className="mx-4">
+          <TextField autoFocus className='mt-2' label="message" type="text" onChange={handleInputChange} fullWidth variant="standard"/></div>
         </DialogContent>
-        <DialogActions>
+        <DialogActions className='mx-2'>
           <Button class="btn" onClick={() => handleClose(true)}>
             <Tag icon={<CheckCircleOutlined/>} color="success" className='py-1 px-2'>Accept</Tag>
           </Button>

@@ -6,11 +6,12 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import ManagerTable from './Tabel/ManagerTable';
 import ResourceTable from './Tabel/ResourceTable';
+import HistoryTable from './Tabel/History';
 import Accept from '../Card/StatisticsCardAccept'
 import Pending from '../Card/StatisticsCardPending'
 import Reject from '../Card/StatisticsCardReject'
 
-export default function Tabs({resource, managerReq, resourceReq, status}) {
+export default function Tabs({resource, managerReq, reqHistory, resourceReq, status}) {
   const [value, setValue] = React.useState('1');
 
   const handleChange = (event, newValue) => {
@@ -34,10 +35,11 @@ export default function Tabs({resource, managerReq, resourceReq, status}) {
             <Reject count={status.managerRejected}/>
           </div>
         </TabPanel>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Box className='mt-2' sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange}>
-            <Tab sx={{fontWeight:'bold', color:'black'}} className="mx-2" label="My Profile " value="1" />
-            {(managerReq.length === 0)?(''):(<Tab sx={{fontWeight:'bold', color:'black'}} label="Requests" value="2" />)}
+            <Tab sx={{fontWeight:'bold', color:'gray'}} className="mx-2" label="My Profile " value="1" />
+            {(managerReq.length === 0)?(''):(<Tab sx={{fontWeight:'bold', color:'gray'}} label="Requests" value="2" />)}
+            {(managerReq.length === 0)?(''):(<Tab sx={{fontWeight:'bold', color:'gray'}} label="History" value="3" />)}
           </TabList>  
         </Box>
         <TabPanel value="1">
@@ -45,6 +47,9 @@ export default function Tabs({resource, managerReq, resourceReq, status}) {
         </TabPanel>
         <TabPanel value="2">
           <ManagerTable  managerReq={managerReq} managerId={resource.userId}/>
+        </TabPanel>
+        <TabPanel value="3">
+          <HistoryTable  reqHistory={reqHistory} managerId={resource.userId}/>
         </TabPanel>
       </TabContext>
     </Box>

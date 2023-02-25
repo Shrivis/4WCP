@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.Starapp.Starapp.dto.request.MailContent;
 import com.Starapp.Starapp.dto.request.OvertimeRequest;
 import com.Starapp.Starapp.dto.response.ManagerRequest;
+import com.Starapp.Starapp.dto.response.RequestHistory;
 import com.Starapp.Starapp.dto.response.ResourceRequest;
 import com.Starapp.Starapp.serviceImpl.MailServiceImpl;
 import com.Starapp.Starapp.serviceImpl.RequestServiceImpl;
@@ -33,8 +34,13 @@ public class RequestController {
   	}
   	
   	@GetMapping("/resource")
-  	public List<ResourceRequest> GetAllRequests(Principal principal) {
+  	public List<ResourceRequest> getAllRequests(Principal principal) {
 		return requestService.getAllResourceRequest(principal.getName());  		
+  	}
+  	
+  	@GetMapping("/history")
+  	public List<RequestHistory> getAllManagerRequestHistory(Principal principal) {
+  		return requestService.getAllHistory(principal.getName());
   	}
   	
   	@PostMapping("/manager")

@@ -1,6 +1,10 @@
-import { Table, Typography } from 'antd';
+import { Button, Table, Tooltip } from 'antd';
 import React from 'react'
+import {
+    ClockCircleOutlined,
+  } from '@ant-design/icons';
 import AcceptRejctButton from '../Forms/ManagerForm';
+import StatusButton from '../Forms/StatusButton';
 
 
 
@@ -9,11 +13,11 @@ function onChange(pagination, filters, sorter, extra) {
   console.log('params', pagination, filters, sorter, extra);
 };
 
-export default function ManagerTable({managerReq, managerId}) {
+export default function ManagerTable({reqHistory, managerId}) {
     const columns = [
         {
             title: 'Timesheet',
-            dataIndex: 'timesheetNo',   
+            dataIndex: 'timesheetNo',
             width:140,
             sorter: (a, b) => a.timesheetNo.localeCompare(b.timesheetNo),
             sortDirections: ['descend', 'ascend'],
@@ -28,7 +32,6 @@ export default function ManagerTable({managerReq, managerId}) {
         {
             title:'Name',
             dataIndex:'name',
-            ellipsis:'true',
             sorter:(a, b) => a.name.localeCompare(b.name),
             sortDirections: ['descend', 'ascend'],
         },
@@ -36,6 +39,7 @@ export default function ManagerTable({managerReq, managerId}) {
             title:'Project',
             dataIndex:'projectName',
             ellipsis:'true',
+            tooltip:'projectName',
             sorter:(a, b) => a.projectName.localeCompare(b.projectName),
             sortDirections: ['descend', 'ascend'],
         },
@@ -54,17 +58,8 @@ export default function ManagerTable({managerReq, managerId}) {
             sortDirections: ['descend', 'ascend'],
         },
         {
-            title:'Expected Hours',
-            ellipsis:'true',
-            width:110,
-            dataIndex:'expectedHours',
-            sorter:(a, b) => a.expectedHours - b.expectedHours,
-            sortDirections: ['descend', 'ascend'],
-        },
-        {
-            title:'Actual Hours',
+            title:'Hours',
             dataIndex:'hours',
-            ellipsis:'true',
             width:110,
             sorter:(a, b) => a.hours - b.hours,
             sortDirections: ['descend', 'ascend'],
@@ -72,13 +67,30 @@ export default function ManagerTable({managerReq, managerId}) {
         {
             title: 'Action',
             dataIndex: '',
-            width: 90,
             key: 'operation',
-            render: (data) => <AcceptRejctButton timesheetId={data.id} userId={data.userId} managerId={managerId}/>,
+            width:180,
+            filters: [
+                {
+                    text: 'Approved',
+                    value: 'Approved',
+                },
+                {
+                    text: 'Pending',
+                    value: 'Pending',
+                },
+                {
+                    text: 'Rejected',
+                    value: 'Rejected',
+                },
+            ],
+            filterSearch: true,
+            onFilter: (value, record) => record.status.startsWith(value),
+            render: (data) => <span className='d-flex justify-content-evenly'><StatusButton status={data}/>
+            {(data.canChange==true)?(<AcceptRejctButton timesheetId={data.id} userId={data.userId} managerId={managerId}/>):
+            (<a color="text-action"  style={{'text-decoration':'none'}} title="older than 7 days, Can't modify" className='py-1' disabled>Action</a>)}</span>,
         },
     ];
-      
     return(
-        <Table columns={columns} dataSource={managerReq} onChange={onChange}  scroll={{ y: 200 }}></Table>
+        <Table columns={columns} dataSource={reqHistory} onChange={onChange}  scroll={{ y: 200 }}></Table>
     );
 }   
