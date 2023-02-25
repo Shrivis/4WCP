@@ -5,6 +5,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
+
 import {   
   CheckCircleOutlined,
   ClockCircleOutlined,
@@ -21,6 +22,7 @@ export default function AcceptRejctButton({timesheetId, managerId, userId}) {
     setOpen(true);
   };
   
+ 
   const handleInputChange = (event) => {
     // debugger;
     setResText(event.target.value);
@@ -79,13 +81,17 @@ export default function AcceptRejctButton({timesheetId, managerId, userId}) {
 
   return (
     <div>
-      <Button class="mt-1 btn " onClick={handleClickOpen}>
+      <Button class="mt-1 btn " onClick={handleClickOpen} >
         <Tag icon={<ClockCircleOutlined />} color="default" className='py-1'>Action</Tag>
       </Button>
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={handleClose} >
         <DialogContent>
+          
+ 
+
           <DialogContentText>
-            Give a brefi insight as to why you are accepting or rejecting this request
+            Give a brief insight as to why you are accepting or rejecting this request
+          
           </DialogContentText>
           <TextField autoFocus label="message" type="text" onChange={handleInputChange} fullWidth variant="standard"/>
         </DialogContent>
