@@ -26,7 +26,6 @@ export default function AcceptRejctButton({timesheetId, managerId, userId}) {
   const handleInputChange = (event) => {
     // debugger;
     setResText(event.target.value);
-    console.log(resText);
   };
 
   const handleClose = (isApproved) => {
@@ -65,16 +64,15 @@ export default function AcceptRejctButton({timesheetId, managerId, userId}) {
     axios.request(options)
     .then((response) => {
       // uncomment below lines to start mail services again
-      // axios.request(mailOption).then((response) => {
-      //   console.log(response)
-      // }).catch((error) => {
-      //   console.log(error);
-      // });
+      axios.request(mailOption).then((response) => {
+        console.log(response)
+      }).catch((error) => {
+        console.log(error);
+      });
       setOpen(false);
-      console.log(response.data);
     })
     .catch((error) => {
-      console.error(error);
+      setOpen(false);
     });
 
   };

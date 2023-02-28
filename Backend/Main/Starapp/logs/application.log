@@ -983,3 +983,861 @@ Action:
 
 Identify and stop the process that's listening on port 8084 or configure this application to listen on another port.
 
+2023-02-27 22:11:30.065  INFO 25396 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 25396 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 22:11:30.066  INFO 25396 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 22:11:30.236  INFO 25396 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 22:11:30.277  INFO 25396 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 4 JPA repository interfaces.
+2023-02-27 22:11:30.334  INFO 25396 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8084 (http)
+2023-02-27 22:11:30.335  INFO 25396 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-27 22:11:30.335  INFO 25396 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-27 22:11:30.407  INFO 25396 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-27 22:11:30.407  INFO 25396 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 338 ms
+2023-02-27 22:11:30.443  INFO 25396 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 22:11:30.449  INFO 25396 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-15 - Starting...
+2023-02-27 22:11:30.758  INFO 25396 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-15 - Start completed.
+2023-02-27 22:11:30.760  INFO 25396 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 22:11:31.362  INFO 25396 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 22:11:31.362  INFO 25396 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 22:11:31.535  INFO 25396 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@153973c0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@123d41a5, org.springframework.security.web.context.SecurityContextPersistenceFilter@6c13d033, org.springframework.security.web.header.HeaderWriterFilter@74c974ad, org.springframework.web.filter.CorsFilter@561e803, org.springframework.security.web.authentication.logout.LogoutFilter@42d8ab61, com.Starapp.Starapp.config.JwtAuthenticationFilter@fb9ddb7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6015369a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5f464a29, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ea30570, org.springframework.security.web.session.SessionManagementFilter@186eeffb, org.springframework.security.web.access.ExceptionTranslationFilter@2984b1ca, org.springframework.security.web.access.intercept.AuthorizationFilter@66cae01b]
+2023-02-27 22:11:31.541  WARN 25396 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 22:11:31.607  INFO 25396 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-27 22:11:31.615  INFO 25396 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-27 22:11:31.617  INFO 25396 --- [restartedMain] c.S.S.StarappApplication                 : Started StarappApplication in 1.6 seconds (JVM running for 199757.102)
+2023-02-27 22:11:31.618  INFO 25396 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-02-27 22:13:14.091  INFO 33044 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 33044 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 22:13:14.100  INFO 33044 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 22:13:14.151  INFO 33044 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-27 22:13:14.151  INFO 33044 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-27 22:13:14.889  INFO 33044 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 22:13:15.031  INFO 33044 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 124 ms. Found 4 JPA repository interfaces.
+2023-02-27 22:13:15.943  INFO 33044 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8084 (http)
+2023-02-27 22:13:15.966  INFO 33044 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-27 22:13:15.967  INFO 33044 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-27 22:13:16.152  INFO 33044 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-27 22:13:16.152  INFO 33044 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1999 ms
+2023-02-27 22:13:16.406  INFO 33044 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 22:13:16.480  INFO 33044 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-27 22:13:16.665  INFO 33044 --- [restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-27 22:13:16.812  INFO 33044 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-02-27 22:13:17.560  INFO 33044 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-02-27 22:13:17.597  INFO 33044 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 22:13:18.937  INFO 33044 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 22:13:18.954  INFO 33044 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 22:13:19.780  INFO 33044 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@74032991, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43bf9138, org.springframework.security.web.context.SecurityContextPersistenceFilter@101340d2, org.springframework.security.web.header.HeaderWriterFilter@4e0922b9, org.springframework.web.filter.CorsFilter@52e9a998, org.springframework.security.web.authentication.logout.LogoutFilter@55ede10c, com.Starapp.Starapp.config.JwtAuthenticationFilter@21daab07, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3cdf3bf1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@51a64004, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@9729e9e, org.springframework.security.web.session.SessionManagementFilter@6dde8bf8, org.springframework.security.web.access.ExceptionTranslationFilter@224c776d, org.springframework.security.web.access.intercept.AuthorizationFilter@2b639d14]
+2023-02-27 22:13:19.829  WARN 33044 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 22:13:20.215  INFO 33044 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-27 22:13:20.477  INFO 33044 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-27 22:13:20.499  INFO 33044 --- [restartedMain] c.S.S.StarappApplication                 : Started StarappApplication in 6.919 seconds (JVM running for 7.927)
+2023-02-27 22:14:22.401  INFO 18036 --- [main] c.S.S.StarappApplicationTests            : Starting StarappApplicationTests using Java 17.0.5 on G1-7J6HYL3-L with PID 18036 (started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 22:14:22.415  INFO 18036 --- [main] c.S.S.StarappApplicationTests            : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 22:14:23.210  INFO 18036 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 22:14:23.317  INFO 18036 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96 ms. Found 4 JPA repository interfaces.
+2023-02-27 22:14:23.934  INFO 18036 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 22:14:24.075  INFO 18036 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-27 22:14:24.381  INFO 18036 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-27 22:14:24.569  INFO 18036 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-02-27 22:14:25.511  INFO 18036 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-02-27 22:14:25.548  INFO 18036 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 22:14:27.142  INFO 18036 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 22:14:27.161  INFO 18036 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 22:14:28.293  INFO 18036 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6fc3f1a7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7151dd9d, org.springframework.security.web.context.SecurityContextPersistenceFilter@604e8a6, org.springframework.security.web.header.HeaderWriterFilter@427c2c96, org.springframework.web.filter.CorsFilter@258ac1e6, org.springframework.security.web.authentication.logout.LogoutFilter@35b38986, com.Starapp.Starapp.config.JwtAuthenticationFilter@15ca7322, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1516f497, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@44103266, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f596988, org.springframework.security.web.session.SessionManagementFilter@3545c913, org.springframework.security.web.access.ExceptionTranslationFilter@4b3b2a4f, org.springframework.security.web.access.intercept.AuthorizationFilter@3891db3a]
+2023-02-27 22:14:28.556  WARN 18036 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 22:14:29.308  INFO 18036 --- [main] c.S.S.StarappApplicationTests            : Started StarappApplicationTests in 7.317 seconds (JVM running for 9.345)
+2023-02-27 22:14:29.587  INFO 18036 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 22:14:29.590  INFO 18036 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-02-27 22:14:29.994  INFO 18036 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-02-27 22:15:07.096  INFO 33044 --- [http-nio-8084-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-27 22:15:07.096  INFO 33044 --- [http-nio-8084-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-02-27 22:15:07.098  INFO 33044 --- [http-nio-8084-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2023-02-27 22:23:53.305  INFO 33044 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 48 class path changes (0 additions, 4 deletions, 44 modifications)
+2023-02-27 22:23:53.334  INFO 33044 --- [Thread-5] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-02-27 22:23:53.337  INFO 33044 --- [Thread-5] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-02-27 22:23:53.342  WARN 33044 --- [Thread-5] o.a.c.l.WebappClassLoaderBase            : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.5/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.5/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.5/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+2023-02-27 22:23:53.347  INFO 33044 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 22:23:53.351  INFO 33044 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-02-27 22:23:53.754  INFO 33044 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-02-27 22:26:59.822  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 16984 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 22:26:59.832  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 22:26:59.881  INFO 16984 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-27 22:26:59.881  INFO 16984 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-27 22:27:00.618  INFO 16984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 22:27:00.733  INFO 16984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 104 ms. Found 4 JPA repository interfaces.
+2023-02-27 22:27:01.482  INFO 16984 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8084 (http)
+2023-02-27 22:27:01.504  INFO 16984 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-27 22:27:01.504  INFO 16984 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-27 22:27:01.693  INFO 16984 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-27 22:27:01.694  INFO 16984 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1812 ms
+2023-02-27 22:27:01.906  INFO 16984 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 22:27:01.985  INFO 16984 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-27 22:27:02.205  INFO 16984 --- [restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-27 22:27:02.321  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-02-27 22:27:03.358  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-02-27 22:27:03.388  INFO 16984 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 22:27:05.080  INFO 16984 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 22:27:05.109  INFO 16984 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 22:27:05.943  INFO 16984 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@25ae88cf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e48d011, org.springframework.security.web.context.SecurityContextPersistenceFilter@32cedd03, org.springframework.security.web.header.HeaderWriterFilter@536aff9b, org.springframework.web.filter.CorsFilter@52e9a998, org.springframework.security.web.authentication.logout.LogoutFilter@3d1ce6bb, com.Starapp.Starapp.config.JwtAuthenticationFilter@21daab07, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6333f72b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@484b9ecc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d0d03bc, org.springframework.security.web.session.SessionManagementFilter@97c0528, org.springframework.security.web.access.ExceptionTranslationFilter@70514b17, org.springframework.security.web.access.intercept.AuthorizationFilter@1463f1ca]
+2023-02-27 22:27:06.022  WARN 16984 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 22:27:06.423  INFO 16984 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-27 22:27:06.469  INFO 16984 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-27 22:27:06.479  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : Started StarappApplication in 7.174 seconds (JVM running for 8.248)
+2023-02-27 22:27:27.626  INFO 4448 --- [main] c.S.S.StarappApplicationTests            : Starting StarappApplicationTests using Java 17.0.5 on G1-7J6HYL3-L with PID 4448 (started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 22:27:27.638  INFO 4448 --- [main] c.S.S.StarappApplicationTests            : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 22:27:28.487  INFO 4448 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 22:27:28.593  INFO 4448 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96 ms. Found 4 JPA repository interfaces.
+2023-02-27 22:27:29.265  INFO 4448 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 22:27:29.342  INFO 4448 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-27 22:27:29.569  INFO 4448 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-27 22:27:29.771  INFO 4448 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-02-27 22:27:30.544  INFO 4448 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-02-27 22:27:30.562  INFO 4448 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 22:27:31.931  INFO 4448 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 22:27:31.944  INFO 4448 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 22:27:33.420  INFO 4448 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@44c54463, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@64b20d9c, org.springframework.security.web.context.SecurityContextPersistenceFilter@2ced7cf, org.springframework.security.web.header.HeaderWriterFilter@1a3611b1, org.springframework.web.filter.CorsFilter@756030e2, org.springframework.security.web.authentication.logout.LogoutFilter@6e6bd43b, com.Starapp.Starapp.config.JwtAuthenticationFilter@28200d43, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5bc44d78, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4d204b30, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6fc3f1a7, org.springframework.security.web.session.SessionManagementFilter@32da6cef, org.springframework.security.web.access.ExceptionTranslationFilter@6f076c53, org.springframework.security.web.access.intercept.AuthorizationFilter@1964ef9]
+2023-02-27 22:27:33.791  WARN 4448 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 22:27:34.495  INFO 4448 --- [main] c.S.S.StarappApplicationTests            : Started StarappApplicationTests in 7.236 seconds (JVM running for 8.82)
+2023-02-27 22:27:34.796  INFO 4448 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 22:27:34.799  INFO 4448 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-02-27 22:27:35.292  INFO 4448 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-02-27 22:56:31.490  INFO 16984 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-02-27 22:56:31.508  INFO 16984 --- [Thread-5] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-02-27 22:56:31.515  WARN 16984 --- [Thread-5] o.a.c.l.WebappClassLoaderBase            : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.5/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.5/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.5/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+2023-02-27 22:56:31.523  INFO 16984 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 22:56:31.527  INFO 16984 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-02-27 22:56:31.843  INFO 16984 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-02-27 22:56:31.964  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 16984 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 22:56:31.967  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 22:56:32.452  INFO 16984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 22:56:32.519  INFO 16984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 4 JPA repository interfaces.
+2023-02-27 22:56:32.638  INFO 16984 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8084 (http)
+2023-02-27 22:56:32.639  INFO 16984 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-27 22:56:32.639  INFO 16984 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-27 22:56:32.691  INFO 16984 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-27 22:56:32.691  INFO 16984 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 719 ms
+2023-02-27 22:56:32.745  INFO 16984 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 22:56:32.756  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Starting...
+2023-02-27 22:56:33.045  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Start completed.
+2023-02-27 22:56:33.046  INFO 16984 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 22:56:33.676  INFO 16984 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 22:56:33.676  INFO 16984 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 22:56:33.943  INFO 16984 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@31b8ef3a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3aaf086b, org.springframework.security.web.context.SecurityContextPersistenceFilter@5f17bf1b, org.springframework.security.web.header.HeaderWriterFilter@2939b0cb, org.springframework.web.filter.CorsFilter@716c28a1, org.springframework.security.web.authentication.logout.LogoutFilter@a30259b, com.Starapp.Starapp.config.JwtAuthenticationFilter@e7738ba, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b881dbe, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@f5347ec, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6e61597c, org.springframework.security.web.session.SessionManagementFilter@6ab1b709, org.springframework.security.web.access.ExceptionTranslationFilter@5dfd3ad5, org.springframework.security.web.access.intercept.AuthorizationFilter@3487e36a]
+2023-02-27 22:56:33.959  WARN 16984 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 22:56:34.050  INFO 16984 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-27 22:56:34.060  INFO 16984 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-27 22:56:34.064  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : Started StarappApplication in 2.148 seconds (JVM running for 1775.833)
+2023-02-27 22:56:34.065  INFO 16984 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-02-27 23:03:04.440  INFO 16984 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2023-02-27 23:03:04.454  INFO 16984 --- [Thread-7] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-02-27 23:03:04.458  WARN 16984 --- [Thread-7] o.a.c.l.WebappClassLoaderBase            : The web application [ROOT] appears to have started a thread named [HikariPool-2 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.5/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.5/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.5/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+2023-02-27 23:03:04.463  INFO 16984 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:03:04.464  INFO 16984 --- [Thread-7] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown initiated...
+2023-02-27 23:03:04.987  INFO 16984 --- [Thread-7] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown completed.
+2023-02-27 23:03:05.100  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 16984 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 23:03:05.102  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 23:03:05.364  INFO 16984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 23:03:05.422  INFO 16984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 4 JPA repository interfaces.
+2023-02-27 23:03:05.533  INFO 16984 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8084 (http)
+2023-02-27 23:03:05.535  INFO 16984 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-27 23:03:05.535  INFO 16984 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-27 23:03:05.594  INFO 16984 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-27 23:03:05.594  INFO 16984 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 489 ms
+2023-02-27 23:03:05.645  INFO 16984 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 23:03:05.656  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-3 - Starting...
+2023-02-27 23:03:06.059  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-3 - Start completed.
+2023-02-27 23:03:06.060  INFO 16984 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 23:03:06.718  INFO 16984 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 23:03:06.719  INFO 16984 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:03:06.929  INFO 16984 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@10281441, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@585b6433, org.springframework.security.web.context.SecurityContextPersistenceFilter@e9695d5, org.springframework.security.web.header.HeaderWriterFilter@2accedb0, org.springframework.web.filter.CorsFilter@27015107, org.springframework.security.web.authentication.logout.LogoutFilter@5972292e, com.Starapp.Starapp.config.JwtAuthenticationFilter@4d97ed6c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6cf46dda, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2198bc99, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@76f95e72, org.springframework.security.web.session.SessionManagementFilter@3fbfb2a0, org.springframework.security.web.access.ExceptionTranslationFilter@84d59a4, org.springframework.security.web.access.intercept.AuthorizationFilter@723f0f5e]
+2023-02-27 23:03:06.939  WARN 16984 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 23:03:07.047  INFO 16984 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-27 23:03:07.058  INFO 16984 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-27 23:03:07.061  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : Started StarappApplication in 2.021 seconds (JVM running for 2168.83)
+2023-02-27 23:03:07.062  INFO 16984 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-02-27 23:03:08.575  INFO 16984 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 3 class path changes (2 additions, 0 deletions, 1 modification)
+2023-02-27 23:03:08.587  INFO 16984 --- [Thread-11] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-02-27 23:03:08.590  WARN 16984 --- [Thread-11] o.a.c.l.WebappClassLoaderBase            : The web application [ROOT] appears to have started a thread named [HikariPool-3 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.5/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.5/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.5/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+2023-02-27 23:03:08.591  WARN 16984 --- [Thread-11] o.a.c.l.WebappClassLoaderBase            : The web application [ROOT] appears to have started a thread named [HikariPool-3 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.5/sun.nio.ch.Net.poll(Native Method)
+ java.base@17.0.5/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:181)
+ java.base@17.0.5/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:285)
+ java.base@17.0.5/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+ java.base@17.0.5/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+ java.base@17.0.5/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+ java.base@17.0.5/java.net.Socket$SocketInputStream.read(Socket.java:966)
+ java.base@17.0.5/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:478)
+ java.base@17.0.5/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:472)
+ java.base@17.0.5/sun.security.ssl.SSLSocketInputRecord.decode(SSLSocketInputRecord.java:160)
+ java.base@17.0.5/sun.security.ssl.SSLTransport.decode(SSLTransport.java:111)
+ java.base@17.0.5/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1505)
+ java.base@17.0.5/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1420)
+ java.base@17.0.5/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455)
+ java.base@17.0.5/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426)
+ app//com.mysql.cj.protocol.ExportControlled.performTlsHandshake(ExportControlled.java:347)
+ app//com.mysql.cj.protocol.StandardSocketFactory.performTlsHandshake(StandardSocketFactory.java:191)
+ app//com.mysql.cj.protocol.a.NativeSocketConnection.performTlsHandshake(NativeSocketConnection.java:101)
+ app//com.mysql.cj.protocol.a.NativeProtocol.negotiateSSLConnection(NativeProtocol.java:369)
+ app//com.mysql.cj.protocol.a.NativeAuthenticationProvider.connect(NativeAuthenticationProvider.java:205)
+ app//com.mysql.cj.protocol.a.NativeProtocol.connect(NativeProtocol.java:1429)
+ app//com.mysql.cj.NativeSession.connect(NativeSession.java:133)
+ app//com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:944)
+ app//com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:814)
+ app//com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
+ app//com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
+ app//com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+ app//com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+ app//com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+ app//com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+ app//com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+ app//com.zaxxer.hikari.pool.HikariPool.access$100(HikariPool.java:71)
+ app//com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:726)
+ app//com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712)
+ java.base@17.0.5/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+2023-02-27 23:03:08.595  INFO 16984 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:03:08.596  INFO 16984 --- [Thread-11] c.z.h.HikariDataSource                   : HikariPool-3 - Shutdown initiated...
+2023-02-27 23:03:08.947  INFO 16984 --- [Thread-11] c.z.h.HikariDataSource                   : HikariPool-3 - Shutdown completed.
+2023-02-27 23:03:09.053  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 16984 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 23:03:09.055  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 23:03:09.322  INFO 16984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 23:03:09.375  INFO 16984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 4 JPA repository interfaces.
+2023-02-27 23:03:09.455  INFO 16984 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8084 (http)
+2023-02-27 23:03:09.457  INFO 16984 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-27 23:03:09.457  INFO 16984 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-27 23:03:09.507  INFO 16984 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-27 23:03:09.507  INFO 16984 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 449 ms
+2023-02-27 23:03:09.551  INFO 16984 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 23:03:09.559  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-4 - Starting...
+2023-02-27 23:03:09.942  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-4 - Start completed.
+2023-02-27 23:03:09.943  INFO 16984 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 23:03:10.569  INFO 16984 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 23:03:10.569  INFO 16984 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:03:10.827  INFO 16984 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5f5b463d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4de50edb, org.springframework.security.web.context.SecurityContextPersistenceFilter@6e67b257, org.springframework.security.web.header.HeaderWriterFilter@cc6f7cc, org.springframework.web.filter.CorsFilter@58fb8dcb, org.springframework.security.web.authentication.logout.LogoutFilter@d53ffe2, com.Starapp.Starapp.config.JwtAuthenticationFilter@749e1080, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4dd2b340, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@769145a1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@c62411, org.springframework.security.web.session.SessionManagementFilter@4f2cec1e, org.springframework.security.web.access.ExceptionTranslationFilter@3840251, org.springframework.security.web.access.intercept.AuthorizationFilter@2983feff]
+2023-02-27 23:03:10.843  WARN 16984 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 23:03:10.945  INFO 16984 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-27 23:03:10.954  INFO 16984 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-27 23:03:10.957  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : Started StarappApplication in 1.957 seconds (JVM running for 2172.726)
+2023-02-27 23:03:10.958  INFO 16984 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-02-27 23:03:17.103  INFO 16984 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 48 class path changes (0 additions, 48 deletions, 0 modifications)
+2023-02-27 23:03:17.116  INFO 16984 --- [Thread-15] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-02-27 23:03:17.120  WARN 16984 --- [Thread-15] o.a.c.l.WebappClassLoaderBase            : The web application [ROOT] appears to have started a thread named [HikariPool-4 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.5/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.5/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.5/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+2023-02-27 23:03:17.121  WARN 16984 --- [Thread-15] o.a.c.l.WebappClassLoaderBase            : The web application [ROOT] appears to have started a thread named [HikariPool-4 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.5/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.5/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.5/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.5/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+2023-02-27 23:03:17.124  INFO 16984 --- [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:03:17.124  INFO 16984 --- [Thread-15] c.z.h.HikariDataSource                   : HikariPool-4 - Shutdown initiated...
+2023-02-27 23:03:17.613  INFO 16984 --- [Thread-15] c.z.h.HikariDataSource                   : HikariPool-4 - Shutdown completed.
+2023-02-27 23:05:43.768  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 16984 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 23:05:43.770  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 23:05:44.075  INFO 16984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 23:05:44.121  INFO 16984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 4 JPA repository interfaces.
+2023-02-27 23:05:44.181  INFO 16984 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8084 (http)
+2023-02-27 23:05:44.182  INFO 16984 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-27 23:05:44.183  INFO 16984 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-27 23:05:44.251  INFO 16984 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-27 23:05:44.252  INFO 16984 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 481 ms
+2023-02-27 23:05:44.310  INFO 16984 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 23:05:44.320  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-5 - Starting...
+2023-02-27 23:05:44.621  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-5 - Start completed.
+2023-02-27 23:05:44.622  INFO 16984 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 23:05:45.279  INFO 16984 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 23:05:45.280  INFO 16984 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:05:45.513  INFO 16984 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3be65b08, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@aae3aff, org.springframework.security.web.context.SecurityContextPersistenceFilter@5e58b4ce, org.springframework.security.web.header.HeaderWriterFilter@3eba1fb2, org.springframework.web.filter.CorsFilter@681b08fa, org.springframework.security.web.authentication.logout.LogoutFilter@18052f84, com.Starapp.Starapp.config.JwtAuthenticationFilter@78555f7b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@679e7510, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@937a1de, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@39c1902c, org.springframework.security.web.session.SessionManagementFilter@791e7862, org.springframework.security.web.access.ExceptionTranslationFilter@cd6a530, org.springframework.security.web.access.intercept.AuthorizationFilter@38aa866a]
+2023-02-27 23:05:45.523  WARN 16984 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 23:05:45.588  INFO 16984 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-27 23:05:45.596  INFO 16984 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-27 23:05:45.598  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : Started StarappApplication in 1.881 seconds (JVM running for 2327.367)
+2023-02-27 23:05:45.599  INFO 16984 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-02-27 23:30:45.580  INFO 16984 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 48 class path changes (0 additions, 48 deletions, 0 modifications)
+2023-02-27 23:30:45.598  INFO 16984 --- [Thread-19] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-02-27 23:30:45.603  WARN 16984 --- [Thread-19] o.a.c.l.WebappClassLoaderBase            : The web application [ROOT] appears to have started a thread named [HikariPool-5 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.5/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.5/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.5/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+2023-02-27 23:30:45.607  INFO 16984 --- [Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:30:45.608  INFO 16984 --- [Thread-19] c.z.h.HikariDataSource                   : HikariPool-5 - Shutdown initiated...
+2023-02-27 23:30:45.928  INFO 16984 --- [Thread-19] c.z.h.HikariDataSource                   : HikariPool-5 - Shutdown completed.
+2023-02-27 23:32:39.909  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 16984 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 23:32:39.910  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 23:32:40.099  INFO 16984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 23:32:40.136  INFO 16984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 4 JPA repository interfaces.
+2023-02-27 23:32:40.191  INFO 16984 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8084 (http)
+2023-02-27 23:32:40.192  INFO 16984 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-27 23:32:40.192  INFO 16984 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-27 23:32:40.243  INFO 16984 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-27 23:32:40.244  INFO 16984 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 331 ms
+2023-02-27 23:32:40.276  INFO 16984 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 23:32:40.281  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-6 - Starting...
+2023-02-27 23:32:40.803  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-6 - Start completed.
+2023-02-27 23:32:40.804  INFO 16984 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 23:32:41.910  INFO 16984 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 23:32:41.911  INFO 16984 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:32:42.119  INFO 16984 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1f03cb28, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3355156c, org.springframework.security.web.context.SecurityContextPersistenceFilter@4402783a, org.springframework.security.web.header.HeaderWriterFilter@a8c0083, org.springframework.web.filter.CorsFilter@677c41fe, org.springframework.security.web.authentication.logout.LogoutFilter@3982bf03, com.Starapp.Starapp.config.JwtAuthenticationFilter@346ac6c7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1dd2c898, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@77b04bb9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@78b4079b, org.springframework.security.web.session.SessionManagementFilter@2f66db3f, org.springframework.security.web.access.ExceptionTranslationFilter@70452993, org.springframework.security.web.access.intercept.AuthorizationFilter@47074eda]
+2023-02-27 23:32:42.128  WARN 16984 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 23:32:42.208  INFO 16984 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-27 23:32:42.213  INFO 16984 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-27 23:32:42.215  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : Started StarappApplication in 2.372 seconds (JVM running for 3943.984)
+2023-02-27 23:32:42.215  INFO 16984 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-02-27 23:33:52.642  INFO 23848 --- [main] c.S.S.StarappApplicationTests            : Starting StarappApplicationTests using Java 17.0.5 on G1-7J6HYL3-L with PID 23848 (started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 23:33:52.651  INFO 23848 --- [main] c.S.S.StarappApplicationTests            : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 23:33:53.684  INFO 23848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 23:33:53.799  INFO 23848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 105 ms. Found 4 JPA repository interfaces.
+2023-02-27 23:33:54.746  INFO 23848 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 23:33:54.824  INFO 23848 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-27 23:33:55.052  INFO 23848 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-27 23:33:55.235  INFO 23848 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-02-27 23:33:56.006  INFO 23848 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-02-27 23:33:56.028  INFO 23848 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 23:33:57.494  INFO 23848 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 23:33:57.507  INFO 23848 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:33:58.661  INFO 23848 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@77d42ed7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@54da736e, org.springframework.security.web.context.SecurityContextPersistenceFilter@306c8e09, org.springframework.security.web.header.HeaderWriterFilter@aaf4375, org.springframework.web.filter.CorsFilter@6e5df971, org.springframework.security.web.authentication.logout.LogoutFilter@df5f657, com.Starapp.Starapp.config.JwtAuthenticationFilter@9771c71, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@28da5c4d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@762d2e4c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2d398cfb, org.springframework.security.web.session.SessionManagementFilter@56bf6f1e, org.springframework.security.web.access.ExceptionTranslationFilter@a165c11, org.springframework.security.web.access.intercept.AuthorizationFilter@93c66ef]
+2023-02-27 23:33:58.973  WARN 23848 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 23:33:59.837  INFO 23848 --- [main] c.S.S.StarappApplicationTests            : Started StarappApplicationTests in 7.683 seconds (JVM running for 9.984)
+2023-02-27 23:34:00.110  INFO 23848 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:34:00.113  INFO 23848 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-02-27 23:34:10.128  INFO 23848 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-02-27 23:34:19.977  INFO 16984 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-02-27 23:34:19.988  INFO 16984 --- [Thread-41] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-02-27 23:34:19.991  WARN 16984 --- [Thread-41] o.a.c.l.WebappClassLoaderBase            : The web application [ROOT] appears to have started a thread named [HikariPool-6 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.5/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.5/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.5/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+2023-02-27 23:34:19.995  INFO 16984 --- [Thread-41] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:34:19.996  INFO 16984 --- [Thread-41] c.z.h.HikariDataSource                   : HikariPool-6 - Shutdown initiated...
+2023-02-27 23:34:20.354  INFO 16984 --- [Thread-41] c.z.h.HikariDataSource                   : HikariPool-6 - Shutdown completed.
+2023-02-27 23:34:20.457  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 16984 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 23:34:20.458  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 23:34:20.709  INFO 16984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 23:34:20.752  INFO 16984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41 ms. Found 4 JPA repository interfaces.
+2023-02-27 23:34:20.801  INFO 16984 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-02-27 23:34:20.801  INFO 16984 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-27 23:34:20.802  INFO 16984 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-27 23:34:20.850  INFO 16984 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-27 23:34:20.850  INFO 16984 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 390 ms
+2023-02-27 23:34:20.881  INFO 16984 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 23:34:20.888  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-7 - Starting...
+2023-02-27 23:34:21.195  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-7 - Start completed.
+2023-02-27 23:34:21.195  INFO 16984 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 23:34:21.863  INFO 16984 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 23:34:21.864  INFO 16984 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:34:22.125  INFO 16984 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@50f1f86c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@62206a07, org.springframework.security.web.context.SecurityContextPersistenceFilter@d435397, org.springframework.security.web.header.HeaderWriterFilter@26990e2d, org.springframework.web.filter.CorsFilter@2c6598e5, org.springframework.security.web.authentication.logout.LogoutFilter@6e3b9b1e, com.Starapp.Starapp.config.JwtAuthenticationFilter@5af692da, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@71177871, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1f91f818, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6b1e2379, org.springframework.security.web.session.SessionManagementFilter@1ebf0779, org.springframework.security.web.access.ExceptionTranslationFilter@2f3a624c, org.springframework.security.web.access.intercept.AuthorizationFilter@34e4cffc]
+2023-02-27 23:34:22.139  WARN 16984 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 23:34:22.258  INFO 16984 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-27 23:34:22.270  WARN 16984 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2023-02-27 23:34:22.272  INFO 16984 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:34:22.272  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-7 - Shutdown initiated...
+2023-02-27 23:34:22.439  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-7 - Shutdown completed.
+2023-02-27 23:34:22.440  INFO 16984 --- [restartedMain] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-02-27 23:34:22.444  INFO 16984 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-02-27 23:34:22.449 ERROR 16984 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2023-02-27 23:34:57.957  INFO 21148 --- [main] c.S.S.StarappApplicationTests            : Starting StarappApplicationTests using Java 17.0.5 on G1-7J6HYL3-L with PID 21148 (started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 23:34:57.968  INFO 21148 --- [main] c.S.S.StarappApplicationTests            : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 23:34:58.989  INFO 21148 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 23:34:59.100  INFO 21148 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 97 ms. Found 4 JPA repository interfaces.
+2023-02-27 23:34:59.816  INFO 21148 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 23:34:59.887  INFO 21148 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-27 23:35:00.141  INFO 21148 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-27 23:35:00.344  INFO 21148 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-02-27 23:35:01.064  INFO 21148 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-02-27 23:35:01.089  INFO 21148 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 23:35:02.638  INFO 21148 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 23:35:02.655  INFO 21148 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:35:03.889  INFO 21148 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@65b07b9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7dbe858f, org.springframework.security.web.context.SecurityContextPersistenceFilter@60510791, org.springframework.security.web.header.HeaderWriterFilter@35b38986, org.springframework.web.filter.CorsFilter@642b71d6, org.springframework.security.web.authentication.logout.LogoutFilter@60e5db1d, com.Starapp.Starapp.config.JwtAuthenticationFilter@c3a1d7f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4bb644dc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4598961d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@387ef6a7, org.springframework.security.web.session.SessionManagementFilter@28da5c4d, org.springframework.security.web.access.ExceptionTranslationFilter@6fe33512, org.springframework.security.web.access.intercept.AuthorizationFilter@77d42ed7]
+2023-02-27 23:35:04.173  WARN 21148 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 23:35:05.232  INFO 21148 --- [main] c.S.S.StarappApplicationTests            : Started StarappApplicationTests in 7.731 seconds (JVM running for 9.29)
+2023-02-27 23:35:05.543  INFO 21148 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:35:05.545  INFO 21148 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-02-27 23:35:05.867  INFO 21148 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-02-27 23:42:03.739  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 16984 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 23:42:03.740  INFO 16984 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 23:42:03.993  INFO 16984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 23:42:04.075  INFO 16984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 4 JPA repository interfaces.
+2023-02-27 23:42:04.244  INFO 16984 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-02-27 23:42:04.245  INFO 16984 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-27 23:42:04.245  INFO 16984 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-27 23:42:04.378  INFO 16984 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-27 23:42:04.378  INFO 16984 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 635 ms
+2023-02-27 23:42:04.452  INFO 16984 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 23:42:04.464  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-8 - Starting...
+2023-02-27 23:42:04.925  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-8 - Start completed.
+2023-02-27 23:42:04.926  INFO 16984 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 23:42:05.674  INFO 16984 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 23:42:05.676  INFO 16984 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:42:05.810  WARN 16984 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authenticationController': Lookup method resolution failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [com.Starapp.Starapp.Controllers.AuthenticationController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@1e3a3673]
+2023-02-27 23:42:05.811  INFO 16984 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:42:05.812  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-8 - Shutdown initiated...
+2023-02-27 23:42:05.953  INFO 16984 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-8 - Shutdown completed.
+2023-02-27 23:42:05.954  INFO 16984 --- [restartedMain] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-02-27 23:42:05.958  INFO 16984 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-02-27 23:42:05.965 ERROR 16984 --- [restartedMain] o.s.b.SpringApplication                  : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authenticationController': Lookup method resolution failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [com.Starapp.Starapp.Controllers.AuthenticationController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@1e3a3673]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:289) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1302) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1219) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.8.jar:2.7.8]
+	at com.Starapp.Starapp.StarappApplication.main(StarappApplication.java:16) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.8.jar:2.7.8]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.Starapp.Starapp.Controllers.AuthenticationController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@1e3a3673]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:485) ~[spring-core-5.3.25.jar:5.3.25]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:321) ~[spring-core-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:267) ~[spring-beans-5.3.25.jar:5.3.25]
+	... 23 more
+Caused by: java.lang.NoClassDefFoundError: com/Starapp/Starapp/dto/request/AuthenticationRequest
+	at java.lang.Class.getDeclaredMethods0(Native Method) ~[?:?]
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:3402) ~[?:?]
+	at java.lang.Class.getDeclaredMethods(Class.java:2504) ~[?:?]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:467) ~[spring-core-5.3.25.jar:5.3.25]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:321) ~[spring-core-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:267) ~[spring-beans-5.3.25.jar:5.3.25]
+	... 23 more
+Caused by: java.lang.ClassNotFoundException: com.Starapp.Starapp.dto.request.AuthenticationRequest
+	at jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[?:?]
+	at jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:467) ~[?:?]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:145) ~[spring-boot-devtools-2.7.8.jar:2.7.8]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[?:?]
+	at java.lang.Class.getDeclaredMethods0(Native Method) ~[?:?]
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:3402) ~[?:?]
+	at java.lang.Class.getDeclaredMethods(Class.java:2504) ~[?:?]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:467) ~[spring-core-5.3.25.jar:5.3.25]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:321) ~[spring-core-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:267) ~[spring-beans-5.3.25.jar:5.3.25]
+	... 23 more
+
+2023-02-27 23:47:30.814  INFO 29460 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 29460 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 23:47:30.822  INFO 29460 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 23:47:30.874  INFO 29460 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-27 23:47:30.875  INFO 29460 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-27 23:47:31.683  INFO 29460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 23:47:31.720  INFO 29460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 0 JPA repository interfaces.
+2023-02-27 23:47:32.436  INFO 29460 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8084 (http)
+2023-02-27 23:47:32.453  INFO 29460 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-27 23:47:32.453  INFO 29460 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-27 23:47:32.652  INFO 29460 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-27 23:47:32.652  INFO 29460 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1777 ms
+2023-02-27 23:47:32.676 ERROR 29460 --- [restartedMain] o.s.b.w.e.t.TomcatStarter                : Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'jwtAuthenticationFilter' defined in file [C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes\com\Starapp\Starapp\config\JwtAuthenticationFilter.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'applicationConfig' defined in file [C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes\com\Starapp\Starapp\config\ApplicationConfig.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.Starapp.Starapp.repo.UserRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2023-02-27 23:47:32.704  INFO 29460 --- [restartedMain] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-02-27 23:47:32.718  WARN 29460 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2023-02-27 23:47:32.726  INFO 29460 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-02-27 23:47:32.748 ERROR 29460 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.Starapp.Starapp.config.ApplicationConfig required a bean of type 'com.Starapp.Starapp.repo.UserRepository' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.Starapp.Starapp.repo.UserRepository' in your configuration.
+
+2023-02-27 23:48:10.988  INFO 12704 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 12704 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 23:48:10.999  INFO 12704 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 23:48:11.061  INFO 12704 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-27 23:48:11.062  INFO 12704 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-27 23:48:11.881  INFO 12704 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 23:48:11.993  INFO 12704 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 103 ms. Found 4 JPA repository interfaces.
+2023-02-27 23:48:12.723  INFO 12704 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8084 (http)
+2023-02-27 23:48:12.742  INFO 12704 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-27 23:48:12.742  INFO 12704 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-27 23:48:12.960  INFO 12704 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-27 23:48:12.960  INFO 12704 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1897 ms
+2023-02-27 23:48:13.170  INFO 12704 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 23:48:13.227  INFO 12704 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-27 23:48:13.390  INFO 12704 --- [restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-27 23:48:13.510  INFO 12704 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-02-27 23:48:14.214  INFO 12704 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-02-27 23:48:14.236  INFO 12704 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 23:48:15.709  INFO 12704 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 23:48:15.725  INFO 12704 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:48:16.683  INFO 12704 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4d24e7b0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4dfff3be, org.springframework.security.web.context.SecurityContextPersistenceFilter@7dfba278, org.springframework.security.web.header.HeaderWriterFilter@1dcdb2ba, org.springframework.web.filter.CorsFilter@3ebf4864, org.springframework.security.web.authentication.logout.LogoutFilter@5b72db37, com.Starapp.Starapp.config.JwtAuthenticationFilter@730ba4b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@429dcaa5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4c86a512, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a8d0a7e, org.springframework.security.web.session.SessionManagementFilter@73450c26, org.springframework.security.web.access.ExceptionTranslationFilter@5a562aab, org.springframework.security.web.access.intercept.AuthorizationFilter@45e8a66c]
+2023-02-27 23:48:16.776  WARN 12704 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 23:48:17.204  INFO 12704 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-27 23:48:17.277  INFO 12704 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-27 23:48:17.288  INFO 12704 --- [restartedMain] c.S.S.StarappApplication                 : Started StarappApplication in 6.868 seconds (JVM running for 8.105)
+2023-02-27 23:53:02.884  INFO 12704 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-02-27 23:53:02.901  INFO 12704 --- [Thread-5] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-02-27 23:53:02.906  WARN 12704 --- [Thread-5] o.a.c.l.WebappClassLoaderBase            : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.5/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.5/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.5/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+2023-02-27 23:53:02.911  INFO 12704 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:53:02.913  INFO 12704 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-02-27 23:53:03.279  INFO 12704 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-02-27 23:53:03.395  INFO 12704 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 12704 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 23:53:03.397  INFO 12704 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 23:53:03.647  INFO 12704 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 23:53:03.696  INFO 12704 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 4 JPA repository interfaces.
+2023-02-27 23:53:03.811  INFO 12704 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-02-27 23:53:03.813  INFO 12704 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-27 23:53:03.813  INFO 12704 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-27 23:53:03.870  INFO 12704 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-27 23:53:03.870  INFO 12704 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 470 ms
+2023-02-27 23:53:03.915  INFO 12704 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 23:53:03.922  INFO 12704 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Starting...
+2023-02-27 23:53:04.307  INFO 12704 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Start completed.
+2023-02-27 23:53:04.308  INFO 12704 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 23:53:04.956  INFO 12704 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 23:53:04.957  INFO 12704 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:53:05.215  INFO 12704 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@613e67c5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@23382945, org.springframework.security.web.context.SecurityContextPersistenceFilter@36d133c1, org.springframework.security.web.header.HeaderWriterFilter@1bb1814f, org.springframework.web.filter.CorsFilter@590af529, org.springframework.security.web.authentication.logout.LogoutFilter@6a351e31, com.Starapp.Starapp.config.JwtAuthenticationFilter@3cec1496, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7fe83b56, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6844761d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3acdbb72, org.springframework.security.web.session.SessionManagementFilter@8c6bf51, org.springframework.security.web.access.ExceptionTranslationFilter@4641e633, org.springframework.security.web.access.intercept.AuthorizationFilter@1f86caae]
+2023-02-27 23:53:05.232  WARN 12704 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 23:53:05.340  INFO 12704 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-27 23:53:05.348  WARN 12704 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2023-02-27 23:53:05.351  INFO 12704 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:53:05.351  INFO 12704 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown initiated...
+2023-02-27 23:53:05.636  INFO 12704 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown completed.
+2023-02-27 23:53:05.637  INFO 12704 --- [restartedMain] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-02-27 23:53:05.644  INFO 12704 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-02-27 23:53:05.669 ERROR 12704 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2023-02-27 23:55:58.247  INFO 20884 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 20884 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 23:55:58.255  INFO 20884 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 23:55:58.307  INFO 20884 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-27 23:55:58.308  INFO 20884 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-27 23:55:59.000  INFO 20884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 23:55:59.116  INFO 20884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 103 ms. Found 4 JPA repository interfaces.
+2023-02-27 23:55:59.850  INFO 20884 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-02-27 23:55:59.867  INFO 20884 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-27 23:55:59.868  INFO 20884 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-27 23:56:00.027  INFO 20884 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-27 23:56:00.028  INFO 20884 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1720 ms
+2023-02-27 23:56:00.229  INFO 20884 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 23:56:00.306  INFO 20884 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-27 23:56:00.483  INFO 20884 --- [restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-27 23:56:00.604  INFO 20884 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-02-27 23:56:01.206  INFO 20884 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-02-27 23:56:01.229  INFO 20884 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 23:56:02.652  INFO 20884 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 23:56:02.670  INFO 20884 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:56:03.446  INFO 20884 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5ff484df, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@20b6a303, org.springframework.security.web.context.SecurityContextPersistenceFilter@3505bedb, org.springframework.security.web.header.HeaderWriterFilter@3aac45ea, org.springframework.web.filter.CorsFilter@53beb0a, org.springframework.security.web.authentication.logout.LogoutFilter@3f9a7eb, com.Starapp.Starapp.config.JwtAuthenticationFilter@afe01d7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@340e6986, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2246c086, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d13b30, org.springframework.security.web.session.SessionManagementFilter@2af4bd, org.springframework.security.web.access.ExceptionTranslationFilter@6fa30f75, org.springframework.security.web.access.intercept.AuthorizationFilter@5ff41923]
+2023-02-27 23:56:03.507  WARN 20884 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 23:56:03.920  INFO 20884 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-27 23:56:03.936  WARN 20884 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2023-02-27 23:56:03.939  INFO 20884 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:56:03.944  INFO 20884 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-02-27 23:56:04.149  INFO 20884 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-02-27 23:56:04.153  INFO 20884 --- [restartedMain] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-02-27 23:56:04.165  INFO 20884 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-02-27 23:56:04.190 ERROR 20884 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2023-02-27 23:56:26.849  INFO 16428 --- [main] c.S.S.StarappApplicationTests            : Starting StarappApplicationTests using Java 17.0.5 on G1-7J6HYL3-L with PID 16428 (started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-27 23:56:26.863  INFO 16428 --- [main] c.S.S.StarappApplicationTests            : No active profile set, falling back to 1 default profile: "default"
+2023-02-27 23:56:27.829  INFO 16428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-27 23:56:27.931  INFO 16428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 88 ms. Found 4 JPA repository interfaces.
+2023-02-27 23:56:28.697  INFO 16428 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-27 23:56:28.763  INFO 16428 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-27 23:56:28.971  INFO 16428 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-27 23:56:29.140  INFO 16428 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-02-27 23:56:29.860  INFO 16428 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-02-27 23:56:29.884  INFO 16428 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-27 23:56:31.363  INFO 16428 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-27 23:56:31.377  INFO 16428 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:56:32.615  INFO 16428 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4f2b1a2f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6c2a33af, org.springframework.security.web.context.SecurityContextPersistenceFilter@1eda12b3, org.springframework.security.web.header.HeaderWriterFilter@6600d07d, org.springframework.web.filter.CorsFilter@30ce78e3, org.springframework.security.web.authentication.logout.LogoutFilter@3cf1b5fb, com.Starapp.Starapp.config.JwtAuthenticationFilter@3eb8057c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21f9a305, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@43a72f0f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53202b06, org.springframework.security.web.session.SessionManagementFilter@6c38f4de, org.springframework.security.web.access.ExceptionTranslationFilter@604e8a6, org.springframework.security.web.access.intercept.AuthorizationFilter@d8a2b1b]
+2023-02-27 23:56:33.005  WARN 16428 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-27 23:56:33.946  INFO 16428 --- [main] c.S.S.StarappApplicationTests            : Started StarappApplicationTests in 7.562 seconds (JVM running for 9.722)
+2023-02-27 23:56:34.228  INFO 16428 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-27 23:56:34.230  INFO 16428 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-02-27 23:56:34.673  INFO 16428 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-02-28 00:09:43.658  INFO 24156 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 24156 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-28 00:09:43.667  INFO 24156 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-28 00:09:43.718  INFO 24156 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-28 00:09:43.718  INFO 24156 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-28 00:09:44.413  INFO 24156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-28 00:09:44.534  INFO 24156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 109 ms. Found 4 JPA repository interfaces.
+2023-02-28 00:09:45.267  INFO 24156 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8084 (http)
+2023-02-28 00:09:45.289  INFO 24156 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-28 00:09:45.290  INFO 24156 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-28 00:09:45.462  INFO 24156 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-28 00:09:45.462  INFO 24156 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1743 ms
+2023-02-28 00:09:45.686  INFO 24156 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-28 00:09:45.748  INFO 24156 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-28 00:09:45.935  INFO 24156 --- [restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-28 00:09:46.051  INFO 24156 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-02-28 00:09:46.643  INFO 24156 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-02-28 00:09:46.674  INFO 24156 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-28 00:09:47.966  INFO 24156 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-28 00:09:47.982  INFO 24156 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-28 00:09:48.808  INFO 24156 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4a63d211, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1704defc, org.springframework.security.web.context.SecurityContextPersistenceFilter@4d24e7b0, org.springframework.security.web.header.HeaderWriterFilter@1099d9bd, org.springframework.web.filter.CorsFilter@9922f3c, org.springframework.security.web.authentication.logout.LogoutFilter@2e48d011, com.Starapp.Starapp.config.JwtAuthenticationFilter@9e6b97b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a8d0a7e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5c281ce3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@18e928fe, org.springframework.security.web.session.SessionManagementFilter@45e8a66c, org.springframework.security.web.access.ExceptionTranslationFilter@97c0528, org.springframework.security.web.access.intercept.AuthorizationFilter@4b42df0e]
+2023-02-28 00:09:48.877  WARN 24156 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-28 00:09:49.290  INFO 24156 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-28 00:09:49.336  INFO 24156 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-28 00:09:49.348  INFO 24156 --- [restartedMain] c.S.S.StarappApplication                 : Started StarappApplication in 6.146 seconds (JVM running for 9.115)
+2023-02-28 00:10:04.378  INFO 32816 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 32816 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-28 00:10:04.385  INFO 32816 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-28 00:10:04.432  INFO 32816 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-28 00:10:04.432  INFO 32816 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-28 00:10:05.084  INFO 32816 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-28 00:10:05.182  INFO 32816 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 87 ms. Found 4 JPA repository interfaces.
+2023-02-28 00:10:05.888  INFO 32816 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8084 (http)
+2023-02-28 00:10:05.908  INFO 32816 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-28 00:10:05.908  INFO 32816 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-28 00:10:06.075  INFO 32816 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-28 00:10:06.076  INFO 32816 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1642 ms
+2023-02-28 00:10:06.267  INFO 32816 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-28 00:10:06.330  INFO 32816 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-28 00:10:06.515  INFO 32816 --- [restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-28 00:10:06.619  INFO 32816 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-02-28 00:10:07.187  INFO 32816 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-02-28 00:10:07.212  INFO 32816 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-28 00:10:08.497  INFO 32816 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-28 00:10:08.507  INFO 32816 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-28 00:10:09.374  INFO 32816 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4d0d03bc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3bfc48bd, org.springframework.security.web.context.SecurityContextPersistenceFilter@6333f72b, org.springframework.security.web.header.HeaderWriterFilter@2f9114ed, org.springframework.web.filter.CorsFilter@74c9f937, org.springframework.security.web.authentication.logout.LogoutFilter@6dde8bf8, com.Starapp.Starapp.config.JwtAuthenticationFilter@317bf732, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@795b6ab0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1bd9ade6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ac557fd, org.springframework.security.web.session.SessionManagementFilter@1099d9bd, org.springframework.security.web.access.ExceptionTranslationFilter@536aff9b, org.springframework.security.web.access.intercept.AuthorizationFilter@11eced65]
+2023-02-28 00:10:09.442  WARN 32816 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-28 00:10:09.849  INFO 32816 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-28 00:10:09.865  WARN 32816 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
+2023-02-28 00:10:09.868  INFO 32816 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-28 00:10:09.872  INFO 32816 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-02-28 00:10:10.171  INFO 32816 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-02-28 00:10:10.175  INFO 32816 --- [restartedMain] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-02-28 00:10:10.190  INFO 32816 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-02-28 00:10:10.215 ERROR 32816 --- [restartedMain] o.s.b.SpringApplication                  : Application run failed
+
+org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.25.jar:5.3.25]
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.8.jar:2.7.8]
+	at com.Starapp.Starapp.StarappApplication.main(StarappApplication.java:9) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.8.jar:2.7.8]
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:229) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.25.jar:5.3.25]
+	... 19 more
+Caused by: java.lang.IllegalArgumentException: standardService.connector.startFailed
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:238) ~[tomcat-embed-core-9.0.71.jar:9.0.71]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:282) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:213) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.25.jar:5.3.25]
+	... 19 more
+Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1076) ~[tomcat-embed-core-9.0.71.jar:9.0.71]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.71.jar:9.0.71]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:234) ~[tomcat-embed-core-9.0.71.jar:9.0.71]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:282) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:213) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.25.jar:5.3.25]
+	... 19 more
+Caused by: java.net.BindException: Cannot assign requested address: bind
+	at sun.nio.ch.Net.bind0(Native Method) ~[?:?]
+	at sun.nio.ch.Net.bind(Net.java:555) ~[?:?]
+	at sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:337) ~[?:?]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:294) ~[?:?]
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:275) ~[tomcat-embed-core-9.0.71.jar:9.0.71]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:230) ~[tomcat-embed-core-9.0.71.jar:9.0.71]
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1227) ~[tomcat-embed-core-9.0.71.jar:9.0.71]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1313) ~[tomcat-embed-core-9.0.71.jar:9.0.71]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:615) ~[tomcat-embed-core-9.0.71.jar:9.0.71]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1073) ~[tomcat-embed-core-9.0.71.jar:9.0.71]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.71.jar:9.0.71]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:234) ~[tomcat-embed-core-9.0.71.jar:9.0.71]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:282) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:213) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.25.jar:5.3.25]
+	... 19 more
+
+2023-02-28 00:10:40.022  INFO 10708 --- [main] c.S.S.StarappApplicationTests            : Starting StarappApplicationTests using Java 17.0.5 on G1-7J6HYL3-L with PID 10708 (started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-28 00:10:40.035  INFO 10708 --- [main] c.S.S.StarappApplicationTests            : No active profile set, falling back to 1 default profile: "default"
+2023-02-28 00:10:41.008  INFO 10708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-28 00:10:41.122  INFO 10708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 102 ms. Found 4 JPA repository interfaces.
+2023-02-28 00:10:41.893  INFO 10708 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-28 00:10:42.034  INFO 10708 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-28 00:10:42.411  INFO 10708 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-28 00:10:42.707  INFO 10708 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-02-28 00:10:44.415  INFO 10708 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-02-28 00:10:44.440  INFO 10708 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-28 00:10:45.846  INFO 10708 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-28 00:10:45.858  INFO 10708 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-28 00:10:47.066  INFO 10708 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@24d7c365, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@26b150cd, org.springframework.security.web.context.SecurityContextPersistenceFilter@6e70861, org.springframework.security.web.header.HeaderWriterFilter@cbaabfb, org.springframework.web.filter.CorsFilter@68908be7, org.springframework.security.web.authentication.logout.LogoutFilter@580c4c0b, com.Starapp.Starapp.config.JwtAuthenticationFilter@38318d67, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3514df8d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@818a514, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62ff3028, org.springframework.security.web.session.SessionManagementFilter@1454339d, org.springframework.security.web.access.ExceptionTranslationFilter@d8751de, org.springframework.security.web.access.intercept.AuthorizationFilter@32eac39b]
+2023-02-28 00:10:47.480  WARN 10708 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-28 00:10:48.453  INFO 10708 --- [main] c.S.S.StarappApplicationTests            : Started StarappApplicationTests in 8.861 seconds (JVM running for 10.702)
+2023-02-28 00:10:48.712  INFO 10708 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-28 00:10:48.713  INFO 10708 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-02-28 00:10:49.037  INFO 10708 --- [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-02-28 01:42:41.611  INFO 28340 --- [restartedMain] c.S.S.StarappApplication                 : Starting StarappApplication using Java 17.0.5 on G1-7J6HYL3-L with PID 28340 (C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp\target\classes started by vishal.srivastav in C:\Users\vishal.srivastav\Downloads\MainProject_curr\4wcp\Backend\Main\Starapp)
+2023-02-28 01:42:41.620  INFO 28340 --- [restartedMain] c.S.S.StarappApplication                 : No active profile set, falling back to 1 default profile: "default"
+2023-02-28 01:42:41.669  INFO 28340 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-28 01:42:41.669  INFO 28340 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-28 01:42:42.420  INFO 28340 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-28 01:42:42.517  INFO 28340 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85 ms. Found 4 JPA repository interfaces.
+2023-02-28 01:42:43.614  INFO 28340 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8084 (http)
+2023-02-28 01:42:43.638  INFO 28340 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-02-28 01:42:43.639  INFO 28340 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-28 01:42:43.801  INFO 28340 --- [restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-02-28 01:42:43.802  INFO 28340 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2131 ms
+2023-02-28 01:42:44.101  INFO 28340 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-28 01:42:44.197  INFO 28340 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-28 01:42:44.426  INFO 28340 --- [restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-28 01:42:44.553  INFO 28340 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-02-28 01:42:45.267  INFO 28340 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-02-28 01:42:45.296  INFO 28340 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-28 01:42:46.960  INFO 28340 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-28 01:42:46.973  INFO 28340 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-28 01:42:47.878  INFO 28340 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3d1ce6bb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@b5b051, org.springframework.security.web.context.SecurityContextPersistenceFilter@2f9114ed, org.springframework.security.web.header.HeaderWriterFilter@4c86a512, org.springframework.web.filter.CorsFilter@7d91693, org.springframework.security.web.authentication.logout.LogoutFilter@2d2a0eea, com.Starapp.Starapp.config.JwtAuthenticationFilter@43d87b0e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@784d511b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c2bed76, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6dde8bf8, org.springframework.security.web.session.SessionManagementFilter@4c83f3c0, org.springframework.security.web.access.ExceptionTranslationFilter@63cb68b0, org.springframework.security.web.access.intercept.AuthorizationFilter@58bcb51c]
+2023-02-28 01:42:47.936  WARN 28340 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-28 01:42:48.325  INFO 28340 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-28 01:42:48.366  INFO 28340 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-28 01:42:48.376  INFO 28340 --- [restartedMain] c.S.S.StarappApplication                 : Started StarappApplication in 7.321 seconds (JVM running for 8.347)
+2023-02-28 01:43:10.439  INFO 28340 --- [http-nio-8084-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-28 01:43:10.439  INFO 28340 --- [http-nio-8084-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-02-28 01:43:10.441  INFO 28340 --- [http-nio-8084-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2023-02-28 11:31:28.452  WARN 28340 --- [HikariPool-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h27m30s795ms89µs900ns).

@@ -51,10 +51,12 @@ public class MailServiceImpl implements MailService {
 			ResponseType = "has been Rejected by ";
 		
 		LocalDateTime PeriodStart =	wh.getPeriodStart();
-		String periodStart= DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).ofPattern("dd-MMM-yyyy")
+		DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+		String periodStart= DateTimeFormatter.ofPattern("dd-MMM-yyyy")
 				  .format(PeriodStart);
 		LocalDateTime PeriodEnd = wh.getPeriodEnd();
-		String periodEnd= DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).ofPattern("dd-MMM-yyyy")
+		DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+		String periodEnd= DateTimeFormatter.ofPattern("dd-MMM-yyyy")
 				  .format(PeriodEnd);
 		
 		message = EmployeeName+"'s"+" request for approval of working hour of "+wh.getHours()+"h\n\tTimesheet: " +wh.getTimesheetNo()+"\n\tTime period: " +

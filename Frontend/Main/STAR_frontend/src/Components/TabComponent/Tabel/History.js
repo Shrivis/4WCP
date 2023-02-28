@@ -1,10 +1,9 @@
-import { Button, Table, Tooltip } from 'antd';
-import React from 'react'
-import {
-    ClockCircleOutlined,
-  } from '@ant-design/icons';
+import {React, useState, useRef} from 'react';
 import AcceptRejctButton from '../Forms/ManagerForm';
 import StatusButton from '../Forms/StatusButton';
+import { SearchOutlined } from '@ant-design/icons';
+import { Button, Input, Space, Table } from 'antd';
+import Highlighter from 'react-highlight-words';
 
 
 
@@ -14,24 +13,110 @@ function onChange(pagination, filters, sorter, extra) {
 };
 
 export default function ManagerTable({reqHistory, managerId}) {
+    const [searchText, setSearchText] = useState('');
+    const [searchedColumn, setSearchedColumn] = useState('');
+    const searchInput = useRef(null);
+    const handleSearch = (selectedKeys, confirm, dataIndex) => {
+    confirm();
+    setSearchText(selectedKeys[0]);
+    setSearchedColumn(dataIndex);
+    };
+    const handleReset = (clearFilters) => {
+    clearFilters();
+    setSearchText('');
+    };
+    const getColumnSearchProps = (dataIndex) => ({
+    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
+        <div
+        style={{
+            padding: 8,
+        }}
+        onKeyDown={(e) => e.stopPropagation()}
+        >
+        <Input
+            ref={searchInput}
+            placeholder={`Search ${dataIndex}`}
+            value={selectedKeys[0]}
+            onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+            onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
+            style={{
+            marginBottom: 8,
+            display: 'block',
+            }}
+        />
+        <Space>
+            <Button
+            type="primary"
+            onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
+            icon={<SearchOutlined />}
+            size="small"
+            style={{
+                width: 90,
+            }}
+            >
+            Search
+            </Button>
+            <Button
+            onClick={() => clearFilters && handleReset(clearFilters)}
+            size="small"
+            style={{
+                width: 90,
+            }}
+            >
+            Reset
+            </Button>
+        </Space>
+        </div>
+    ),
+    filterIcon: (filtered) => (
+        <SearchOutlined
+        style={{
+            color: filtered ? '#1890ff' : undefined,
+        }}
+        />
+    ),
+    onFilter: (value, record) =>
+        record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()),
+    onFilterDropdownOpenChange: (visible) => {
+        if (visible) {
+        setTimeout(() => searchInput.current?.select(), 100);
+        }
+    },
+    render: (text) =>
+        searchedColumn === dataIndex ? (
+        <Highlighter
+            highlightStyle={{
+            backgroundColor: '#ffc069',
+            padding: 0,
+            }}
+            searchWords={[searchText]}
+            autoEscape
+            textToHighlight={text ? text.toString() : ''}
+        />
+        ) : (
+        text
+        ),
+    });
     const columns = [
         {
             title: 'Timesheet',
             dataIndex: 'timesheetNo',
-            width:140,
+            width:120,
             sorter: (a, b) => a.timesheetNo.localeCompare(b.timesheetNo),
             sortDirections: ['descend', 'ascend'],
         },
         {
             title: 'Id',
             dataIndex:'userId',
-            width:110,
+            width:80,
             sorter:(a, b) => a.userId - b.userId,
             sortDirections:['descend', 'ascend'],
         },
         {
             title:'Name',
             dataIndex:'name',
+            ellipsis:'true',
+            ...getColumnSearchProps('name'),
             sorter:(a, b) => a.name.localeCompare(b.name),
             sortDirections: ['descend', 'ascend'],
         },
@@ -40,27 +125,28 @@ export default function ManagerTable({reqHistory, managerId}) {
             dataIndex:'projectName',
             ellipsis:'true',
             tooltip:'projectName',
+            ...getColumnSearchProps('projectName'),
             sorter:(a, b) => a.projectName.localeCompare(b.projectName),
             sortDirections: ['descend', 'ascend'],
         },
         {
             title:'From Date',
             dataIndex:'periodStart',
-            width:140,
+            width:120,
             sorter:(a, b) => a.periodStart.localeCompare(b.periodStart),
             sortDirections: ['descend', 'ascend'],
         },
         {
             title:'Till Date',
             dataIndex:'periodEnd',
-            width:140,
+            width:120,
             sorter:(a, b) => a.periodEnd.localeCompare(b.periodEnd),
             sortDirections: ['descend', 'ascend'],
         },
         {
             title:'Hours',
             dataIndex:'hours',
-            width:110,
+            width:90,
             sorter:(a, b) => a.hours - b.hours,
             sortDirections: ['descend', 'ascend'],
         },  

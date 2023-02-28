@@ -10,7 +10,6 @@ import {
 import { Tag, Space } from 'antd';
 
 export default function StatusButton({status}) {
-  console.log(status);
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);

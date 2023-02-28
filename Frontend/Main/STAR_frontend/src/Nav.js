@@ -4,6 +4,8 @@ import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
+import TabContext from '@mui/lab/TabContext';
+import TabPanel from '@mui/lab/TabPanel';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
@@ -11,9 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
+import { ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import React ,{useEffect,useState} from 'react';
 import Tabs from './Components/TabComponent/Tabs';
 import { useNavigate } from 'react-router';
@@ -24,7 +24,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import AvatarItem from './Components/Avatar/Avatar';
 import NotificationItem from './Components/Avatar/Notification';
 import './App.css';
-import { Avatar, Button } from 'antd';
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import DashboardComp from './Components/TabComponent/Dashboard/Dashboard';
 
 const drawerWidth = 150;
 
@@ -96,6 +97,17 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function MiniDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [tabValue, setValue] = React.useState("1");
+  const navigate = new useNavigate();
+  const [name, setName] = useState("");
+  const [resourceDetail, setResourceDetail] = useState([]);
+  const [resourceRequests, setResourceRequests] = useState([]);
+  const [managerRequests, setManagerRequests] = useState([]);
+  const [reqHistory, setRequestsHistory] = useState([]);
+  const [status, setStatus] = useState([]);
+  const handleDrawerLinks = (idx) => {
+    setValue(idx);
+  };
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -104,13 +116,6 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const navigate = new useNavigate();
-  const [name, setName] = useState("");
-  const [resourceDetail, setResourceDetail] = useState([]);
-  const [resourceRequests, setResourceRequests] = useState([]);
-  const [managerRequests, setManagerRequests] = useState([]);
-  const [reqHistory, setRequestsHistory] = useState([]);
-  const [status, setStatus] = useState([]);
   useEffect(() => { 
     Promise.all([
       axios.get('http://localhost:8084/api/v1/resource/data', {headers: { 
@@ -170,7 +175,7 @@ export default function MiniDrawer() {
           <div className="d-flex justify-content-end col">
             <div className='mx-1 row'><NotificationItem notificationCount={managerRequests.length}/></div>
             <AvatarItem initials={name[0]}/>
-            <IconButton sx={{fontSize:'large', color:'#EEEEEE'}}>Hi {name.split(' ')[0]}</IconButton>
+            <IconButton sx={{fontSize:'large'}} style ={{color:'#EEEEEE'}}>Hi {name.split(' ')[0]}</IconButton>
           </div>
         </Toolbar>
       </AppBar>
@@ -182,63 +187,39 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Dahsboard'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 1.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 2 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
+          <ListItem key='Home' disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("1")} value='1'>
+            <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 1.5 }}>
+                <ListItemIcon sx={{ minWidth: 0, mr: open ? 2 : 'auto', justifyContent: 'center' }}>
                   <HomeIcon />
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+                <ListItemText primary='Home' sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
+          <ListItem key='Dashboard' disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("2")} value='2'>
+            <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 1.5 }}>
+              <ListItemIcon sx={{ minWidth: 0, mr: open ? 2 : 'auto', justifyContent: 'center' }}>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Dashboard" disablePadding sx={{ opacity: open ? 1 : 0 }}/>
+            </ListItemButton>
+          </ListItem>
         </List>
-        {/* <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List> */}
-
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-        <Tabs resource={resourceDetail} managerReq={managerRequests} reqHistory={reqHistory} resourceReq={resourceRequests} status={status}/>
-      </Box>
+      
+      <TabContext value={tabValue}>
+        <TabPanel value="1">
+          <Box sx={{ flexGrow: 1, p: 3 }}>
+            <DrawerHeader />
+            <Tabs resource={resourceDetail} managerReq={managerRequests} reqHistory={reqHistory} resourceReq={resourceRequests} status={status}/>
+          </Box>
+        </TabPanel>
+        <TabPanel value="2">
+          <Box sx={{ flexGrow: 1, p: 3 }}>
+            <DrawerHeader />
+            <DashboardComp/>
+          </Box>
+        </TabPanel>
+      </TabContext>
     </Box>
   );
 }
-
-var a="hi";
-console.log(a);

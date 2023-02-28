@@ -114,7 +114,6 @@ public class RequestServiceImpl implements RequestService{
 	public ResponseEntity<String> updateRequest(OvertimeRequest overtimeReq) {
   		WorkingHours workingHour = workRepo.findById(overtimeReq.getId()).orElse(null);
   		if (workingHour == null) return new ResponseEntity<>("Payload Insufficient", HttpStatus.NO_CONTENT);
-  		if (workingHour.getIsActive() == false) return new ResponseEntity<>("Bad Request", HttpStatus.BAD_REQUEST);
   		if (overtimeReq == null || overtimeReq.getResponseText() == null) return new ResponseEntity<>("Data Insufficient", HttpStatus.BAD_REQUEST);
   		if (workingHour.getIsActive() == true) workingHour.setApprovedOn(LocalDateTime.now());
   		workingHour.setIsActive(false);

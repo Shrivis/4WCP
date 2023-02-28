@@ -2,6 +2,7 @@
   "name": "starr",
   "version": "0.1.0",
   "private": true,
+  "homepage": "StarApp",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -22,6 +23,7 @@
     "react-app": "^1.1.2",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
+    "react-highlight-words": "^0.20.0",
     "react-router": "^6.8.1",
     "react-router-dom": "^6.8.1",
     "react-scripts": "^5.0.1",
