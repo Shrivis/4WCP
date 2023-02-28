@@ -35,7 +35,7 @@ public class RequestServiceImpl implements RequestService{
 	@Autowired
 	UserProjectRelationRepository userProjectRelation;
 
-	
+	String format = "dd-MMM-yy";
 	@Override
 	public List<ManagerRequest> getAllResourceRequestForManager(String email) {
 		Long id = userRepo.findByEmail(email).orElse(null).getUserId();
@@ -55,11 +55,11 @@ public class RequestServiceImpl implements RequestService{
   				//
   				LocalDateTime PeriodStart = employeeWH.getPeriodStart();
   				DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
-				user.setPeriodStart( DateTimeFormatter.ofPattern("dd-MMM-yyyy")
+				user.setPeriodStart( DateTimeFormatter.ofPattern(format)
   	  				  .format(PeriodStart));
   				
   				LocalDateTime PeriodEnd = employeeWH.getPeriodEnd();
-				user.setPeriodEnd(DateTimeFormatter.ofPattern("dd-MMM-yyyy")
+				user.setPeriodEnd(DateTimeFormatter.ofPattern(format)
     	  				  .format(PeriodEnd));
   		    	user.setHours(employeeWH.getHours());
   				user.setExpectedHours(expectedHour);
@@ -85,10 +85,10 @@ public class RequestServiceImpl implements RequestService{
 	  			request.setManagerName(employeeWH.getProject().getManagerUser().getName());
 	  			
 	  			LocalDateTime PeriodStart = employeeWH.getPeriodStart();
-				request.setStartTime(DateTimeFormatter.ofPattern("dd-MMM-yy")
+				request.setStartTime(DateTimeFormatter.ofPattern(format)
   	  				  .format(PeriodStart));
   				LocalDateTime PeriodEnd = employeeWH.getPeriodEnd();
-  		    	request.setEndTime(DateTimeFormatter.ofPattern("dd-MMM-yy")
+  		    	request.setEndTime(DateTimeFormatter.ofPattern(format)
     	  				  .format(PeriodEnd));
 	  				
 	  			request.setTimesheetNo(employeeWH.getTimesheetNo());
@@ -129,7 +129,6 @@ public class RequestServiceImpl implements RequestService{
   		List<WorkingHours> workingHours = workRepo.HistoryOfRequestsForManagerId(id); 
   		for (WorkingHours employeeWH: workingHours) {
   			Long resourceId = employeeWH.getUser().getUserId();
-//  			String projectId = employeeWH.getProject().getProjectId();
   				RequestHistory history = new RequestHistory();
   				history.setId(employeeWH.getWorkingHourId());
   				history.setUserId(resourceId);
@@ -138,9 +137,9 @@ public class RequestServiceImpl implements RequestService{
   				history.setProjectName(employeeWH.getProject().getProjectName());
   				LocalDateTime PeriodStart = employeeWH.getPeriodStart();
   				DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
-				history.setPeriodStart(DateTimeFormatter.ofPattern("dd-MMM-yy").format(PeriodStart));
+				history.setPeriodStart(DateTimeFormatter.ofPattern(format).format(PeriodStart));
   				LocalDateTime PeriodEnd = employeeWH.getPeriodEnd();
-				history.setPeriodEnd(DateTimeFormatter.ofPattern("dd-MMM-yy").format(PeriodEnd));
+				history.setPeriodEnd(DateTimeFormatter.ofPattern(format).format(PeriodEnd));
   				history.setHours(employeeWH.getHours());
   				if (employeeWH.getIsApproved()) history.setStatus("Approved");
   				else history.setStatus("Rejected");
