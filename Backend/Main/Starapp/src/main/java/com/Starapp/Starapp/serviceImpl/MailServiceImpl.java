@@ -74,14 +74,10 @@ public class MailServiceImpl implements MailService {
             
             // Sending the mail
             javaMailSender.send(mailMessage);
-
-            
-        	System.out.println("step3");
         }
  
         // Catch block to handle the exceptions
         catch (Exception e) {
-        	System.out.println(e);
         	return new ResponseEntity<>("Error", HttpStatus.EXPECTATION_FAILED); 
         }
   		return new ResponseEntity<>("sent mail succesfully", HttpStatus.ACCEPTED); 
