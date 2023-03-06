@@ -1,58 +1,42 @@
-import {React, useState } from 'react'
-import { InputLabel, FormControl, NativeSelect } from '@mui/material';
-import { TabContext, TabPanel } from '@mui/lab';
-import {Box} from '@mui/material';
-import { styled, useTheme } from '@mui/material/styles';
-import {MenuItem, Select} from '@mui/material';
+import {React, useState } from 'react';
+import {Divider} from 'antd';
+import LineChart from './Graph/LineChart';
+import BarComp from './Graph/BarGraph';
+import './Graph/GraphStyle.css'
+import { Card } from '@mui/material';
+
+const graph1data = []
+const graph2data = []
+const graph3data = []
+const graph4data = []
+
 
 export default function Dashboard () {
-    const [tabValue, setTabValue] = useState(1);
-    const data = [
-        {
-        'project':'Batch Processing',
-        'resources':['Ajay', 'Vishal Srivastav', 'Some Long Name Guy', 'Vansh Aggarwal'],
-        'avgHour':[20, 2, -20, 34],
-        },
-        {
-            'project':'Batch Processing2',
-            'resources':['Ajay2', 'Vishal Srivastav2', 'Some Long Name Guy2', 'Vansh Aggarwal2'],
-            'avgHour':[20, 2, -20, 34],
-        }
-    ];
-    const handleChange = (event) => {
-        setTabValue(event.target.value);
-    };
-    const DrawerHeader = styled('div')(({ theme }) => ({
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-        padding: theme.spacing(0, 1),
-        // necessary for content to be below app bar
-        ...theme.mixins.toolbar,
-    }));
   return (
-    <div>
-    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-        <InputLabel>Project</InputLabel>
-        <Select value={tabValue} label="Project" onChange={handleChange}>
-            {data.map((row, index) =>
-                <MenuItem value={`${index+1}`}>{row.project}</MenuItem>
-            )};
-        </Select>
-    </FormControl>
-    <TabContext value={tabValue}>
-        <TabPanel value="1">
-        <Box component="Home" sx={{ flexGrow: 1, p: 3 }}>
-            <DrawerHeader />
-            <h1>here too</h1>
-        </Box>
-        </TabPanel>
-        <TabPanel value="2">
-        <Box component="Dashboard" sx={{ flexGrow: 1, p: 3 }}>
-            <h1>here</h1>
-        </Box>
-        </TabPanel>
-    </TabContext>
+    <div className="container" style={{'width':'200vh'}}>
+        <div className="row">
+            {/* <div col-md-12>
+                <Card className='px-5 py-4'>Hello</Card>
+            </div> */}
+            <div className="row col-md-10">
+                <div className='col-md-6'>
+                    <LineChart/>
+                </div>
+                <div className='col-md-6'>
+                    <LineChart/>
+                </div>
+                <Divider plain className='mt-4'>+</Divider>
+                <div className='col-md-6'>
+                    <BarComp/>
+                </div>
+                <div className='col-md-6'>
+                    <BarComp/>
+                </div>
+            </div>
+            <div className="col-md-2">
+                <Card sx={{'height':'60vh'}} className='py-5'>details</Card>
+            </div>
+        </div>
     </div>
   )
 }

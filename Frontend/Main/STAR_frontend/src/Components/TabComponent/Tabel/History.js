@@ -1,9 +1,9 @@
 import {React, useState, useRef} from 'react';
 import AcceptRejctButton from '../Forms/ManagerForm';
-import StatusButton from '../Forms/StatusButton';
 import { SearchOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table } from 'antd';
 import Highlighter from 'react-highlight-words';
+import HistoryTrail from './HistoryTrail';
 
 
 
@@ -101,6 +101,7 @@ export default function ManagerTable({reqHistory, managerId}) {
         {
             title: 'Timesheet',
             dataIndex: 'timesheetNo',
+            description: 'desc',
             width:120,
             sorter: (a, b) => a.timesheetNo.localeCompare(b.timesheetNo),
             sortDirections: ['descend', 'ascend'],
@@ -151,9 +152,9 @@ export default function ManagerTable({reqHistory, managerId}) {
             sortDirections: ['descend', 'ascend'],
         },  
         {
-            title: 'Action',
+            title: 'Current Status',
             dataIndex: '',
-            key: 'operation',
+            // key: (resource) => `${resource.timesheetNo}`,
             width:180,
             filters: [
                 {
@@ -171,12 +172,21 @@ export default function ManagerTable({reqHistory, managerId}) {
             ],
             filterSearch: true,
             onFilter: (value, record) => record.status.startsWith(value),
-            render: (data) => <span className='d-flex justify-content-evenly'><StatusButton status={data}/>
-            {(data.canChange==true)?(<AcceptRejctButton timesheetId={data.id} userId={data.userId} managerId={managerId}/>):
-            (<a color="text-action"  style={{'text-decoration':'none'}} title="older than 7 days, Can't modify" className='py-1' disabled>Action</a>)}</span>,
+            render: (data) => <span className='d-flex justify-content-evenly'>
+            <Space>
+                {(data.status === 'Approved') ? (<a className="text-success" style={{'text-decoration':'none'}}>{data.status}</a>):
+                (data.status === 'Rejected') ? (<div className="text-danger" style={{'text-decoration':'none'}} >{data.status}</div>):
+                (<a className="text-warning" style={{'text-decoration':'none'}}>{data.status}</a>)}
+            </Space>
+            {(data.canChange==true)?(<AcceptRejctButton name={"Update"} timesheetId={data.id} userId={data.userId} managerId={managerId}/>):
+            (<a color="text-action"  style={{'text-decoration':'none', 'color':'gray'}} title="older than 7 days, Can't modify" className='py-1' disabled>Action</a>)}</span>,
         },
     ];
     return(
-        <Table columns={columns} dataSource={reqHistory} onChange={onChange}  scroll={{ y: 200 }}></Table>
+        <Table columns={columns} expandable={{
+            expandedRowRender: (record) => (
+                <HistoryTrail trail={record.requestLogs}/>
+            ),
+          }} dataSource={reqHistory} onChange={onChange}  scroll={{ y: 260 }}></Table>
     );
 }   

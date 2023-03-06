@@ -3,20 +3,16 @@ import Axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./login.css";
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
+import image from '../Images/img.png'
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-}
-from 'mdb-react-ui-kit';
-import { color } from '@mui/system';
-
-
+const theme = createTheme();
 export default function Login() {
   const url="http://localhost:8084/api/v1/auth/authenticate" //API for JWT
   const[errMsg,setErrMsg]=useState('');
@@ -40,7 +36,7 @@ export default function Login() {
         localStorage.setItem("token",res.data.token);
         navigate("/home")
       }, 
-      (e) => setErrMsg("Invalid Credentitals")
+      (e) => setErrMsg("Invalid Credentials")
   );} 
 
     function handle(e) {
@@ -49,41 +45,49 @@ export default function Login() {
         setData(newdata);
     }
   return (
-    <MDBContainer fluid className='body'style={{height:"36rem"}}>
-
-      <MDBRow>
-
-        <MDBCol md='6' className='text-center text-md-start d-flex flex-column justify-content-center body' style={{height:"36rem"}}>
-
-          <h1 className="my-5 display-3 fw-bold ls-tight px-3">
-            Comp-Ov <br />
-            <span className='display-6 fw-bold' style={{color:"#f44336"}}>Easier overtime management</span>
-          </h1>
-          <p className='px-3 fw-bold' style={{color: 'hsl(217, 10%, 50.8%)'}}>
-            Now manage your employee's overtime pays in an easier and efficient way. We provide an
-            ultimate solution for keeping track of overtime requests of your employees and comprehensive 
-            tools to visualise overtime working activities throughout the organisation.
-          </p>
-        </MDBCol>
-
-        <MDBCol md='5' style={{height:"35rem"}}>
-
-          <MDBCard className='my-5' style={{height:"30rem"}}>
-            <MDBCardBody className='p-5' style={{marginTop:"8rem"}}>
-            <form onSubmit={ (e) => submit(e) }>
-              <MDBInput onChange={(e)=>handle(e)} wrapperClass='mb-4' value={data.email} id='email' type='email' placeholder='Email Address'/>
-              <MDBInput onChange={(e)=>handle(e)} wrapperClass='mb-4' value={data.password}  id="password" type='password' placeholder='Password'>
-              <span className='text-danger mt-1'>{errMsg}</span></MDBInput>
-              <MDBBtn className='w-100' size='md' style={{height:"2.5rem", backgroundColor:"#f44336"}}>Login</MDBBtn>
-            </form>
-            </MDBCardBody>
-          </MDBCard>
-
-        </MDBCol>
-
-      </MDBRow>
-
-    </MDBContainer>
+    <div className='justify-content-center' style={{height:'100vh',backgroudSize: '100px',backgroundImage:`url(${image})`,backgroundRepeat:'no-repeat'}} >
+  
+    <ThemeProvider theme={theme}  >
+    <Container component="main" maxWidth="xs"   >
+      <CssBaseline />
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop:'7rem' }}>
+        <Typography component="h1" variant="h5">
+          <span style={{fontFamily:'Comic Sans MS' ,fontSize:'2rem'}}>Star App login</span>
+        </Typography>
+        <Box component="form" onSubmit={(e)=>submit(e)} noValidate sx={{ mt: 3 }}>
+          <TextField
+            onChange={(e)=>handle(e)}
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            value={data.email}
+            type='email'
+          />
+          <TextField
+            onChange={(e)=>handle(e)}
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            value={data.password}
+          />
+          <span className='text-danger mt-1'>{errMsg}</span>
+          <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+            Sign In
+          </Button>
+        </Box>
+      </Box>
+    </Container>
+  </ThemeProvider></div>
   );
 }
 

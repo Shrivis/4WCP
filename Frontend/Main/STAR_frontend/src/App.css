@@ -1,16 +1,4 @@
 
-
-.sbar{
-  display: inline;
-  width: 10rem;
-  float: left;
-  margin-right: 2rem;   
-  background-color: #052d53ce;
-  /* padding-top: 2%; */
- 
-}
-
-
 .logo {
   width: 100px;
 }
@@ -56,3 +44,4 @@ body {
   overflow-x: hidden; /* Hide horizontal scrollbar */
   background: #EEEEEE;
 }
+

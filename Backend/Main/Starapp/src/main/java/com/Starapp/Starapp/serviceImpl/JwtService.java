@@ -13,6 +13,8 @@ import java.util.function.Function;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import com.Starapp.Starapp.Entities.User;
+
 @Service
 public class JwtService {
 
@@ -27,17 +29,15 @@ public class JwtService {
     return claimsResolver.apply(claims);
   }
 
-  public String generateToken(UserDetails userDetails) {
+  public String generateToken(User userDetails) {
     return generateToken(new HashMap<>(), userDetails);
   }
 
-  public String generateToken(
-      Map<String, Object> extraClaims,
-      UserDetails userDetails
-  ) {
+  public String generateToken(Map<String, Object> extraClaims, User userDetails) {
     return Jwts
         .builder()
         .setClaims(extraClaims)
+        .claim("roles", userDetails.getRole().toString())
         .setSubject(userDetails.getUsername())
         .setIssuedAt(new Date(System.currentTimeMillis()))
         .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24))

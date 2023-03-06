@@ -26,6 +26,7 @@ import NotificationItem from './Components/Avatar/Notification';
 import './App.css';
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import DashboardComp from './Components/TabComponent/Dashboard/Dashboard';
+import jwt from 'jwt-decode';
 
 const drawerWidth = 150;
 
@@ -153,6 +154,12 @@ export default function MiniDrawer() {
     
   }, [] );
 
+  useEffect(() => { 
+    if (jwt(localStorage.getItem('token')).roles == 'ADMIN') {
+      const idx = "2";
+      setValue(idx);
+    }
+  }, [] );
 
   return (
     <Box sx={{ display: 'flex' }} >
@@ -187,6 +194,7 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
+          {((jwt(localStorage.getItem('token'))).roles == 'USER')?(
           <ListItem key='Home' disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("1")} value='1'>
             <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 1.5 }}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 2 : 'auto', justifyContent: 'center' }}>
@@ -195,6 +203,7 @@ export default function MiniDrawer() {
                 <ListItemText primary='Home' sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
+          ):(
           <ListItem key='Dashboard' disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("2")} value='2'>
             <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 1.5 }}>
               <ListItemIcon sx={{ minWidth: 0, mr: open ? 2 : 'auto', justifyContent: 'center' }}>
@@ -203,18 +212,18 @@ export default function MiniDrawer() {
               <ListItemText primary="Dashboard" disablePadding sx={{ opacity: open ? 1 : 0 }}/>
             </ListItemButton>
           </ListItem>
+          )}
         </List>
       </Drawer>
-      
       <TabContext value={tabValue}>
         <TabPanel value="1">
-          <Box sx={{ flexGrow: 1, p: 3 }}>
+          <Box sx={{ flexGrow: 1}}>
             <DrawerHeader />
             <Tabs resource={resourceDetail} managerReq={managerRequests} reqHistory={reqHistory} resourceReq={resourceRequests} status={status}/>
           </Box>
         </TabPanel>
         <TabPanel value="2">
-          <Box sx={{ flexGrow: 1, p: 3 }}>
+          <Box sx={{ flexGrow: 1}}>
             <DrawerHeader />
             <DashboardComp/>
           </Box>

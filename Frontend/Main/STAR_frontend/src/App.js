@@ -8,7 +8,6 @@ import React from 'react';
 
 function App() {
   return (
-  <div>
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<RouteLogin/>}/>
@@ -18,8 +17,6 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-  </div>
-     
   );
 }
 

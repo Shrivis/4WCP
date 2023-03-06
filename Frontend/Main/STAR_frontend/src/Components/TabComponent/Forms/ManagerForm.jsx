@@ -10,7 +10,7 @@ import { Divider, Tag, Space } from 'antd';
 import { useState } from 'react';
 import axios from 'axios';
 
-export default function AcceptRejctButton({timesheetId, managerId, userId}) {
+export default function AcceptRejctButton({name, timesheetId, managerId, userId}) {
   const [open, setOpen] = React.useState(false);
   const [resText, setResText] = useState("");
 
@@ -83,16 +83,16 @@ export default function AcceptRejctButton({timesheetId, managerId, userId}) {
   return (
     <div>
       <Space  onClick={handleClickOpen} >
-        <a color="text-action"  style={{'text-decoration':'none'}} className='py-1'>Action</a>
+        <a color="text-action"  style={{'text-decoration':'none'}} className='py-1'>{name}</a>
       </Space>
       <Dialog open={open} onClose={handleClose} >
         <DialogContent style={{margin:0, padding:0}}>
           
-          <div className='d-flex btn text-danger justify-content-end'>
-          <DialogContentText className="btn">
-            Give a brief insight as to why you are accepting or rejecting
-          </DialogContentText>
-          <div className='d-flex btn text-danger justify-content-end' onClick={handleClickClose}>X</div>
+          <div className='d-flex btn justify-content-end'>
+            <DialogContentText className="btn">
+              Give a brief insight as to why you are accepting or rejecting
+            </DialogContentText>
+            <div className='d-flex btn text-danger justify-content-end' onClick={handleClickClose}>X</div>
           </div>
           <Divider style={{margin:0, padding:1}}></Divider>
           <div className="mx-4">

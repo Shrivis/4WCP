@@ -158,12 +158,11 @@ export default function ManagerTable({managerReq, managerId}) {
             title: 'Action',
             dataIndex: '',
             width: 90,
-            key: 'operation',
-            render: (data) => <AcceptRejctButton timesheetId={data.id} userId={data.userId} managerId={managerId}/>,
+            render: (data) => <AcceptRejctButton name={"Action"} timesheetId={data.id} userId={data.userId} managerId={managerId}/>,
         },
     ];
       
     return(
-        <Table columns={columns} dataSource={managerReq} onChange={onChange}  scroll={{ y: 200 }}></Table>
+        <Table columns={columns} dataSource={managerReq} onChange={onChange}  scroll={{ y: 214 }}></Table>
         );
 }   

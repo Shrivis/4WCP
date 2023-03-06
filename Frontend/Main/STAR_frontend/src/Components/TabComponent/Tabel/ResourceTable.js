@@ -1,8 +1,8 @@
-import StatusButton from '../Forms/StatusButton';
 import {React, useState, useRef} from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table } from 'antd';
 import Highlighter from 'react-highlight-words';
+import HistoryTrail from './HistoryTrail';
 
 function onChange(pagination, filters, sorter, extra) {
   console.log('params', pagination, filters, sorter, extra);
@@ -140,7 +140,7 @@ export default function ManagerTable({ReqData}) {
           title: 'Status',
           width:110,
           dataIndex: '',
-          key:'operation',    
+        //   key:'operation',    
           filters: [
             {
               text: 'Approved',
@@ -157,10 +157,20 @@ export default function ManagerTable({ReqData}) {
           ],
           filterSearch: true,
           onFilter: (value, record) => record.status.startsWith(value),
-          render: (data) => <StatusButton status={data}/>,
+          render: (data) =>       
+          <Space>
+            {(data.status === 'Approved') ? (<a className="text-success" style={{'text-decoration':'none'}}>{data.status}</a>):
+            (data.status === 'Rejected') ? (<div className="text-danger" style={{'text-decoration':'none'}} >{data.status}</div>):
+            (<a className="text-warning" style={{'text-decoration':'none'}}>{data.status}</a>)}
+          </Space>,
         },
     ];
     return(
-        <Table columns={columns} dataSource={ReqData} onChange={onChange}  scroll={{ y: 200 }} ></Table>
+        <Table columns={columns} expandable={{
+            expandedRowRender: (record) => (
+                <HistoryTrail trail={record.requestLogs}/>
+            ),
+            rowExpandable: (record) => record.status !== 'Pending',
+          }} dataSource={ReqData} onChange={onChange}  scroll={{ y: 214 }} ></Table>
     );
 }   
