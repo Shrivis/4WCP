@@ -105,13 +105,14 @@ export default function ManagerTable({reqHistory, managerId}) {
             width:120,
             sorter: (a, b) => a.timesheetNo.localeCompare(b.timesheetNo),
             sortDirections: ['descend', 'ascend'],
+            responsive: ['lg']
         },
         {
-            title: 'Id',
+            title: 'Emp Id',
             dataIndex:'userId',
-            width:80,
             sorter:(a, b) => a.userId - b.userId,
             sortDirections:['descend', 'ascend'],
+            responsive: ['lg']
         },
         {
             title:'Name',
@@ -129,6 +130,7 @@ export default function ManagerTable({reqHistory, managerId}) {
             ...getColumnSearchProps('projectName'),
             sorter:(a, b) => a.projectName.localeCompare(b.projectName),
             sortDirections: ['descend', 'ascend'],
+            responsive: ['md']
         },
         {
             title:'From Date',
@@ -136,6 +138,7 @@ export default function ManagerTable({reqHistory, managerId}) {
             width:120,
             sorter:(a, b) => a.periodStart.localeCompare(b.periodStart),
             sortDirections: ['descend', 'ascend'],
+            responsive: ['md']
         },
         {
             title:'Till Date',
@@ -143,6 +146,7 @@ export default function ManagerTable({reqHistory, managerId}) {
             width:120,
             sorter:(a, b) => a.periodEnd.localeCompare(b.periodEnd),
             sortDirections: ['descend', 'ascend'],
+            responsive: ['md']
         },
         {
             title:'Hours',
@@ -152,18 +156,13 @@ export default function ManagerTable({reqHistory, managerId}) {
             sortDirections: ['descend', 'ascend'],
         },  
         {
-            title: 'Current Status',
+            title: 'Status',
             dataIndex: '',
-            // key: (resource) => `${resource.timesheetNo}`,
-            width:180,
+            key: (resource) => `${resource.timesheetNo}`,
             filters: [
                 {
                     text: 'Approved',
                     value: 'Approved',
-                },
-                {
-                    text: 'Pending',
-                    value: 'Pending',
                 },
                 {
                     text: 'Rejected',
@@ -179,14 +178,17 @@ export default function ManagerTable({reqHistory, managerId}) {
                 (<a className="text-warning" style={{'text-decoration':'none'}}>{data.status}</a>)}
             </Space>
             {(data.canChange==true)?(<AcceptRejctButton name={"Update"} timesheetId={data.id} userId={data.userId} managerId={managerId}/>):
-            (<a color="text-action"  style={{'text-decoration':'none', 'color':'gray'}} title="older than 7 days, Can't modify" className='py-1' disabled>Action</a>)}</span>,
+            (<a color="text-action"  style={{'text-decoration':'none', 'color':'gray'}} title="Can't modify. Contact Admin" className='py-1' disabled>Action</a>)}</span>,
         },
     ];
     return(
+        <div className='d-flex justify-content-evenly'>
         <Table columns={columns} expandable={{
             expandedRowRender: (record) => (
                 <HistoryTrail trail={record.requestLogs}/>
             ),
-          }} dataSource={reqHistory} onChange={onChange}  scroll={{ y: 260 }}></Table>
+          }} dataSource={reqHistory} onChange={onChange}>
+        </Table>
+        </div>
     );
 }   

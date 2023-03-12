@@ -9,6 +9,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
+import {ProfileFilled, UndoOutlined, HomeFilled} from '@ant-design/icons';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -27,6 +28,10 @@ import './App.css';
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import DashboardComp from './Components/TabComponent/Dashboard/Dashboard';
 import jwt from 'jwt-decode';
+import { Spin, Space } from 'antd';
+import ManagerTable from './Components/TabComponent/Tabel/ManagerTable';
+import ResourceTable from './Components/TabComponent/Tabel/ResourceTable';
+import HistoryTable from './Components/TabComponent/Tabel/History';
 
 const drawerWidth = 150;
 
@@ -96,6 +101,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function MiniDrawer() {
+  
+  const [loading, setLoading] = useState(true);
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [tabValue, setValue] = React.useState("1");
@@ -141,6 +148,7 @@ export default function MiniDrawer() {
       }})
     ])
     .then(([res1, res2, res3, res4, res5]) => {
+      setLoading(false);
       setResourceDetail(res1.data);
       setManagerRequests(res2.data)
       setRequestsHistory(res3.data);
@@ -156,12 +164,18 @@ export default function MiniDrawer() {
 
   useEffect(() => { 
     if (jwt(localStorage.getItem('token')).roles == 'ADMIN') {
-      const idx = "2";
+      const idx = "4";
       setValue(idx);
     }
   }, [] );
 
   return (
+    <div>
+    {loading ? (  
+      <div size="middle" style={{'height':'100vh', 'display':'flex', 'alignItems':'center', 'justifyContent':'center'}}>
+        <Spin size="large" />
+      </div>
+    ) : (<>
     <Box sx={{ display: 'flex' }} >
       <CssBaseline />
       <AppBar position="fixed" open={open} style={{backgroundColor:"#222831"}} >
@@ -180,7 +194,7 @@ export default function MiniDrawer() {
           </IconButton>
           <Navbar.Brand href="/home" ><img className='logo' src={Logo} alt='' ></img></Navbar.Brand>
           <div className="d-flex justify-content-end col">
-            <div className='mx-1 row'><NotificationItem notificationCount={managerRequests.length}/></div>
+            <div className='mx-1 row'><NotificationItem notificationCount={managerRequests.length} acceptedCount={resourceRequests.length}/></div>
             <AvatarItem initials={name[0]}/>
             <IconButton sx={{fontSize:'large'}} style ={{color:'#EEEEEE'}}>Hi {name.split(' ')[0]}</IconButton>
           </div>
@@ -194,17 +208,35 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
-          {((jwt(localStorage.getItem('token'))).roles == 'USER')?(
-          <ListItem key='Home' disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("1")} value='1'>
+          {((jwt(localStorage.getItem('token'))).roles == 'USER')?(<>
+          <ListItem key='My Profile' disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("1")}>
             <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 1.5 }}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 2 : 'auto', justifyContent: 'center' }}>
-                  <HomeIcon />
+                <HomeFilled />
                 </ListItemIcon>
-                <ListItemText primary='Home' sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary='My Profile' sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
-          ):(
-          <ListItem key='Dashboard' disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("2")} value='2'>
+          {(managerRequests.length === 0 && reqHistory.length == 0)?(''):(
+          <><ListItem key='Requests' disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("2")}>
+            <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 1.5 }}>
+                <ListItemIcon sx={{ minWidth: 0, mr: open ? 2 : 'auto', justifyContent: 'center' }}>
+                  <ProfileFilled />
+                </ListItemIcon>
+                <ListItemText primary='Requests' sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
+          <ListItem key='History' disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("3")}>
+            <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 1.5 }}>
+                <ListItemIcon sx={{ minWidth: 0, mr: open ? 2 : 'auto', justifyContent: 'center' }}>
+                  <UndoOutlined/>
+                </ListItemIcon>
+                <ListItemText primary='History' sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem></>
+          )}
+          </>):(
+          <ListItem key='Dashboard' disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("4")}>
             <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 1.5 }}>
               <ListItemIcon sx={{ minWidth: 0, mr: open ? 2 : 'auto', justifyContent: 'center' }}>
                 <DashboardIcon />
@@ -219,16 +251,23 @@ export default function MiniDrawer() {
         <TabPanel value="1">
           <Box sx={{ flexGrow: 1}}>
             <DrawerHeader />
-            <Tabs resource={resourceDetail} managerReq={managerRequests} reqHistory={reqHistory} resourceReq={resourceRequests} status={status}/>
+            <ResourceTable reqData={resourceRequests} status={status}/>
           </Box>
         </TabPanel>
         <TabPanel value="2">
-          <Box sx={{ flexGrow: 1}}>
+            <DrawerHeader />
+            <ManagerTable  managerReq={managerRequests} managerId={resourceRequests.userId} status={status}/>
+        </TabPanel>
+        <TabPanel value="3">
+            <DrawerHeader />
+            <HistoryTable  reqHistory={reqHistory} managerId={resourceRequests.userId}/>
+        </TabPanel>
+        <TabPanel value="4">
             <DrawerHeader />
             <DashboardComp/>
-          </Box>
         </TabPanel>
       </TabContext>
     </Box>
+    </>)}</div>
   );
 }

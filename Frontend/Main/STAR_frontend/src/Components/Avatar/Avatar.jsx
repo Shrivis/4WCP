@@ -78,13 +78,7 @@ export default function AvatarItem({initials}) {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Settings
-        </MenuItem>
+
         <MenuItem onClick={(nav) => clearLocalStorage(navigate)}>
           <ListItemIcon>
             <Logout fontSize="small" />

@@ -9,6 +9,7 @@
 		<version>2.7.8</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+	<packaging>war</packaging>
 	<groupId>com.Starapp</groupId>
 	<artifactId>Starapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -16,6 +17,9 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<start-class>
+        com.Starapp.Starapp.StarappApplication
+   		</start-class>
 		<sonar.organization>shrivis</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
@@ -38,7 +42,6 @@
 		 <dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-context-support</artifactId>
-		   
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -94,6 +97,7 @@
 	</dependencies>
 
 	<build>
+    	<finalName>starapp</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -109,5 +113,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

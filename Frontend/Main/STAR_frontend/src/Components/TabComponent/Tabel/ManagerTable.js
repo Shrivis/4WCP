@@ -3,12 +3,15 @@ import {React, useState, useRef} from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table } from 'antd';
 import Highlighter from 'react-highlight-words';
+import Accept from '../Card/StatisticsCardAccept';
+import Pending from '../Card/StatisticsCardPending';
+import Reject from '../Card/StatisticsCardReject';
 
 function onChange(pagination, filters, sorter, extra) {
   console.log('params', pagination, filters, sorter, extra);
 };
 
-export default function ManagerTable({managerReq, managerId}) {
+export default function ManagerTable({managerReq, managerId, status}) {
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
     const searchInput = useRef(null);
@@ -100,13 +103,15 @@ export default function ManagerTable({managerReq, managerId}) {
             width:120,
             sorter: (a, b) => a.timesheetNo.localeCompare(b.timesheetNo),
             sortDirections: ['descend', 'ascend'],
+            responsive: ['lg']
         },
         {
-            title: 'Id',
+            title: 'Emp Id',
             dataIndex:'userId',
-            width:80,
+            width:100,
             sorter:(a, b) => a.userId - b.userId,
             sortDirections:['descend', 'ascend'],
+            responsive: ['lg']
         },
         {
             title:'Name',
@@ -137,32 +142,39 @@ export default function ManagerTable({managerReq, managerId}) {
             width:120,
             sorter:(a, b) => a.periodEnd.localeCompare(b.periodEnd),
             sortDirections: ['descend', 'ascend'],
+            responsive: ['lg']
         },
         {
             title:'Expected Hours',
             ellipsis:'true',
-            width:90,
             dataIndex:'expectedHours',
             sorter:(a, b) => a.expectedHours - b.expectedHours,
             sortDirections: ['descend', 'ascend'],
+            responsive: ['lg']
         },
         {
             title:'Actual Hours',
             dataIndex:'hours',
             ellipsis:'true',
-            width:90,
             sorter:(a, b) => a.hours - b.hours,
             sortDirections: ['descend', 'ascend'],
         },  
         {
             title: 'Action',
             dataIndex: '',
-            width: 90,
+            width: 80,
             render: (data) => <AcceptRejctButton name={"Action"} timesheetId={data.id} userId={data.userId} managerId={managerId}/>,
         },
     ];
       
-    return(
-        <Table columns={columns} dataSource={managerReq} onChange={onChange}  scroll={{ y: 214 }}></Table>
-        );
+    return( 
+        <div>       
+            <div class="row justify-content-evenly">
+                <Accept count={status.managerApproved}/>
+                <Pending count={managerReq.length}/>
+                <Reject count={status.managerRejected}/>
+            </div>
+            <Table className='mt-3' columns={columns} dataSource={managerReq} onChange={onChange}  scroll={{ y: '47vh' }}></Table>
+        </div>
+    );
 }   

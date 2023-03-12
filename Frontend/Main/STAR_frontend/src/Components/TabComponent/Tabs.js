@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {React, useEffect, useState} from 'react';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
@@ -7,19 +7,39 @@ import TabPanel from '@mui/lab/TabPanel';
 import ManagerTable from './Tabel/ManagerTable';
 import ResourceTable from './Tabel/ResourceTable';
 import HistoryTable from './Tabel/History';
-import Accept from '../Card/StatisticsCardAccept'
-import Pending from '../Card/StatisticsCardPending'
-import Reject from '../Card/StatisticsCardReject'
+import Accept from './Card/StatisticsCardAccept'
+import Pending from './Card/StatisticsCardPending'
+import Reject from './Card/StatisticsCardReject'
+import { Spin } from 'antd';
 
 export default function Tabs({resource, managerReq, reqHistory, resourceReq, status}) {
-  const [value, setValue] = React.useState('1');
-
+  const [value, setValue] = useState('1');  
+  const [loading, setLoading] = useState(true);
+  useEffect(() => { 
+    if (managerReq.length !=0 || reqHistory.length!=0) {
+      setValue('2');      
+    }
+    setLoading(false);
+  }, [] );
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   
   return (
+    <div>
+    {loading ? (  
+      <div size="middle" style={{'height':'100vh', 'display':'flex', 'alignItems':'center', 'justifyContent':'center'}}>
+        <Spin size="large" />
+      </div>
+    ) : (
     <TabContext value={value}>
+      <Box className='bg-light container' sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <TabList onChange={handleChange}>
+          <Tab sx={{fontWeight:'bold', color:'gray'}} className="mx-2" label="My Profile " value="1" />
+          {(managerReq.length === 0 && reqHistory.length == 0)?(''):(<Tab sx={{fontWeight:'bold', color:'gray'}} label="Requests" value="2" />)}
+          {(managerReq.length === 0 && reqHistory.length == 0)?(''):(<Tab sx={{fontWeight:'bold', color:'gray'}} label="History" value="3" />)}
+        </TabList>  
+      </Box>
       <TabPanel value="1" style={{padding:'0'}}>         
         <div class="d-flex justify-content-evenly">
           <Accept count={status.resourceApproved}/>
@@ -34,13 +54,6 @@ export default function Tabs({resource, managerReq, reqHistory, resourceReq, sta
           <Reject count={status.managerRejected}/>
         </div>
       </TabPanel>
-      <Box className='mt-2' sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <TabList onChange={handleChange}>
-          <Tab sx={{fontWeight:'bold', color:'gray'}} className="mx-2" label="My Profile " value="1" />
-          {(managerReq.length === 0 && reqHistory.length)?(''):(<Tab sx={{fontWeight:'bold', color:'gray'}} label="Requests" value="2" />)}
-          {(managerReq.length === 0 && reqHistory.length)?(''):(<Tab sx={{fontWeight:'bold', color:'gray'}} label="History" value="3" />)}
-        </TabList>  
-      </Box>
       <TabPanel value="1">
         <ResourceTable ReqData={resourceReq}/>
       </TabPanel>
@@ -50,6 +63,7 @@ export default function Tabs({resource, managerReq, reqHistory, resourceReq, sta
       <TabPanel value="3">
         <HistoryTable  reqHistory={reqHistory} managerId={resource.userId}/>
       </TabPanel>
-    </TabContext>
+    </TabContext>)}
+    </div>
   );
 }

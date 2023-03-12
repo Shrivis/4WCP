@@ -156,7 +156,7 @@ public class RequestServiceImpl implements RequestService{
 			else history.setStatus("Rejected");
 			history.setResponseText(employeeWH.getResponseText());
 			Long days = ChronoUnit.DAYS.between(employeeWH.getApprovedOn(), LocalDateTime.now());
-			if (days<=7) history.setCanChange(true);
+			if (days<=7 && employeeWH.getIsApproved()==false) history.setCanChange(true);
 			history.setRequestLogs(logRepo.getAllLogsForId(employeeWH.getWorkingHourId()));
 			data.add(history);
   		}

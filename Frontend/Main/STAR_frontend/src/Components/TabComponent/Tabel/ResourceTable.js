@@ -3,12 +3,15 @@ import { SearchOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table } from 'antd';
 import Highlighter from 'react-highlight-words';
 import HistoryTrail from './HistoryTrail';
+import Accept from '../Card/StatisticsCardAccept'
+import Pending from '../Card/StatisticsCardPending'
+import Reject from '../Card/StatisticsCardReject'
 
 function onChange(pagination, filters, sorter, extra) {
   console.log('params', pagination, filters, sorter, extra);
 };
 
-export default function ManagerTable({ReqData}) {
+export default function ManagerTable({reqData, status}) {
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
     const searchInput = useRef(null);
@@ -99,7 +102,8 @@ export default function ManagerTable({ReqData}) {
             dataIndex: 'timesheetNo',
             width:140,
             sorter: (a, b) => a.timesheetNo.localeCompare(b.timesheetNo),
-            sortDirections: ['descend', 'ascend'],
+            sortDirections: ['descend', 'ascend'],    
+            responsive: ['lg']
         },
         {
             title:'Project',
@@ -107,7 +111,8 @@ export default function ManagerTable({ReqData}) {
             ellipsis:'true',
             ...getColumnSearchProps('projectName'),
             sorter:(a, b) => a.projectName.localeCompare(b.projectName),
-            sortDirections: ['descend', 'ascend'],
+            sortDirections: ['descend', 'ascend'],    
+            responsive: ['sm']
         },
         {
             title:'Hours',
@@ -122,12 +127,15 @@ export default function ManagerTable({ReqData}) {
             width:140,
             sorter:(a, b) => a.startTime.localeCompare(b.startTime),
             sortDirections: ['descend', 'ascend'],
-        },        {
+            responsive: ['md']
+        },        
+        {
             title:'Till Date',
             dataIndex:'endTime',
             width:140,
             sorter:(a, b) => a.endTime.localeCompare(b.endTime),
             sortDirections: ['descend', 'ascend'],
+            responsive: ['md']
         },
         {
             title:'Manager Name',
@@ -135,12 +143,13 @@ export default function ManagerTable({ReqData}) {
             ...getColumnSearchProps('managerName'),
             sorter:(a, b) => a.managerName.localeCompare(b.managerName),
             sortDirections: ['descend', 'ascend'],
+            responsive: ['lg']
         },
         {
           title: 'Status',
           width:110,
           dataIndex: '',
-        //   key:'operation',    
+          key:'operation',    
           filters: [
             {
               text: 'Approved',
@@ -159,18 +168,26 @@ export default function ManagerTable({ReqData}) {
           onFilter: (value, record) => record.status.startsWith(value),
           render: (data) =>       
           <Space>
-            {(data.status === 'Approved') ? (<a className="text-success" style={{'text-decoration':'none'}}>{data.status}</a>):
-            (data.status === 'Rejected') ? (<div className="text-danger" style={{'text-decoration':'none'}} >{data.status}</div>):
-            (<a className="text-warning" style={{'text-decoration':'none'}}>{data.status}</a>)}
+            {(data.status === 'Approved') ? (<div className="text-success">{data.status}</div>):
+            (data.status === 'Rejected') ? (<div className="text-danger">{data.status}</div>):
+            (<div className="text-warning">{data.status}</div>)}
           </Space>,
         },
     ];
     return(
-        <Table columns={columns} expandable={{
-            expandedRowRender: (record) => (
-                <HistoryTrail trail={record.requestLogs}/>
-            ),
-            rowExpandable: (record) => record.status !== 'Pending',
-          }} dataSource={ReqData} onChange={onChange}  scroll={{ y: 214 }} ></Table>
+        <div>
+            <div class="row justify-content-evenly">
+                <Accept count={status.resourceApproved}/>
+                <Pending count={reqData.length-status.resourceApproved-status.resourceRejected}/>
+                <Reject count={status.resourceRejected}/>
+            </div>
+            <Table className='mt-3' columns={columns} expandable={{
+                expandedRowRender: (record) => (
+                    <HistoryTrail trail={record.requestLogs}/>
+                    ),
+                    rowExpandable: (record) => record.status !== 'Pending',
+                }} dataSource={reqData} onChange={onChange}  scroll={{ y: '47vh' }} >
+            </Table>
+        </div>
     );
 }   

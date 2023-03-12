@@ -1,23 +1,16 @@
-import { BellFilled } from '@ant-design/icons';
-import { Avatar, Badge, Button, Space } from 'antd';
+import { Badge } from 'antd';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
-import Settings from '@mui/icons-material/Settings';
-import Logout from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router';
 
 
-export default function Notification({notificationCount}) {
+export default function Notification({notificationCount, acceptedCount}) {
   const navigate = new useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -41,7 +34,7 @@ export default function Notification({notificationCount}) {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Badge count={notificationCount}>
+            <Badge count={notificationCount + acceptedCount}>
             <NotificationsIcon sx={{ width: 32, height: 32, color:"#EEEEEE"}}></NotificationsIcon>
             </Badge>
           </IconButton>
@@ -82,8 +75,13 @@ export default function Notification({notificationCount}) {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
+
         <MenuItem>
           You've {notificationCount} pending requests to approve
+        </MenuItem>
+        <Divider></Divider>
+        <MenuItem>
+          You've {acceptedCount} request that have been approved recetnly
         </MenuItem>
       </Menu>
     </React.Fragment>
