@@ -45,7 +45,7 @@ export default function AcceptRejctButton({name, timesheetId, managerId, userId}
     };
     const mailOption = {
       method: 'POST',
-      url: 'http://localhost:8084/api/v1/request/sendmail',
+      url: 'http://35.154.232.92:8080/starapp/api/v1/request/sendmail',
       headers: {
         Authorization : `Bearer ${localStorage.getItem("token")}`,
         'Access-Control-Allow-Origin': '*'
@@ -54,7 +54,7 @@ export default function AcceptRejctButton({name, timesheetId, managerId, userId}
     };
     const options = {
         method: 'POST',
-        url: 'http://localhost:8084/api/v1/request/manager',
+        url: 'http://35.154.232.92:8080/starapp/api/v1/request/manager',
         headers: {
           Authorization : `Bearer ${localStorage.getItem("token")}`,
           'Access-Control-Allow-Origin': '*'

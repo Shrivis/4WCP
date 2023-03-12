@@ -2,7 +2,7 @@
   "name": "starr",
   "version": "0.1.0",
   "private": true,
-  "homepage": "StarApp",
+  "homepage": "starappfrontend",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",

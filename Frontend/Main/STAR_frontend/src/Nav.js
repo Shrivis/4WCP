@@ -126,23 +126,23 @@ export default function MiniDrawer() {
   };
   useEffect(() => { 
     Promise.all([
-      axios.get('http://localhost:8084/api/v1/resource/data', {headers: { 
+      axios.get('http://35.154.232.92:8080/starapp/api/v1/resource/data', {headers: { 
         Authorization : `Bearer ${localStorage.getItem("token")}`,
         'Access-Control-Allow-Origin': '*'
       }}),
-      axios.get('http://localhost:8084/api/v1/request/manager', {headers: {
+      axios.get('http://35.154.232.92:8080/starapp/api/v1/request/manager', {headers: {
         Authorization : `Bearer ${localStorage.getItem("token")}`,
         'Access-Control-Allow-Origin': '*'
       }}),
-      axios.get('http://localhost:8084/api/v1/request/history', {headers: {
+      axios.get('http://35.154.232.92:8080/starapp/api/v1/request/history', {headers: {
         Authorization : `Bearer ${localStorage.getItem("token")}`,
         'Access-Control-Allow-Origin': '*'
       }}),
-      axios.get('http://localhost:8084/api/v1/request/resource', {headers: {
+      axios.get('http://35.154.232.92:8080/starapp/api/v1/request/resource', {headers: {
         Authorization : `Bearer ${localStorage.getItem("token")}`,
         'Access-Control-Allow-Origin': '*'
       }}),
-      axios.get('http://localhost:8084/api/v1/status/getstatus', {headers: {
+      axios.get('http://35.154.232.92:8080/starapp/api/v1/status/getstatus', {headers: {
         Authorization : `Bearer ${localStorage.getItem("token")}`,
         'Access-Control-Allow-Origin': '*'
       }})
@@ -192,7 +192,7 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Navbar.Brand href="/home" ><img className='logo' src={Logo} alt='' ></img></Navbar.Brand>
+          <Navbar.Brand href="/starfrontend/home" ><img className='logo' src={Logo} alt='' ></img></Navbar.Brand>
           <div className="d-flex justify-content-end col">
             <div className='mx-1 row'><NotificationItem notificationCount={managerRequests.length} acceptedCount={resourceRequests.length}/></div>
             <AvatarItem initials={name[0]}/>

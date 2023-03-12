@@ -14,7 +14,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme();
 export default function Login() {
-  const url="http://localhost:8084/api/v1/auth/authenticate" //API for JWT
+  const url="http://35.154.232.92:8080/starapp/api/v1/auth/authenticate" //API for JWT
   const[errMsg,setErrMsg]=useState('');
   const navigate = useNavigate(); 
   const [data, setData] = useState({
