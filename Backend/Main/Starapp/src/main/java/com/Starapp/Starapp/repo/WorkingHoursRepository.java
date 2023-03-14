@@ -12,8 +12,6 @@ import com.Starapp.Starapp.Entities.WorkingHours;
 public interface WorkingHoursRepository extends JpaRepository<WorkingHours , Integer> {
 	@Query("select w from WorkingHours w where w.workingHourId=:id")
 	Optional<WorkingHours> findById(@Param("id") Long id);
-	
-	//
      
 	@Query("select w.timesheetNo from WorkingHours w where w.workingHourId=:id")
 	String getTimesheetNoById(@Param("id") Long id);
@@ -24,9 +22,6 @@ public interface WorkingHoursRepository extends JpaRepository<WorkingHours , Int
 	@Query("select w.periodEnd from WorkingHours w where w.workingHourId=:id")
 	String getByPeriodEndId(@Param("id") Long id);
 	
-	
-
-	//
 	@Query("select w from WorkingHours w where w.project.managerUser.userId=:id and w.isActive=true")
 	List<WorkingHours> WorkingHoursOfResourcesForManagerId(@Param("id") Long id);
 
@@ -46,7 +41,10 @@ public interface WorkingHoursRepository extends JpaRepository<WorkingHours , Int
 	Integer getResourceRejectedStatusForManager(Long id);
 
 
-	@Query("select w from WorkingHours w where w.project.managerUser.userId=:id and w.isActive=false")
+	@Query("select w from WorkingHours w where w.project.managerUser.userId=:id and w.isActive=false order by w.approvedOn desc")
 	List<WorkingHours> HistoryOfRequestsForManagerId(Long id);
+
+	@Query("select w from WorkingHours w where w.project.horizontal=:horizontal")
+	List<WorkingHours> getAllDataForHorizontal(@Param("horizontal") String horizontal);
 
 }

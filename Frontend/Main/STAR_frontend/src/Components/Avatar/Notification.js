@@ -76,13 +76,13 @@ export default function Notification({notificationCount, acceptedCount}) {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
 
-        <MenuItem>
+        {(notificationCount != 0)?<><MenuItem>
           You've {notificationCount} pending requests to approve
         </MenuItem>
-        <Divider></Divider>
-        <MenuItem>
-          You've {acceptedCount} request that have been approved recetnly
-        </MenuItem>
+        <Divider></Divider></>:<></>}
+        {(acceptedCount != 0)?<><MenuItem>
+          You've {acceptedCount} new notification regarding your requests
+        </MenuItem></>:<></>}
       </Menu>
     </React.Fragment>
   );

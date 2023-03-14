@@ -35,7 +35,7 @@ public class ResourceServiceImpl implements ResourceService{
   		for (Project project: allProjects) {
   			projects.add(project.getProjectName());
   			vertical.add(project.getVertical());
-  			horizontal.add(project.getHorizonatl());
+  			horizontal.add(project.getHorizontal());
   			subHorizontal.add(project.getSubHorizontal());
   		}
   		data.setEmail(user.getEmail());

@@ -12,7 +12,7 @@ function onChange(pagination, filters, sorter, extra) {
   console.log('params', pagination, filters, sorter, extra);
 };
 
-export default function ManagerTable({reqHistory, managerId}) {
+export default function HistoryTable({reqHistory, managerId}) {
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
     const searchInput = useRef(null);
@@ -177,18 +177,21 @@ export default function ManagerTable({reqHistory, managerId}) {
                 (data.status === 'Rejected') ? (<div className="text-danger" style={{'text-decoration':'none'}} >{data.status}</div>):
                 (<a className="text-warning" style={{'text-decoration':'none'}}>{data.status}</a>)}
             </Space>
-            {(data.canChange==true)?(<AcceptRejctButton name={"Update"} timesheetId={data.id} userId={data.userId} managerId={managerId}/>):
+            {(data.canChange==true)?(<AcceptRejctButton name={"Update"} timesheetId={data.id} userId={data.userId} manId={managerId}/>):
             (<a color="text-action"  style={{'text-decoration':'none', 'color':'gray'}} title="Can't modify. Contact Admin" className='py-1' disabled>Action</a>)}</span>,
         },
     ];
     return(
+        <div>
         <div className='d-flex justify-content-evenly'>
+            
+        </div>
         <Table columns={columns} expandable={{
             expandedRowRender: (record) => (
                 <HistoryTrail trail={record.requestLogs}/>
             ),
           }} dataSource={reqHistory} onChange={onChange}>
         </Table>
-        </div>
+        </div>  
     );
 }   

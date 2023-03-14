@@ -13,16 +13,30 @@ function onChange(pagination, filters, sorter, extra) {
 
 export default function ManagerTable({reqData, status}) {
     const [searchText, setSearchText] = useState('');
+    const [prevData, setPrevData] = useState('Null');
+    const [filterReqData, setFilterReqData] = useState(reqData);
     const [searchedColumn, setSearchedColumn] = useState('');
     const searchInput = useRef(null);
+
+    const handleFilterReq = (filterOn) => {
+        if (prevData == filterOn) {
+            setFilterReqData(reqData);
+        } else {
+            setFilterReqData(
+                reqData.filter((item) => item.status == filterOn)
+            );
+        }
+        setPrevData(filterOn);
+    };
+
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
     setSearchText(selectedKeys[0]);
     setSearchedColumn(dataIndex);
     };
     const handleReset = (clearFilters) => {
-    clearFilters();
-    setSearchText('');
+        clearFilters();
+        setSearchText('');
     };
     const getColumnSearchProps = (dataIndex) => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
@@ -113,6 +127,14 @@ export default function ManagerTable({reqData, status}) {
             sorter:(a, b) => a.projectName.localeCompare(b.projectName),
             sortDirections: ['descend', 'ascend'],    
             responsive: ['sm']
+        },        
+        {
+            title:'Manager Name',
+            dataIndex:'managerName',
+            ...getColumnSearchProps('managerName'),
+            sorter:(a, b) => a.managerName.localeCompare(b.managerName),
+            sortDirections: ['descend', 'ascend'],
+            responsive: ['lg']
         },
         {
             title:'Hours',
@@ -136,14 +158,6 @@ export default function ManagerTable({reqData, status}) {
             sorter:(a, b) => a.endTime.localeCompare(b.endTime),
             sortDirections: ['descend', 'ascend'],
             responsive: ['md']
-        },
-        {
-            title:'Manager Name',
-            dataIndex:'managerName',
-            ...getColumnSearchProps('managerName'),
-            sorter:(a, b) => a.managerName.localeCompare(b.managerName),
-            sortDirections: ['descend', 'ascend'],
-            responsive: ['lg']
         },
         {
           title: 'Status',
@@ -177,16 +191,19 @@ export default function ManagerTable({reqData, status}) {
     return(
         <div>
             <div class="row justify-content-evenly">
-                <Accept count={status.resourceApproved}/>
-                <Pending count={reqData.length-status.resourceApproved-status.resourceRejected}/>
-                <Reject count={status.resourceRejected}/>
+                <div className='col-md-4 col-sm-12 col-12 btn' onClick={()=>handleFilterReq('Approved')}>
+                <Accept count={status.resourceApproved}/></div>
+                <div className='col-md-4 col-sm-12 col-12 btn' onClick={()=>handleFilterReq('Pending')}>
+                <Pending count={reqData.length-status.resourceApproved-status.resourceRejected}/></div>
+                <div className='col-md-4 col-sm-12 col-12 btn' onClick={()=>handleFilterReq('Rejected')}>
+                <Reject count={status.resourceRejected}/></div>
             </div>
             <Table className='mt-3' columns={columns} expandable={{
                 expandedRowRender: (record) => (
                     <HistoryTrail trail={record.requestLogs}/>
                     ),
                     rowExpandable: (record) => record.status !== 'Pending',
-                }} dataSource={reqData} onChange={onChange}  scroll={{ y: '47vh' }} >
+                }} dataSource={filterReqData} onChange={onChange}  scroll={{ y: '47vh' }} >
             </Table>
         </div>
     );

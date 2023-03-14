@@ -52,7 +52,7 @@ export default function Login() {
       <CssBaseline />
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop:'7rem' }}>
         <Typography component="h1" variant="h5">
-          <span style={{fontFamily:'Comic Sans MS' ,fontSize:'2rem'}}>Star App login</span>
+          <span style={{fontSize:'2rem'}}>Star App login</span>
         </Typography>
         <Box component="form" onSubmit={(e)=>submit(e)} noValidate sx={{ mt: 3 }}>
           <TextField

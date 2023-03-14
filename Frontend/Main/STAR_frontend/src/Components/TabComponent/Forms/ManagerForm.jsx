@@ -10,9 +10,10 @@ import { Divider, Tag, Space } from 'antd';
 import { useState } from 'react';
 import axios from 'axios';
 
-export default function AcceptRejctButton({name, timesheetId, managerId, userId}) {
+export default function AcceptRejctButton({name, timesheetId, userId, manId}) {
   const [open, setOpen] = React.useState(false);
   const [resText, setResText] = useState("");
+  
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -29,16 +30,15 @@ export default function AcceptRejctButton({name, timesheetId, managerId, userId}
   };
 
   const handleClose = (isApproved) => {
-    
     const formData = {
       'id':timesheetId,
-      'userId':managerId,
+      'userId':manId,
       'responseText':resText,
       'isApproved':isApproved
     };
     const emailData = {
       'id':timesheetId,
-      'managerId': managerId,
+      'managerId': manId,
       'userId': userId,
       'responseText': resText,
       'isApproved': isApproved,

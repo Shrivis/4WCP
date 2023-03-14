@@ -163,17 +163,20 @@ export default function ManagerTable({managerReq, managerId, status}) {
             title: 'Action',
             dataIndex: '',
             width: 80,
-            render: (data) => <AcceptRejctButton name={"Action"} timesheetId={data.id} userId={data.userId} managerId={managerId}/>,
+            render: (data) => <AcceptRejctButton name={"Action"} timesheetId={data.id} userId={data.userId} manId={managerId}/>,
         },
     ];
       
     return( 
-        <div>       
+        <div>   
             <div class="row justify-content-evenly">
-                <Accept count={status.managerApproved}/>
-                <Pending count={managerReq.length}/>
-                <Reject count={status.managerRejected}/>
-            </div>
+                <div className='col-md-4 col-sm-12 col-12 btn' >
+                <Accept count={status.managerApproved}/></div>
+                <div className='col-md-4 col-sm-12 col-12 btn'>
+                <Pending count={managerReq.length}/></div>
+                <div className='col-md-4 col-sm-12 col-12 btn'>
+                <Reject count={status.managerRejected}/></div>
+            </div>   
             <Table className='mt-3' columns={columns} dataSource={managerReq} onChange={onChange}  scroll={{ y: '47vh' }}></Table>
         </div>
     );

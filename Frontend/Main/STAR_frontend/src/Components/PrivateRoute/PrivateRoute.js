@@ -9,12 +9,12 @@ export default function Privateroute() {
         if (token === null || token.length === 0) return null;
         return token;
     }
-    const isTokenExpired=(nav)=>{
+    const isTokenExpired=()=>{
         const token= localStorage.getItem("token");
         return Date.now() >= (JSON.parse(atob(token.split('.')[1]))).exp * 1000;
     }
 
-    if(getToken()!=null && !isTokenExpired(navigate)) {
+    if(getToken()!=null && !isTokenExpired()) {
         return <Outlet/>
     }
     else{

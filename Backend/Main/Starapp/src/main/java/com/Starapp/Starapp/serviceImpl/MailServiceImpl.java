@@ -37,7 +37,6 @@ public class MailServiceImpl implements MailService {
 	 
 	
 	public ResponseEntity<String> sendMail(MailContent mailContent) {
-
 		String managerEmail = userRepo.getEmailById(mailContent.getManagerId());
 		String empMail = userRepo.getEmailById(mailContent.getUserId());
 		String message = mailContent.getResponseText();

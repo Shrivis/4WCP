@@ -8,7 +8,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 export default function ImgMediaCard({count}) {
   return (
-    <div className='col-md-4 col-sm-12 col-12'>
+    <div>
       <Card>
         <CardHeader
           avatar={

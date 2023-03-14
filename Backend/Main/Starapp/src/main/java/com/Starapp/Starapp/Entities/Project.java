@@ -23,7 +23,7 @@ public class Project {
 	private String customerId;
 	private String customerName;
 	private String vertical;
-	private String horizonatl;
+	private String horizontal;
 	private String subHorizontal;
 
 	@ManyToOne(cascade = CascadeType.ALL)

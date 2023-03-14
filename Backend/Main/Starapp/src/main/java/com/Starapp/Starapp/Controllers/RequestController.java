@@ -50,6 +50,7 @@ public class RequestController {
   	
   	@PostMapping("/sendmail")
   	public ResponseEntity<String> sendMail(@RequestBody MailContent mailContent){
+  		System.out.println("got in controller");
   		return mailService.sendMail(mailContent);
   	}
 	 

@@ -16,12 +16,10 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import { ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import React ,{useEffect,useState} from 'react';
-import Tabs from './Components/TabComponent/Tabs';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
 import Navbar from 'react-bootstrap/Navbar';
 import Logo from './Components/Images/incedologo.png';
-import HomeIcon from '@mui/icons-material/Home';
 import AvatarItem from './Components/Avatar/Avatar';
 import NotificationItem from './Components/Avatar/Notification';
 import './App.css';
@@ -150,7 +148,7 @@ export default function MiniDrawer() {
     .then(([res1, res2, res3, res4, res5]) => {
       setLoading(false);
       setResourceDetail(res1.data);
-      setManagerRequests(res2.data)
+      setManagerRequests(res2.data);
       setRequestsHistory(res3.data);
       setResourceRequests(res4.data);
       setStatus(res5.data);
@@ -160,7 +158,7 @@ export default function MiniDrawer() {
       navigate('/login')
     });
     
-  }, [] );
+  }, []);
 
   useEffect(() => { 
     if (jwt(localStorage.getItem('token')).roles == 'ADMIN') {
@@ -194,7 +192,7 @@ export default function MiniDrawer() {
           </IconButton>
           <Navbar.Brand href="/starfrontend/home" ><img className='logo' src={Logo} alt='' ></img></Navbar.Brand>
           <div className="d-flex justify-content-end col">
-            <div className='mx-1 row'><NotificationItem notificationCount={managerRequests.length} acceptedCount={resourceRequests.length}/></div>
+            <div className='mx-1 row'><NotificationItem notificationCount={managerRequests.length} acceptedCount={status.resourceApproved+status.resourceRejected}/></div>
             <AvatarItem initials={name[0]}/>
             <IconButton sx={{fontSize:'large'}} style ={{color:'#EEEEEE'}}>Hi {name.split(' ')[0]}</IconButton>
           </div>
@@ -209,12 +207,12 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {((jwt(localStorage.getItem('token'))).roles == 'USER')?(<>
-          <ListItem key='My Profile' disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("1")}>
+          <ListItem key='Home' disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("1")}>
             <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 1.5 }}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 2 : 'auto', justifyContent: 'center' }}>
                 <HomeFilled />
                 </ListItemIcon>
-                <ListItemText primary='My Profile' sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary='Home' sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
           {(managerRequests.length === 0 && reqHistory.length == 0)?(''):(
@@ -247,6 +245,8 @@ export default function MiniDrawer() {
           )}
         </List>
       </Drawer>
+      
+      
       <TabContext value={tabValue}>
         <TabPanel value="1">
           <Box sx={{ flexGrow: 1}}>
@@ -256,11 +256,11 @@ export default function MiniDrawer() {
         </TabPanel>
         <TabPanel value="2">
             <DrawerHeader />
-            <ManagerTable  managerReq={managerRequests} managerId={resourceRequests.userId} status={status}/>
+            <ManagerTable  managerReq={managerRequests} managerId={resourceDetail.userId} status={status}/>
         </TabPanel>
         <TabPanel value="3">
             <DrawerHeader />
-            <HistoryTable  reqHistory={reqHistory} managerId={resourceRequests.userId}/>
+            <HistoryTable  reqHistory={reqHistory} managerId={resourceDetail.userId}/>
         </TabPanel>
         <TabPanel value="4">
             <DrawerHeader />

@@ -5,7 +5,7 @@ import IconButton from "@material-ui/core/IconButton";
 import PendingIcon from '@mui/icons-material/Pending';
 export default function ImgMediaCard({count}) {
   return (
-    <div className='col-md-4 col-sm-12 col-12'>
+    <div>
       <Card>
         <CardHeader
           avatar={
