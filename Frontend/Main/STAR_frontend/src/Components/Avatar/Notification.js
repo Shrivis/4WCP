@@ -10,7 +10,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { useNavigate } from 'react-router';
 
 
-export default function Notification({notificationCount, acceptedCount}) {
+export default function Notification({notificationCount, acceptedCount, setVal}) {
   const navigate = new useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -77,11 +77,11 @@ export default function Notification({notificationCount, acceptedCount}) {
       >
 
         {(notificationCount != 0)?<><MenuItem>
-          You've {notificationCount} pending requests to approve
+          <div className='btn' onClick={() => setVal("2")}>You've {notificationCount} pending requests to approve</div>
         </MenuItem>
         <Divider></Divider></>:<></>}
         {(acceptedCount != 0)?<><MenuItem>
-          You've {acceptedCount} new notification regarding your requests
+          <div className='btn' onClick={() => setVal("1")}>You've {acceptedCount} new notification regarding your requests</div>
         </MenuItem></>:<></>}
       </Menu>
     </React.Fragment>

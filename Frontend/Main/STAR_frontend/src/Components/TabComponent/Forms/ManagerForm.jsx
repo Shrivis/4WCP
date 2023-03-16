@@ -5,15 +5,17 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import { CheckCircleOutlined, ClockCircleOutlined, CloseCircleOutlined, } from '@ant-design/icons';
+import { CheckCircleOutlined, CloseCircleOutlined, } from '@ant-design/icons';
 import { Divider, Tag, Space } from 'antd';
 import { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-export default function AcceptRejctButton({name, timesheetId, userId, manId}) {
+export default function AcceptRejctButton({name, timesheetId, userId, manId, fetchData}) {
   const [open, setOpen] = React.useState(false);
   const [resText, setResText] = useState("");
-  
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -30,6 +32,8 @@ export default function AcceptRejctButton({name, timesheetId, userId, manId}) {
   };
 
   const handleClose = (isApproved) => {
+    var status = "Rejected";
+    if (isApproved) status = "Approved";
     const formData = {
       'id':timesheetId,
       'userId':manId,
@@ -70,15 +74,20 @@ export default function AcceptRejctButton({name, timesheetId, userId, manId}) {
         console.log(error);
       });
       setOpen(false);
+      toast(`Successfully ${status}`, {
+        position: "bottom-right",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        draggable: true,
+      });
+      fetchData();
     })
     .catch((error) => {
       setOpen(false);
     });
 
   };
-
-
-
 
   return (
     <div>
@@ -107,6 +116,7 @@ export default function AcceptRejctButton({name, timesheetId, userId, manId}) {
           </Button>
         </DialogActions>
       </Dialog>
+      <ToastContainer />
     </div>
   );
 }

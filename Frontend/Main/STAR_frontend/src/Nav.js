@@ -26,7 +26,7 @@ import './App.css';
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import DashboardComp from './Components/TabComponent/Dashboard/Dashboard';
 import jwt from 'jwt-decode';
-import { Spin, Space } from 'antd';
+import { Spin } from 'antd';
 import ManagerTable from './Components/TabComponent/Tabel/ManagerTable';
 import ResourceTable from './Components/TabComponent/Tabel/ResourceTable';
 import HistoryTable from './Components/TabComponent/Tabel/History';
@@ -99,7 +99,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function MiniDrawer() {
-  
   const [loading, setLoading] = useState(true);
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -111,6 +110,7 @@ export default function MiniDrawer() {
   const [managerRequests, setManagerRequests] = useState([]);
   const [reqHistory, setRequestsHistory] = useState([]);
   const [status, setStatus] = useState([]);
+  
   const handleDrawerLinks = (idx) => {
     setValue(idx);
   };
@@ -122,7 +122,8 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  useEffect(() => { 
+
+  const fetchData = () => {
     Promise.all([
       axios.get('http://35.154.232.92:8080/starapp/api/v1/resource/data', {headers: { 
         Authorization : `Bearer ${localStorage.getItem("token")}`,
@@ -146,18 +147,24 @@ export default function MiniDrawer() {
       }})
     ])
     .then(([res1, res2, res3, res4, res5]) => {
-      setLoading(false);
-      setResourceDetail(res1.data);
+      setLoading(false); 
+      setResourceDetail(res1.data); 
       setManagerRequests(res2.data);
       setRequestsHistory(res3.data);
       setResourceRequests(res4.data);
       setStatus(res5.data);
       setName(res1.data.name)
+      if (tabValue=='1' && res2.data.length + res3.data.length > 0) {
+        setValue('2');
+      }
     })
     .catch(error => {
       navigate('/login')
     });
-    
+  }
+
+  useEffect(() => { 
+    fetchData();
   }, []);
 
   useEffect(() => { 
@@ -176,8 +183,8 @@ export default function MiniDrawer() {
     ) : (<>
     <Box sx={{ display: 'flex' }} >
       <CssBaseline />
-      <AppBar position="fixed" open={open} style={{backgroundColor:"#222831"}} >
-        <Toolbar sx={{width:'100%'}}>
+      <AppBar open={open} style={{backgroundColor:"#222831"}} >
+        <Toolbar >
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -192,9 +199,9 @@ export default function MiniDrawer() {
           </IconButton>
           <Navbar.Brand href="/starfrontend/home" ><img className='logo' src={Logo} alt='' ></img></Navbar.Brand>
           <div className="d-flex justify-content-end col">
-            <div className='mx-1 row'><NotificationItem notificationCount={managerRequests.length} acceptedCount={status.resourceApproved+status.resourceRejected}/></div>
+            <div className='mx-1 row'><NotificationItem notificationCount={managerRequests.length} acceptedCount={status.resourceApproved+status.resourceRejected} setVal={setValue}/></div>
             <AvatarItem initials={name[0]}/>
-            <IconButton sx={{fontSize:'large'}} style ={{color:'#EEEEEE'}}>Hi {name.split(' ')[0]}</IconButton>
+            <div className='mt-2 mx-2' sx={{fontSize:'large'}} style ={{color:'#EEEEEE'}}>Hi {name.split(' ')[0]}</div>
           </div>
         </Toolbar>
       </AppBar>
@@ -207,37 +214,37 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {((jwt(localStorage.getItem('token'))).roles == 'USER')?(<>
-          <ListItem key='Home' disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("1")}>
+          <ListItem key='Home' className={`${(tabValue == '1')?'highlightTab text-primary':''}`} disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("1")}>
             <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 1.5 }}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 2 : 'auto', justifyContent: 'center' }}>
-                <HomeFilled />
+                <HomeFilled className={`${(tabValue == '1')?'text-primary':''}`} />
                 </ListItemIcon>
                 <ListItemText primary='Home' sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
           {(managerRequests.length === 0 && reqHistory.length == 0)?(''):(
-          <><ListItem key='Requests' disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("2")}>
+          <><ListItem className={`${(tabValue == '2')?'highlightTab text-primary':''}`} disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("2")}>
             <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 1.5 }}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 2 : 'auto', justifyContent: 'center' }}>
-                  <ProfileFilled />
+                  <ProfileFilled className={`${(tabValue == '2')?'text-primary':''}`} />
                 </ListItemIcon>
                 <ListItemText primary='Requests' sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
-          <ListItem key='History' disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("3")}>
+          <ListItem className={`${(tabValue == '3')?'highlightTab text-primary':''}`}  disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("3")}>
             <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 1.5 }}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 2 : 'auto', justifyContent: 'center' }}>
-                  <UndoOutlined/>
+                  <UndoOutlined className={`${(tabValue == '3')?'text-primary':''}`} />
                 </ListItemIcon>
                 <ListItemText primary='History' sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem></>
           )}
           </>):(
-          <ListItem key='Dashboard' disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("4")}>
+          <ListItem className={`${(tabValue == '4')?'highlightTab text-primary':''}`}  disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("4")}>
             <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 1.5 }}>
               <ListItemIcon sx={{ minWidth: 0, mr: open ? 2 : 'auto', justifyContent: 'center' }}>
-                <DashboardIcon />
+                <DashboardIcon className={`${(tabValue == '4')?'text-primary':''}`} />
               </ListItemIcon>
               <ListItemText primary="Dashboard" disablePadding sx={{ opacity: open ? 1 : 0 }}/>
             </ListItemButton>
@@ -245,8 +252,6 @@ export default function MiniDrawer() {
           )}
         </List>
       </Drawer>
-      
-      
       <TabContext value={tabValue}>
         <TabPanel value="1">
           <Box sx={{ flexGrow: 1}}>
@@ -256,11 +261,11 @@ export default function MiniDrawer() {
         </TabPanel>
         <TabPanel value="2">
             <DrawerHeader />
-            <ManagerTable  managerReq={managerRequests} managerId={resourceDetail.userId} status={status}/>
+            <ManagerTable  managerReq={managerRequests} managerId={resourceDetail.userId} status={status} fetchData={fetchData}/>
         </TabPanel>
         <TabPanel value="3">
             <DrawerHeader />
-            <HistoryTable  reqHistory={reqHistory} managerId={resourceDetail.userId}/>
+            <HistoryTable  reqHistory={reqHistory} managerId={resourceDetail.userId} fetchData={fetchData}/>
         </TabPanel>
         <TabPanel value="4">
             <DrawerHeader />
@@ -268,6 +273,16 @@ export default function MiniDrawer() {
         </TabPanel>
       </TabContext>
     </Box>
+  
+    {((jwt(localStorage.getItem('token'))).roles == 'USER')?(
+    <div class="fixed-bottom w-100 bg-dark footerDiv" sx={{width:'100%'}}>
+      <div className='text-center text-light text-small'>
+        <small>© 2023 Incedo</small>
+      </div>
+    </div>):('')}
     </>)}</div>
   );
 }
+
+
+

@@ -3,18 +3,14 @@ import Axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./login.css";
-import image from '../Images/img.png'
+import userIcon from '../Images/userIcon.png'
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { MDBInput } from 'mdb-react-ui-kit';
+import { Card } from '@mui/material';
 
-const theme = createTheme();
+
 export default function Login() {
-  const url="http://35.154.232.92:8080/starapp/api/v1/auth/authenticate" //API for JWT
+  const url="http://35.154.232.92:8080/starapp/api/v1/auth/authenticate";
   const[errMsg,setErrMsg]=useState('');
   const navigate = useNavigate(); 
   const [data, setData] = useState({
@@ -39,55 +35,34 @@ export default function Login() {
       (e) => setErrMsg("Invalid Credentials")
   );} 
 
-    function handle(e) {
-        const newdata={...data};
-        newdata[e.target.id]=e.target.value;
-        setData(newdata);
-    }
+  function handle(e) {
+      const newdata={...data};
+      newdata[e.target.id]=e.target.value;
+      setData(newdata);
+  };
   return (
-    <div className='justify-content-center' style={{height:'100vh',backgroudSize: '100px',backgroundImage:`url(${image})`,backgroundRepeat:'no-repeat'}} >
-  
-    <ThemeProvider theme={theme}  >
-    <Container component="main" maxWidth="xs"   >
-      <CssBaseline />
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop:'7rem' }}>
-        <Typography component="h1" variant="h5">
-          <span style={{fontSize:'2rem'}}>Star App login</span>
-        </Typography>
-        <Box component="form" onSubmit={(e)=>submit(e)} noValidate sx={{ mt: 3 }}>
-          <TextField
-            onChange={(e)=>handle(e)}
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-            value={data.email}
-            type='email'
-          />
-          <TextField
-            onChange={(e)=>handle(e)}
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            value={data.password}
-          />
-          <span className='text-danger mt-1'>{errMsg}</span>
-          <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-            Sign In
-          </Button>
-        </Box>
-      </Box>
-    </Container>
-  </ThemeProvider></div>
+    <div id='imgDiv'>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-4">
+            <Card component="form" id="pullDown"  onSubmit={(e)=>submit(e)}>
+              <div className='text-center'><img className='user-img'
+                width={120}
+                src={`${userIcon}?w=248&fit=crop&auto=format`}
+                srcSet={`${userIcon}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                alt={'...'}
+                loading="lazy"
+              /></div>
+              <div className='text-center mb-4'>StarAPP Login</div>
+              <MDBInput onChange={(e)=>handle(e)} fullWidth className='col-lg-py-2 text-center' id='email' wrapperClass='mb-2' placeholder="Email" type='email' value={data.email}/>
+              <MDBInput onChange={(e)=>handle(e)} fullWidth className='col-lg-py-2 text-center' id='password' wrapperClass='mb-2' placeholder="Password" type='password' value={data.password}/>
+              <span className='text-danger mb-2'>{errMsg}</span>
+              <Button type="submit" className='mb-5 mt-2' fullWidth variant="contained">Sign In</Button>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

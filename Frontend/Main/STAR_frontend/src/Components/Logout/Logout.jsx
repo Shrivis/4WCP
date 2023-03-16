@@ -7,7 +7,6 @@ import './Logout.css';
 function clearLocalStorage(nav) {
     localStorage.removeItem("token");
     nav('/login');
-
 }
 function Logout({resouceName}) {
     const navigate = new useNavigate();

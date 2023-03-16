@@ -189,7 +189,7 @@ export default function ManagerTable({reqData, status}) {
         },
     ];
     return(
-        <div>
+        <div className='container'>
             <div class="row justify-content-evenly">
                 <div className='col-md-4 col-sm-12 col-12 btn' onClick={()=>handleFilterReq('Approved')}>
                 <Accept count={status.resourceApproved}/></div>
@@ -203,7 +203,7 @@ export default function ManagerTable({reqData, status}) {
                     <HistoryTrail trail={record.requestLogs}/>
                     ),
                     rowExpandable: (record) => record.status !== 'Pending',
-                }} dataSource={filterReqData} onChange={onChange}  scroll={{ y: '47vh' }} >
+                }} dataSource={filterReqData} onChange={onChange}  scroll={{ y: '45vh' }} >
             </Table>
         </div>
     );

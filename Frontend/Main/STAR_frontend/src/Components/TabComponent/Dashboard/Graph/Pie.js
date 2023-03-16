@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactApexCharts from 'react-apexcharts'
 
-export default function Pie({horizontals, vals}) {
+export default function Pie({horizontals, vals, ChartType}) {
     const options = {
       chart: {
         width: '100%',
-        type: 'pie',
       },
       labels: horizontals,
       legend:{position: 'left'},
       dataLabels: {
-        formatter: function(val, opts) {
-            return opts.w.globals.series[opts.seriesIndex]
-        }
+        enabled: false
       },
       responsive: [{
         breakpoint: 480,
@@ -23,25 +20,15 @@ export default function Pie({horizontals, vals}) {
           
         }
       }],
-      theme: {
-        monochrome: {
-          enabled: true
-        },
-      },
-      plotOptions: {
-        pie: {
-          dataLabels: {
-            offset: -15
-          },
-        }
-      },
+
       fill: {
-        opacity: 0.9
+        opacity: 0.8
       },
+      colors:['#1C4E80', '#DBAE58', '#202020'],
     };
     return (
         <div id="chart">
-        <ReactApexCharts options={options} series={vals} type="pie" width={320} />
+        <ReactApexCharts options={options} series={vals} type={ChartType} width={310} />
         </div> 
     );
 }

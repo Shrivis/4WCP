@@ -11,10 +11,11 @@ function onChange(pagination, filters, sorter, extra) {
   console.log('params', pagination, filters, sorter, extra);
 };
 
-export default function ManagerTable({managerReq, managerId, status}) {
+export default function ManagerTable({managerReq, managerId, status, fetchData}) {
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
     const searchInput = useRef(null);
+  
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
     setSearchText(selectedKeys[0]);
@@ -163,12 +164,12 @@ export default function ManagerTable({managerReq, managerId, status}) {
             title: 'Action',
             dataIndex: '',
             width: 80,
-            render: (data) => <AcceptRejctButton name={"Action"} timesheetId={data.id} userId={data.userId} manId={managerId}/>,
+            render: (data) => <AcceptRejctButton name={"Action"} timesheetId={data.id} userId={data.userId} manId={managerId} fetchData={fetchData}/>,
         },
     ];
       
     return( 
-        <div>   
+        <div className='container'>   
             <div class="row justify-content-evenly">
                 <div className='col-md-4 col-sm-12 col-12 btn' >
                 <Accept count={status.managerApproved}/></div>

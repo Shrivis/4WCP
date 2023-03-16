@@ -8,21 +8,19 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 export default function ImgMediaCard({count}) {
   return (
-    <div>
       <Card>
         <CardHeader
           avatar={
               <CheckCircleIcon color="success" fontSize="large"/>
           }
           action={
-            <IconButton aria-label="settings">
+            <Avatar color="warning" className='mt-2 text-dark' style={{ backgroundColor: '#fff' }} fontSize="large" >
               {count}
-            </IconButton>
+            </Avatar>
           }
           title="Approved"
           subheader="The approved reqeust count is"
         />
       </Card>
-    </div>
   );
 }

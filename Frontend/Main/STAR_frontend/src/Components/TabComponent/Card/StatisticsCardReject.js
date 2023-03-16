@@ -7,21 +7,19 @@ import IconButton from "@material-ui/core/IconButton";
 import CancelIcon from '@mui/icons-material/Cancel';
 export default function ImgMediaCard({count}) {
   return (
-    <div>
       <Card>
         <CardHeader
           avatar={
             <CancelIcon color="error" fontSize="large"/>
           }
           action={
-            <IconButton aria-label="settings">
+            <Avatar color="warning" className='mt-2 text-dark' style={{ backgroundColor: '#fff' }} fontSize="large" >
               {count}
-            </IconButton>
+            </Avatar>
           }
           title="Rejected"
           subheader="The rejected reqeust count is"
         />
       </Card>
-    </div>
   );
 }

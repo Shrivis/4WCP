@@ -1,3 +1,17 @@
+/* Sidebar tab highlight */
+.highlightTab {
+  background-color: rgba(54, 54, 54, 0.123);
+}
+.footerDiv {
+  z-index: 99999 !important;
+  width: 100%;
+}
+
+.toast-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .logo {
   width: 100px;
