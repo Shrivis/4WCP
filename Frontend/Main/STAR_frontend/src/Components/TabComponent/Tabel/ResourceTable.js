@@ -3,9 +3,9 @@ import { SearchOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table } from 'antd';
 import Highlighter from 'react-highlight-words';
 import HistoryTrail from './HistoryTrail';
-import Accept from '../Card/StatisticsCardAccept'
-import Pending from '../Card/StatisticsCardPending'
-import Reject from '../Card/StatisticsCardReject'
+import Accept from '../Card/StatisticsCardAccept';
+import Pending from '../Card/StatisticsCardPending';
+import Reject from '../Card/StatisticsCardReject';
 
 function onChange(pagination, filters, sorter, extra) {
   console.log('params', pagination, filters, sorter, extra);
@@ -21,12 +21,13 @@ export default function ManagerTable({reqData, status}) {
     const handleFilterReq = (filterOn) => {
         if (prevData == filterOn) {
             setFilterReqData(reqData);
+            setPrevData('Null');
         } else {
             setFilterReqData(
                 reqData.filter((item) => item.status == filterOn)
             );
+            setPrevData(filterOn);
         }
-        setPrevData(filterOn);
     };
 
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
@@ -191,19 +192,19 @@ export default function ManagerTable({reqData, status}) {
     return(
         <div className='container'>
             <div class="row justify-content-evenly">
-                <div className='col-md-4 col-sm-12 col-12 btn' onClick={()=>handleFilterReq('Approved')}>
-                <Accept count={status.resourceApproved}/></div>
-                <div className='col-md-4 col-sm-12 col-12 btn' onClick={()=>handleFilterReq('Pending')}>
-                <Pending count={reqData.length-status.resourceApproved-status.resourceRejected}/></div>
-                <div className='col-md-4 col-sm-12 col-12 btn' onClick={()=>handleFilterReq('Rejected')}>
-                <Reject count={status.resourceRejected}/></div>
+                <div className='col-md-4 col-sm-12 col-12 my-btn' onClick={()=>handleFilterReq('Approved')}>
+                <Accept classes={`${(prevData == 'Approved')?'shadow-lg':''}`} count={status.resourceApproved}/></div>
+                <div className='col-md-4 col-sm-12 col-12 my-btn' onClick={()=>handleFilterReq('Pending')}>
+                <Pending classes={`${(prevData == 'Pending')?'shadow-lg':''}`} count={reqData.length-status.resourceApproved-status.resourceRejected}/></div>
+                <div className='col-md-4 col-sm-12 col-12 my-btn' onClick={()=>handleFilterReq('Rejected')}>
+                <Reject classes={`${(prevData == 'Rejected')?'shadow-lg':''}`} count={status.resourceRejected}/></div>
             </div>
             <Table className='mt-3' columns={columns} expandable={{
                 expandedRowRender: (record) => (
                     <HistoryTrail trail={record.requestLogs}/>
                     ),
                     rowExpandable: (record) => record.status !== 'Pending',
-                }} dataSource={filterReqData} onChange={onChange}  scroll={{ y: '45vh' }} >
+                }} dataSource={filterReqData} onChange={onChange}  >
             </Table>
         </div>
     );

@@ -171,11 +171,11 @@ export default function ManagerTable({managerReq, managerId, status, fetchData})
     return( 
         <div className='container'>   
             <div class="row justify-content-evenly">
-                <div className='col-md-4 col-sm-12 col-12 btn' >
+                <div className='col-md-4 col-sm-12 col-12' >
                 <Accept count={status.managerApproved}/></div>
-                <div className='col-md-4 col-sm-12 col-12 btn'>
+                <div className='col-md-4 col-sm-12 col-12'>
                 <Pending count={managerReq.length}/></div>
-                <div className='col-md-4 col-sm-12 col-12 btn'>
+                <div className='col-md-4 col-sm-12 col-12'>
                 <Reject count={status.managerRejected}/></div>
             </div>   
             <Table className='mt-3' columns={columns} dataSource={managerReq} onChange={onChange}  scroll={{ y: '47vh' }}></Table>

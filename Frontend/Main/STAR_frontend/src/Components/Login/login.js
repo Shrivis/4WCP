@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect  } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./login.css";
 import userIcon from '../Images/userIcon.png'
@@ -17,6 +17,27 @@ export default function Login() {
     "email":"",
     "password":"" 
   })
+  const getToken = () => {
+      let token = localStorage.getItem("token");
+      if (token === null || token.length === 0) return null;
+      return token;
+  }
+  const isTokenExpired=()=>{
+      const token= localStorage.getItem("token");
+      return Date.now() >= (JSON.parse(atob(token.split('.')[1]))).exp * 1000;
+  }
+
+  function handleKeyUp(e) {
+    console.log('check');
+    if (e.getModifierState("CapsLock")) {
+      document.getElementById("capsLockShow").style.display = 'block';
+      console.log('capOn');
+    } else {
+      console.log('capOff');
+      document.getElementById("capsLockShow").style.display = 'none';
+    }
+  }
+
      
   function submit(e) {
     e.preventDefault();
@@ -40,29 +61,35 @@ export default function Login() {
       newdata[e.target.id]=e.target.value;
       setData(newdata);
   };
-  return (
-    <div id='imgDiv'>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-sm-4">
-            <Card component="form" id="pullDown"  onSubmit={(e)=>submit(e)}>
-              <div className='text-center'><img className='user-img'
-                width={120}
-                src={`${userIcon}?w=248&fit=crop&auto=format`}
-                srcSet={`${userIcon}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                alt={'...'}
-                loading="lazy"
-              /></div>
-              <div className='text-center mb-4'>StarAPP Login</div>
-              <MDBInput onChange={(e)=>handle(e)} fullWidth className='col-lg-py-2 text-center' id='email' wrapperClass='mb-2' placeholder="Email" type='email' value={data.email}/>
-              <MDBInput onChange={(e)=>handle(e)} fullWidth className='col-lg-py-2 text-center' id='password' wrapperClass='mb-2' placeholder="Password" type='password' value={data.password}/>
-              <span className='text-danger mb-2'>{errMsg}</span>
-              <Button type="submit" className='mb-5 mt-2' fullWidth variant="contained">Sign In</Button>
-            </Card>
+  
+  if(getToken()!=null && !isTokenExpired()) {
+    useEffect(() => {navigate('/home')}, []);
+  } else {
+    return (
+      <div id='imgDiv'>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-sm-4">
+              <Card component="form" id="pullDown"  onSubmit={(e)=>submit(e)}>
+                <div className='text-center'><img className='user-img'
+                  width={120}
+                  src={`${userIcon}?w=248&fit=crop&auto=format`}
+                  srcSet={`${userIcon}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                  alt={'...'}
+                  loading="lazy"
+                /></div>
+                <div className='text-center mb-4 mb-2 text-muted'>User Login</div>
+                <MDBInput onChange={(e)=>handle(e)} fullWidth className='col-lg-py-2 text-center' id='email' wrapperClass='mb-2' placeholder="Username" type='email' value={data.email}/>
+                <MDBInput onChange={(e)=>handle(e)} onKeyUp={handleKeyUp} fullWidth className='col-lg-py-2 text-center' id='password' wrapperClass='mb-2' placeholder="Password" type='password' value={data.password}/>
+                <span className='text-danger mb-2'>{errMsg}</span>
+                <p id='capsLockShow' style={{'font-size':'10px', 'display':'none'}} className='mb-2 text-muted mx-1'>Caps Lock is On</p>
+                <Button type="submit" className='mb-5 mt-2' fullWidth variant="contained">Sign In</Button>
+              </Card>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 

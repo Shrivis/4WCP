@@ -1,14 +1,12 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Card from '@mui/material/Card';
 import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
-export default function ImgMediaCard({count}) {
+export default function ImgMediaCard({count, classes}) {
   return (
-      <Card>
+      <Card className={classes}>
         <CardHeader
           avatar={
               <CheckCircleIcon color="success" fontSize="large"/>
@@ -19,7 +17,7 @@ export default function ImgMediaCard({count}) {
             </Avatar>
           }
           title="Approved"
-          subheader="The approved reqeust count is"
+          subheader="The approved request count is"
         />
       </Card>
   );

@@ -1,12 +1,11 @@
 import React from "react";
 import Card from '@mui/material/Card';
 import CardHeader from "@material-ui/core/CardHeader";
-import IconButton from "@material-ui/core/IconButton";
 import PendingIcon from '@mui/icons-material/Pending';
 import Avatar from '@mui/material/Avatar';
-export default function ImgMediaCard({count}) {
+export default function ImgMediaCard({count, classes}) {
   return (
-      <Card>
+      <Card className={classes}>
         <CardHeader
           avatar={
             <PendingIcon color="warning" fontSize="large" />

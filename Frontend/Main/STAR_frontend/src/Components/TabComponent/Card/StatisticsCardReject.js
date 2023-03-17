@@ -3,11 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from '@mui/material/Card';
 import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
 import CancelIcon from '@mui/icons-material/Cancel';
-export default function ImgMediaCard({count}) {
+export default function ImgMediaCard({count, classes}) {
   return (
-      <Card>
+      <Card className={classes}>
         <CardHeader
           avatar={
             <CancelIcon color="error" fontSize="large"/>
@@ -18,7 +17,7 @@ export default function ImgMediaCard({count}) {
             </Avatar>
           }
           title="Rejected"
-          subheader="The rejected reqeust count is"
+          subheader="The rejected request count is"
         />
       </Card>
   );
