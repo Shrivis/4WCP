@@ -5,6 +5,7 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import RouteLogin from './Components/PrivateRoute/RouteLogin';
 import Nav from './Nav';
 import React from 'react';
+import ProfilePage from './Components/ProfilePage/ProfilePage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes >
         <Route exact path="/" element={<RouteLogin/>}/>
         <Route exact path="/login" element={<Login/>}/>
+        <Route exact path="/ProfilePage" element={<ProfilePage/>}/>
         <Route exact path="/home" element={<PrivateRoute/>}>
         <Route path="" element={<Nav/>}/>
         </Route>
