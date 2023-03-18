@@ -30,6 +30,7 @@ import { Spin } from 'antd';
 import ManagerTable from './Components/TabComponent/Tabel/ManagerTable';
 import ResourceTable from './Components/TabComponent/Tabel/ResourceTable';
 import HistoryTable from './Components/TabComponent/Tabel/History';
+import ProfilePage from './Components/ProfilePage/ProfilePage';
 
 const drawerWidth = 150;
 
@@ -250,6 +251,15 @@ export default function MiniDrawer() {
             </ListItemButton>
           </ListItem>
           )}
+          <ListItem className={`${(tabValue == '5')?'highlightTab text-primary':''}`}  disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("5")}>
+            <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 1.5 }}>
+              <ListItemIcon sx={{ minWidth: 0, mr: open ? 2 : 'auto', justifyContent: 'center' }}>
+              <ProfileFilled className={`${(tabValue == '5')?'text-primary':''}`} />
+              </ListItemIcon>
+              <ListItemText primary="My Profile" disablePadding sx={{ opacity: open ? 1 : 0 }}/>
+            </ListItemButton>
+          </ListItem>
+          
         </List>
       </Drawer>
       <TabContext value={tabValue}>
@@ -270,6 +280,10 @@ export default function MiniDrawer() {
         <TabPanel value="4">
             <DrawerHeader />
             <DashboardComp/>
+        </TabPanel>
+        <TabPanel value="5">
+            <DrawerHeader />
+           <ProfilePage name={resourceDetail.name} email = {resourceDetail.email}  ></ProfilePage>
         </TabPanel>
       </TabContext>
     </Box>
