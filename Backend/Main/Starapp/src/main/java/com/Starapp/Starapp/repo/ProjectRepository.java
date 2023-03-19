@@ -15,7 +15,10 @@ public interface ProjectRepository extends JpaRepository<Project, String> {
 	@Query("select p from Project p where p.managerUser.userId=:id")
 	List<Project> allProjectWhereManagerIs(@Param("id") Long id);
 	
+	
+	
 	@Query("select distinct e.horizontal FROM Project e")
 	List<String> getAllUniqueHorizontals();
-
+    
+	
 }

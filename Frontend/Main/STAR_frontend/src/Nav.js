@@ -283,7 +283,7 @@ export default function MiniDrawer() {
         </TabPanel>
         <TabPanel value="5">
             <DrawerHeader />
-           <ProfilePage name={resourceDetail.name} email = {resourceDetail.email}  ></ProfilePage>
+           <ProfilePage  Resdata = {resourceDetail} fetchData={fetchData} ></ProfilePage>
         </TabPanel>
       </TabContext>
     </Box>

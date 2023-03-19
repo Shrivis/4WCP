@@ -11,6 +11,7 @@ import Accept from './Card/StatisticsCardAccept'
 import Pending from './Card/StatisticsCardPending'
 import Reject from './Card/StatisticsCardReject'
 import { Spin } from 'antd';
+import ProfilePage from '../ProfilePage/ProfilePage';
 
 export default function Tabs({resource, managerReq, reqHistory, resourceReq, status}) {
   const [value, setValue] = useState('1');  
@@ -39,7 +40,7 @@ export default function Tabs({resource, managerReq, reqHistory, resourceReq, sta
           {(managerReq.length === 0 && reqHistory.length == 0)?(''):(<Tab sx={{fontWeight:'bold', color:'gray'}} label="Requests" value="2" />)}
           {(managerReq.length === 0 && reqHistory.length == 0)?(''):(<Tab sx={{fontWeight:'bold', color:'gray'}} label="History" value="3" />)}
           
-         <Tab sx={{fontWeight:'bold', color:'gray'}} label="ProfilePage" value="5" />
+         <Tab sx={{fontWeight:'bold', color:'gray'}} className="mx-2" label="ProfilePage" value="5" />
           
         </TabList>  
       </Box>
@@ -67,7 +68,7 @@ export default function Tabs({resource, managerReq, reqHistory, resourceReq, sta
         <HistoryTable  reqHistory={reqHistory} managerId={resource.userId}/>
       </TabPanel>
       <TabPanel value="5">
-      
+        <ProfilePage ReqData={resourceReq}/>
       </TabPanel>
     </TabContext>)}
     </div>

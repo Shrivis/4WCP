@@ -81,14 +81,7 @@ export default function AvatarItem({ initials }) {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
 
-        <MenuItem >
-          <Link to="/ProfilePage" style={{textDecoration:"none", color:"black"}}>
-            <ListItemIcon>
-              <Person2OutlinedIcon fontSize="small" />
-            </ListItemIcon>
-            My Profile
-          </Link>
-        </MenuItem>
+     
         <MenuItem onClick={(nav) => clearLocalStorage(navigate)}>
           <ListItemIcon>
           <Logout fontSize="small" />
