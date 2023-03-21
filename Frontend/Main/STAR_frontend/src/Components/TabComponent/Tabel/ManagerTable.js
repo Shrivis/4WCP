@@ -178,7 +178,7 @@ export default function ManagerTable({managerReq, managerId, status, fetchData})
                 <div className='col-md-4 col-sm-12 col-12'>
                 <Reject count={status.managerRejected}/></div>
             </div>   
-            <Table className='mt-3' columns={columns} dataSource={managerReq} onChange={onChange}  scroll={{ y: '47vh' }}></Table>
+            <Table className='mt-3 overflow-auto' columns={columns} dataSource={managerReq} onChange={onChange}  scroll={{ y: '49vh' }}></Table>
         </div>
     );
 }   

@@ -199,13 +199,12 @@ export default function ManagerTable({reqData, status}) {
                 <div className='col-md-4 col-sm-12 col-12 my-btn' onClick={()=>handleFilterReq('Rejected')}>
                 <Reject classes={`${(prevData == 'Rejected')?'shadow-lg':''}`} count={status.resourceRejected}/></div>
             </div>
-            <Table className='mt-3' columns={columns} expandable={{
-                expandedRowRender: (record) => (
-                    <HistoryTrail trail={record.requestLogs}/>
-                    ),
+            <Table className='mt-3' columns={columns} 
+                expandable={{
+                    expandedRowRender: (record) => ( <HistoryTrail trail={record.requestLogs}/> ),
                     rowExpandable: (record) => record.status !== 'Pending',
-                }} dataSource={filterReqData} onChange={onChange}  >
-            </Table>
+                }} dataSource={filterReqData} onChange={onChange} scroll={{y:'49vh'}}
+            />
         </div>
     );
 }   

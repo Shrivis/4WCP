@@ -12,7 +12,7 @@ function Logout({resouceName}) {
     const navigate = new useNavigate();
     return (
         <div style={{backgroundColor:'#212529'}}>
-            <UncontrolledDropdown className='lout' style={{backgroundColor:'#212529'}}>
+            <UncontrolledDropdown>
                 <DropdownToggle class="text-dark" style={{backgroundColor:'#212529'}}><div class="text-white">{resouceName}</div>
                 </DropdownToggle>
                 <DropdownMenu>
