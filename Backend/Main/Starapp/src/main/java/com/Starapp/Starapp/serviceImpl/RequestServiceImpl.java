@@ -68,6 +68,9 @@ public class RequestServiceImpl implements RequestService{
     	  				  .format(PeriodEnd));
   		    	user.setHours(employeeWH.getHours());
   				user.setExpectedHours(expectedHour);
+  				user.setSeen(employeeWH.getSeenByManager());
+  				employeeWH.setSeenByManager(true);
+  				workRepo.save(employeeWH);
   				data.add(user);
   			}
   		}
@@ -95,6 +98,9 @@ public class RequestServiceImpl implements RequestService{
   		    	request.setEndTime(DateTimeFormatter.ofPattern(format).format(employeeWH.getPeriodEnd()));
 	  			request.setTimesheetNo(employeeWH.getTimesheetNo());
 	  			request.setExtraHours(employeeWH.getHours());
+	  			request.setSeen(employeeWH.getSeenByUser());
+	  			employeeWH.setSeenByUser(true);
+  				workRepo.save(employeeWH);
 	  			if(employeeWH.getIsActive()) {
 	  				request.setStatus("Pending");
 	  			} else {
@@ -127,6 +133,7 @@ public class RequestServiceImpl implements RequestService{
   		workingHour.setIsActive(false);
   		workingHour.setIsApproved(overtimeReq.getIsApproved());
   		workingHour.setResponseText(overtimeReq.getResponseText());
+  		workingHour.setSeenByUser(false);
   		workRepo.save(workingHour);
   		return new ResponseEntity<>("saved", HttpStatus.CREATED); 
 	}

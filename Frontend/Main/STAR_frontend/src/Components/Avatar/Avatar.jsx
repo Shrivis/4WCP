@@ -7,10 +7,12 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Logout from '@mui/icons-material/Logout';
+import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 
-export default function AvatarItem({initials}) {
+export default function AvatarItem({ initials }) {
   const navigate = new useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -26,6 +28,7 @@ export default function AvatarItem({initials}) {
     nav('/login');
   }
 
+
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -38,7 +41,7 @@ export default function AvatarItem({initials}) {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar style={{'background':'#EEEEEE'}} sx={{ color:'#393E46', width: 32, height: 32 }}>{initials}</Avatar>
+            <Avatar style={{ 'background': '#EEEEEE' }} sx={{ color: '#393E46', width: 32, height: 32 }}>{initials}</Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -78,9 +81,10 @@ export default function AvatarItem({initials}) {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
 
+     
         <MenuItem onClick={(nav) => clearLocalStorage(navigate)}>
           <ListItemIcon>
-            <Logout fontSize="small" />
+          <Logout fontSize="small" />
           </ListItemIcon>
           Logout
         </MenuItem>

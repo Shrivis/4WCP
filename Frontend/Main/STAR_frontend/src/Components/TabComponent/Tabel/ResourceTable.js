@@ -193,11 +193,11 @@ export default function ManagerTable({reqData, status}) {
         <div className='container'>
             <div class="row justify-content-evenly">
                 <div className='col-md-4 col-sm-12 col-12 my-btn' onClick={()=>handleFilterReq('Approved')}>
-                <Accept classes={`${(prevData == 'Approved')?'shadow-lg':''}`} count={status.resourceApproved}/></div>
+                <Accept classes={`${(prevData == 'Approved')?'shadow-lg border border-success':''}`} count={status.resourceApproved}/></div>
                 <div className='col-md-4 col-sm-12 col-12 my-btn' onClick={()=>handleFilterReq('Pending')}>
-                <Pending classes={`${(prevData == 'Pending')?'shadow-lg':''}`} count={reqData.length-status.resourceApproved-status.resourceRejected}/></div>
+                <Pending classes={`${(prevData == 'Pending')?'shadow-lg border border-warning':''}`} count={reqData.length-status.resourceApproved-status.resourceRejected}/></div>
                 <div className='col-md-4 col-sm-12 col-12 my-btn' onClick={()=>handleFilterReq('Rejected')}>
-                <Reject classes={`${(prevData == 'Rejected')?'shadow-lg':''}`} count={status.resourceRejected}/></div>
+                <Reject classes={`${(prevData == 'Rejected')?'shadow-lg border border-danger':''}`} count={status.resourceRejected}/></div>
             </div>
             <Table className='mt-3' columns={columns} 
                 expandable={{

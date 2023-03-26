@@ -26,9 +26,7 @@ export default function ManagerBar({projectData}) {
     const options = {
         chart: {
         type: 'bar',
-        // height: 350,
         width: '100%',
-        // zoom: true,
         },
         plotOptions: {
         bar: {
@@ -37,10 +35,10 @@ export default function ManagerBar({projectData}) {
         }
         },
         dataLabels: {
-        enabled: false
+            enabled: false
         },
         xaxis: {
-        categories: projectName,
+            categories: projectName,
         },
         colors:['#1C4E80', '#DBAE58', '#202020'],
         grid: {

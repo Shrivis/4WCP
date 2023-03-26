@@ -32,21 +32,22 @@ export default function Dashboard () {
         <Spin size="large" />
       </div>
     ) : (<>
+        <h6 className="mx-2" style={{'color':'rgba(4,51,101, 1);', 'font-size':'12px'}}><b>Org. level Quarterly analysis</b></h6>
     <div className="container">
         <div className="row content-align-center">
             <Card className='col-md-4 pt-2'>
-                <div className='text-center small'><small className='text-center small'>Extra hours required in each Vertical</small></div>
+                <div className='text-center small'><small className='text-center small'>Extra hours claimed in each Horizontal</small></div>
                 <PieChart horizontals={data.horizontals} vals={data.overUtilizedHours} ChartType={'pie'}/>
             </Card>
             <Card className='col-md-4 mx-2 pt-2'>                    
-                <div className='text-center small'><small>Under Utilized hours in each Vertical</small></div>
+                <div className='text-center small'><small>Under utilized hours in each Horizontal</small></div>
                 <PieChart  horizontals={data.horizontals} vals={data.underUtilizedHours} ChartType={'donut'}/>
             </Card>
-            <div className='py-2 px-2 col-md-3 mx-2'>
+            <Card className='py-2 px-2 col-md-3 mx-2'>
                 <ActiveInactive hData={data}/>
-            </div>
+            </Card>
             <Card className='col-md-6 mt-2 pt-2'>
-                <p className='text-center small'><small>Resource Utilization in Delivery Projects</small></p>
+                <p className='text-center small'><small>Resource utilization of pojects under Delivery</small></p>
                 <ProjectBar projectData={data.data}/>
             </Card>
             <Card className='col-md-5 mt-2 mx-3 pt-2'>

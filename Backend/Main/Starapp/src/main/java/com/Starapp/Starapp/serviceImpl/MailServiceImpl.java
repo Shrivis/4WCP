@@ -59,8 +59,8 @@ public class MailServiceImpl implements MailService {
 				  .format(PeriodEnd);
 		
 		message = EmployeeName+"'s"+" request for approval of working hour of "+wh.getHours()+"h\n\tTimesheet: " +wh.getTimesheetNo()+"\n\tTime period: " +
-				periodStart+" - " +periodEnd+"\n\tProject: "+wh.getProject().getProjectName() 
-				+"\n"+ResponseType+ManagerName+"\nResponse Text: "+message+"\n\nThis is a system generated mail, Do not reply";
+				periodStart+" - " +periodEnd+"\n\tProject: "+wh.getProject().getProjectName() +"\n\tResponse Text: "+message
+				+"\n"+ResponseType+ManagerName+"\n\nThis is a system generated mail, Do not reply";
 		
 		try {
  

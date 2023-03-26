@@ -54,5 +54,10 @@ public class WorkingHours {
 	@OneToMany(mappedBy = "logId")
 	@JsonManagedReference
 	private List<RequestChangeLog> changeLogs;
+
+    @Column(columnDefinition = "boolean default false")
+	private Boolean seenByManager;
+    @Column(columnDefinition = "boolean default false")
+	private Boolean seenByUser;
   	
 }

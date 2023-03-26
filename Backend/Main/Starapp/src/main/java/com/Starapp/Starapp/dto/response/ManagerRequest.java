@@ -17,5 +17,6 @@ public class ManagerRequest {
 	//
 	private String periodEnd;
 	private Integer hours;
-	private Integer expectedHours;		
+	private Integer expectedHours;	
+	private Boolean seen;
 }

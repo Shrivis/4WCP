@@ -6,9 +6,11 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import com.Starapp.Starapp.Entities.WorkingHours;
 
+@Repository
 public interface WorkingHoursRepository extends JpaRepository<WorkingHours , Integer> {
 	@Query("select w from WorkingHours w where w.workingHourId=:id")
 	Optional<WorkingHours> findById(@Param("id") Long id);
@@ -22,10 +24,10 @@ public interface WorkingHoursRepository extends JpaRepository<WorkingHours , Int
 	@Query("select w.periodEnd from WorkingHours w where w.workingHourId=:id")
 	String getByPeriodEndId(@Param("id") Long id);
 	
-	@Query("select w from WorkingHours w where w.project.managerUser.userId=:id and w.isActive=true")
+	@Query("select w from WorkingHours w where w.project.managerUser.userId=:id and w.isActive=true order by w.createdOn desc")
 	List<WorkingHours> WorkingHoursOfResourcesForManagerId(@Param("id") Long id);
 
-	@Query("select w from WorkingHours w where w.user.userId=:id")
+	@Query("select w from WorkingHours w where w.user.userId=:id  order by COALESCE(w.approvedOn, w.createdOn) desc")
 	List<WorkingHours> GetAllWorkingHoursOfResouseById(@Param("id") Long id);
 
 	@Query(value="select count(w) from WorkingHours w where w.user.userId=:id and w.isActive=false and w.isApproved=true")

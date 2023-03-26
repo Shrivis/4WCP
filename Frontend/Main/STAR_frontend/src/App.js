@@ -8,7 +8,7 @@ import React from 'react';
 
 function App() {
   return (
-    <BrowserRouter basename={'/starappfrontend'}>
+    <BrowserRouter basename={'/star'}>
       <Routes >
         <Route exact path="/" element={<RouteLogin/>}/>
         <Route exact path="/login" element={<Login/>}/>

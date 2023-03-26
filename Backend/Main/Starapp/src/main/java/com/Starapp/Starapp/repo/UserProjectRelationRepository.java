@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query .Param;
+import org.springframework.stereotype.Repository;
 
 import com.Starapp.Starapp.Entities.Project;
 import com.Starapp.Starapp.Entities.UserProjectRelation;
 
+@Repository
 public interface UserProjectRelationRepository extends JpaRepository<UserProjectRelation , Integer>{
 
 	@Query(value="select upr.resourceProject from UserProjectRelation upr where upr.projectResource.userId=:id")

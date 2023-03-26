@@ -10,7 +10,7 @@ import { Card } from '@mui/material';
 
 
 export default function Login() {
-  const url="http://35.154.232.92:8080/starapp/api/v1/auth/authenticate";
+  const url="http://localhost:8084/api/v1/auth/authenticate";
   const[errMsg,setErrMsg]=useState('');
   const navigate = useNavigate(); 
   const [data, setData] = useState({
@@ -28,12 +28,9 @@ export default function Login() {
   }
 
   function handleKeyUp(e) {
-    console.log('check');
     if (e.getModifierState("CapsLock")) {
       document.getElementById("capsLockShow").style.display = 'block';
-      console.log('capOn');
     } else {
-      console.log('capOff');
       document.getElementById("capsLockShow").style.display = 'none';
     }
   }

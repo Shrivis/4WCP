@@ -49,7 +49,7 @@ export default function AcceptRejctButton({name, timesheetId, userId, manId, fet
     };
     const mailOption = {
       method: 'POST',
-      url: 'http://35.154.232.92:8080/starapp/api/v1/request/sendmail',
+      url: 'http://localhost:8084/api/v1/request/sendmail',
       headers: {
         Authorization : `Bearer ${localStorage.getItem("token")}`,
         'Access-Control-Allow-Origin': '*'
@@ -58,7 +58,7 @@ export default function AcceptRejctButton({name, timesheetId, userId, manId, fet
     };
     const options = {
         method: 'POST',
-        url: 'http://35.154.232.92:8080/starapp/api/v1/request/manager',
+        url: 'http://localhost:8084/api/v1/request/manager',
         headers: {
           Authorization : `Bearer ${localStorage.getItem("token")}`,
           'Access-Control-Allow-Origin': '*'
@@ -70,7 +70,7 @@ export default function AcceptRejctButton({name, timesheetId, userId, manId, fet
       // uncomment below lines to start mail services again
       axios.request(mailOption).then((response) => {
         console.log(response)
-      }).catch((error) => {
+      }).catch((error) => {   
         console.log(error);
       });
       setOpen(false);

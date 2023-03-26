@@ -40,13 +40,12 @@ export default function Active({hData}) {
         <Card bordered={false}>
             <Statistic
             
-            title="Ideal Extra"
+            title="Extra"
             value={over-under}
             valueStyle={{
                 color: 'green',
                 fontSize: '12px',
-            }}
-            prefix={<ArrowUpOutlined />}
+            }}  
             suffix='hr'
             />
         </Card>
@@ -54,13 +53,12 @@ export default function Active({hData}) {
         <Col span={12}>
         <Card bordered={false}>
             <Statistic
-            title="Ideal Idle"
+            title="Unutilized"
             value={0}
             valueStyle={{
                 color: 'green',
                 fontSize: '12px',
-            }}
-            prefix={<ArrowDownOutlined />}
+            }}  
             suffix='hr'
             />
         </Card>

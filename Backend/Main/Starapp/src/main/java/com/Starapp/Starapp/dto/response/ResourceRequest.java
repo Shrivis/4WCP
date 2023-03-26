@@ -18,5 +18,6 @@ public class ResourceRequest {
 	private String managerName;
 	private String status;
 	private Integer extraHours;
+	private Boolean seen;
 	List<RequestChangeLog> requestLogs;
 }

@@ -1,6 +1,6 @@
 // import { isE } from '@rc-component/mini-decimal/es/numberUtil';
 import React, {useEffect,useState} from 'react';
-import { Outlet,useNavigate } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 
 export default function Privateroute() {
     const navigate = new useNavigate();

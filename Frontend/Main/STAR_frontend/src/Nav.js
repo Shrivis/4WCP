@@ -9,7 +9,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import {ProfileFilled, UndoOutlined, HomeFilled} from '@ant-design/icons';
+import {ProfileFilled, HistoryOutlined, HomeFilled} from '@ant-design/icons';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -125,23 +125,23 @@ export default function MiniDrawer() {
 
   const fetchData = () => {
     Promise.all([
-      axios.get('http://35.154.232.92:8080/starapp/api/v1/resource/data', {headers: { 
+      axios.get('http://localhost:8084/api/v1/resource/data', {headers: { 
         Authorization : `Bearer ${localStorage.getItem("token")}`,
         'Access-Control-Allow-Origin': '*'
       }}),
-      axios.get('http://35.154.232.92:8080/starapp/api/v1/request/manager', {headers: {
+      axios.get('http://localhost:8084/api/v1/request/manager', {headers: {
         Authorization : `Bearer ${localStorage.getItem("token")}`,
         'Access-Control-Allow-Origin': '*'
       }}),
-      axios.get('http://35.154.232.92:8080/starapp/api/v1/request/history', {headers: {
+      axios.get('http://localhost:8084/api/v1/request/history', {headers: {
         Authorization : `Bearer ${localStorage.getItem("token")}`,
         'Access-Control-Allow-Origin': '*'
       }}),
-      axios.get('http://35.154.232.92:8080/starapp/api/v1/request/resource', {headers: {
+      axios.get('http://localhost:8084/api/v1/request/resource', {headers: {
         Authorization : `Bearer ${localStorage.getItem("token")}`,
         'Access-Control-Allow-Origin': '*'
       }}),
-      axios.get('http://35.154.232.92:8080/starapp/api/v1/status/getstatus', {headers: {
+      axios.get('http://localhost:8084/api/v1/status/getstatus', {headers: {
         Authorization : `Bearer ${localStorage.getItem("token")}`,
         'Access-Control-Allow-Origin': '*'
       }})
@@ -199,7 +199,9 @@ export default function MiniDrawer() {
           </IconButton>
           <Navbar.Brand href="/starfrontend/home" ><img className='logo' src={Logo} alt='' ></img></Navbar.Brand>
           <div className="d-flex justify-content-end col">
-            <div className='mx-1 row'><NotificationItem notificationCount={managerRequests.length} acceptedCount={status.resourceApproved+status.resourceRejected} setVal={setValue}/></div>
+          {((jwt(localStorage.getItem('token'))).roles == 'USER')?(<>
+            <div className='mx-1 row'><NotificationItem manager={managerRequests} resource={resourceRequests} setVal={setValue} fetchData={fetchData}/></div>
+            </>):(<></>)}
             <AvatarItem initials={name[0]}/>
             <div className='mt-2 mx-2' sx={{fontSize:'large'}} style ={{color:'#EEEEEE'}}>Hi {name.split(' ')[0]}</div>
           </div>
@@ -234,7 +236,7 @@ export default function MiniDrawer() {
           <ListItem className={`${(tabValue == '3')?'highlightTab text-primary':''}`}  disablePadding sx={{ display: 'block' }} onClick={() => handleDrawerLinks("3")}>
             <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 1.5 }}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 2 : 'auto', justifyContent: 'center' }}>
-                  <UndoOutlined className={`${(tabValue == '3')?'text-primary':''}`} />
+                  <HistoryOutlined className={`${(tabValue == '3')?'text-primary':''}`} />
                 </ListItemIcon>
                 <ListItemText primary='History' sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
@@ -271,6 +273,10 @@ export default function MiniDrawer() {
             <DrawerHeader />
             <DashboardComp/>
         </TabPanel>
+        {/* <TabPanel value="5">
+            <DrawerHeader />
+           <ProfilePage  Resdata = {resourceDetail} fetchData={fetchData} ></ProfilePage>
+        </TabPanel> */}
       </TabContext>
     </Box>
   
