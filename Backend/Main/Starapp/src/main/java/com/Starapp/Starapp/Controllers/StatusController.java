@@ -12,10 +12,13 @@ import com.Starapp.Starapp.serviceImpl.StatusServiceImpl;
 
 @RestController
 @RequestMapping("/api/v1/status")
+
 public class StatusController {
+
 	@Autowired
 	StatusServiceImpl statusService;
-	
+
+	  // The get status endpoint which returns ResourceStatus object
 	@GetMapping("/getstatus")
 	ResourceStatus getStatusForResours(Principal principal) {
 		return statusService.getStatus(principal.getName());

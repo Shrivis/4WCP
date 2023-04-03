@@ -77,7 +77,8 @@ public class MailServiceImpl implements MailService {
  
         // Catch block to handle the exceptions
         catch (Exception e) {
-        	return new ResponseEntity<>("Error", HttpStatus.EXPECTATION_FAILED); 
+			String errMsg = String.format("Error occurred while sending mail. Details: %s", e.getMessage());
+            return new ResponseEntity<>(errMsg, HttpStatus.EXPECTATION_FAILED); 
         }
   		return new ResponseEntity<>("sent mail succesfully", HttpStatus.ACCEPTED); 
 		

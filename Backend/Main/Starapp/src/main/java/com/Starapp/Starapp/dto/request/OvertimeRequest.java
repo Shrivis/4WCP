@@ -1,5 +1,6 @@
 package com.Starapp.Starapp.dto.request;
 
+// These lines import the Lombok's annotations to automatically generate getters, setters, constructors and toString methods on this class.
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

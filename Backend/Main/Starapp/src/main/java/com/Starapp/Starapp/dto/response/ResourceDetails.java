@@ -1,7 +1,7 @@
-package com.Starapp.Starapp.dto.response;
+package com.Starapp.Starapp.dto.response;// This is a DTO (Data Transfer Object) used to represent resource details for the Starapp application.
 import java.util.List;
 
-import lombok.Data;
+import lombok.Data;// Importing Lombok's Data annotation which will automatically generate getters/setters, constructor, equals and hashCode methods.
 
 @Data
 public class ResourceDetails {

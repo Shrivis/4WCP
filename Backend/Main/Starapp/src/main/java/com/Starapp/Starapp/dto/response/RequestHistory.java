@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.Starapp.Starapp.Entities.RequestChangeLog;
 
-import lombok.Data;
+import lombok.Data;//it automatically creates getters and setters and constructors for this class
 
 @Data
 public class RequestHistory {
