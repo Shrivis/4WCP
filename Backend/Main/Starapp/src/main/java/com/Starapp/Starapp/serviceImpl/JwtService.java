@@ -5,21 +5,27 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+
 import java.security.Key;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Value;
 
 import com.Starapp.Starapp.Entities.User;
 
 @Service
 public class JwtService {
-
-  private static final String S_KEY = "404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970";
-
+  // Get the symmetric key used to sign and verify JWTs
+  @Value("${jwt.signing.key}")
+  private String S_KEY;
+  private static final int TOKEN_EXPIRATION_MINUTES = 1440;
+  // Extracts the username from the JWT.
   public String extractUsername(String token) {
     return extractClaim(token, Claims::getSubject);
   }
@@ -40,7 +46,7 @@ public class JwtService {
         .claim("roles", userDetails.getRole().toString())
         .setSubject(userDetails.getUsername())
         .setIssuedAt(new Date(System.currentTimeMillis()))
-        .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24))
+        .setExpiration(new Date(System.currentTimeMillis() + 1000 * TOKEN_EXPIRATION_MINUTES))
         .signWith(getSignInKey(), SignatureAlgorithm.HS256)
         .compact();
   }

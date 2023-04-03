@@ -31,8 +31,9 @@ import ManagerTable from './Components/TabComponent/Tabel/ManagerTable';
 import ResourceTable from './Components/TabComponent/Tabel/ResourceTable';
 import HistoryTable from './Components/TabComponent/Tabel/History';
 
+// Define a constant for the width of the drawer
 const drawerWidth = 150;
-
+// Define a mixin for when the drawer is open
 const openedMixin = (theme) => ({
   width: drawerWidth,
   transition: theme.transitions.create('width', {
@@ -41,7 +42,7 @@ const openedMixin = (theme) => ({
   }),
   overflowX: 'hidden',
 });
-
+// Define a mixin for when the drawer is closed
 const closedMixin = (theme) => ({
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
@@ -53,64 +54,70 @@ const closedMixin = (theme) => ({
     width: `calc(${theme.spacing(6)} + 1px)`,
   },
 });
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
+// Define a styled component for the drawer header
+const DrawerHeader = styled("div")(({ theme }) => ({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    padding: theme.spacing(0, 1),
+    // Use the Material-UI mixins.toolbar styles necessary for content to be below app bar
+    ...theme.mixins.toolbar,
 }));
-
+// Define a styled component for the app bar
 const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
+    // Exclude the 'open' prop from being passed down to the underlying component
+    shouldForwardProp: prop => prop !== "open",
 })(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(['width', 'margin'], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
+    zIndex: theme.zIndex.drawer + 1,
+    transition: theme.transitions.create(["width", "margin"], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
     }),
-  }),
+    // Use the openedMixin styles if the 'open' prop is true
+    ...(open && {
+        marginLeft: drawerWidth,
+        width: `calc(100% - ${drawerWidth}px)`,
+        transition: theme.transitions.create(["width", "margin"], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+    }),
 }));
-
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
+// Define a styled component for the drawer
+const Drawer = styled(MuiDrawer, {
+    shouldForwardProp: prop => prop !== "open",
+})(({ theme, open }) => ({
     width: drawerWidth,
     flexShrink: 0,
-    whiteSpace: 'nowrap',
-    boxSizing: 'border-box',
+    whiteSpace: "nowrap",
+    boxSizing: "border-box",
+    // Use the openedMixin styles if the 'open' prop is true
     ...(open && {
-      ...openedMixin(theme),
-      '& .MuiDrawer-paper': openedMixin(theme),
+        ...openedMixin(theme),
+        "& .MuiDrawer-paper": openedMixin(theme),
     }),
+    // Use the closedMixin styles if the 'open' prop is false
     ...(!open && {
-      ...closedMixin(theme),
-      '& .MuiDrawer-paper': closedMixin(theme),
+        ...closedMixin(theme),
+        "& .MuiDrawer-paper": closedMixin(theme),
     }),
-  }),
-);
+}));
 
 export default function MiniDrawer() {
+  // Define state variables
   const [loading, setLoading] = useState(true);
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [tabValue, setValue] = React.useState("1");
-  const navigate = new useNavigate();
   const [name, setName] = useState("");
   const [resourceDetail, setResourceDetail] = useState([]);
   const [resourceRequests, setResourceRequests] = useState([]);
   const [managerRequests, setManagerRequests] = useState([]);
   const [reqHistory, setRequestsHistory] = useState([]);
   const [status, setStatus] = useState([]);
-  
+  // Initialize the 'navigate' object used for redirecting users
+ const navigate = new useNavigate();
+  // Define some functions to handle opening and closing the drawer, and changing the active tab
   const handleDrawerLinks = (idx) => {
     setValue(idx);
   };
@@ -122,7 +129,7 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+ // Define a function to fetch data from the backend API
   const fetchData = () => {
     Promise.all([
       axios.get('http://localhost:8084/api/v1/resource/data', {headers: { 
@@ -162,11 +169,11 @@ export default function MiniDrawer() {
       navigate('/login')
     });
   }
-
+ // Use the useEffect hook to fetch data from the API(this makes sure the api is called only once when object is mounted)
   useEffect(() => { 
     fetchData();
   }, []);
-
+  // Use the useEffect hook to set the active tab to the Dashboard tab if the user is an executive leader
   useEffect(() => { 
     if (jwt(localStorage.getItem('token')).roles == 'ADMIN') {
       const idx = "4";

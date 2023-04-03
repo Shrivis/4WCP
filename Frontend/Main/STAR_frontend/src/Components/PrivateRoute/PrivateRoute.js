@@ -17,7 +17,7 @@ export default function Privateroute() {
     if(getToken()!=null && !isTokenExpired()) {
         return <Outlet/>
     }
-    else{
+    else{ 
         localStorage.clear();
         useEffect(()=> {navigate('/login')}, []);
     }
