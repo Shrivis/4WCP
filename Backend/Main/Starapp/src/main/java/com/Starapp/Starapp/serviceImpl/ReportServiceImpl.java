@@ -35,11 +35,13 @@ public class ReportServiceImpl implements ReportService {
 		List<Integer> under = new ArrayList<>();
 		Map<String, MyPair> projectData = new HashMap<>();
 		Map<String, Integer> managers = new HashMap<>();
-		for (String horizontal: horizontals) {
+		for (String horizontal: horizontals)
+		 {
 			List<WorkingHours> allWH = whRepo.getAllDataForHorizontal(horizontal);
 			Integer overCount = 0;
 			Integer underCount = 0;
-			for (WorkingHours wh: allWH) {
+			for (WorkingHours wh: allWH) 
+			{
 				Long resourceId = wh.getUser().getUserId();
 	  			String projectId = wh.getProject().getProjectId();
 	  			Integer expectedHour = userProjectRelation.getExpectedWorkingHourOfResource(resourceId, projectId);
